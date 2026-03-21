@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package arcoloom.worker.v1;
+
+option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1";
+
+service WorkerService {
+  rpc Connect(stream WorkerToControl) returns (stream ControlToWorker);
+}
+
+enum RuntimeKind {
+  RUNTIME_KIND_UNSPECIFIED = 0;
+  RUNTIME_KIND_DOCKER = 1;
+  RUNTIME_KIND_EXEC = 2;
+}
+
+enum TaskState {
+  TASK_STATE_UNSPECIFIED = 0;
+  TASK_STATE_PREPARING = 1;
+  TASK_STATE_RUNNING = 2;
+  TASK_STATE_SUCCESS = 3;
+  TASK_STATE_FAILED = 4;
+}
+
+enum SignalType {
+  SIGNAL_TYPE_UNSPECIFIED = 0;
+  SIGNAL_TYPE_SPOT_RECLAIM_RISK = 1;
+  SIGNAL_TYPE_NODE_UNHEALTHY = 2;
+}
+
+message Hello {
+  string instance_id = 1;
+  string provider = 2;
+  string registration_token = 3;
+  string worker_version = 4;
+}
+
+message HelloAck {
+  string worker_id = 1;
+}
+
+message Assignment {
+  string task_id = 1;
+  RuntimeKind runtime_kind = 2;
+  string payload = 3;
+}
+
+message StatusUpdate {
+  string task_id = 1;
+  TaskState state = 2;
+  string message = 3;
+}
+
+message Signal {
+  string task_id = 1;
+  SignalType signal_type = 2;
+  string detail = 3;
+}
+
+message Heartbeat {
+  string worker_id = 1;
+}
+
+message Shutdown {
+  string reason = 1;
+}
+
+message WorkerToControl {
+  oneof message {
+    Hello hello = 1;
+    StatusUpdate status = 2;
+    Signal signal = 3;
+    Heartbeat heartbeat = 4;
+  }
+}
+
+message ControlToWorker {
+  oneof message {
+    HelloAck hello_ack = 1;
+    Assignment assignment = 2;
+    Shutdown shutdown = 3;
+  }
+}

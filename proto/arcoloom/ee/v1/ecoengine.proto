@@ -1,0 +1,195 @@
+syntax = "proto3";
+
+package arcoloom.ee.v1;
+
+option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/ee/v1;eev1";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+service EcoEngine {
+  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
+  rpc Plan(PlanRequest) returns (PlanResponse);
+}
+
+message GetInfoRequest {}
+
+message GetInfoResponse {
+  string service = 1;
+  string version = 2;
+  repeated string supported_providers = 3;
+  repeated string supported_objectives = 4;
+  repeated PlanningMode supported_modes = 5;
+}
+
+message PlanRequest {
+  string request_id = 1;
+  PlanningMode mode = 2;
+  TaskSpec task = 3;
+  TaskRuntimeState runtime = 4;
+  MarketSnapshot market = 5;
+  repeated AccountLimit account_limits = 6;
+}
+
+message PlanResponse {
+  Decision decision = 1;
+  repeated Explanation explanations = 2;
+}
+
+enum PlanningMode {
+  PLANNING_MODE_UNSPECIFIED = 0;
+  PLANNING_MODE_CREATE = 1;
+  PLANNING_MODE_REPLAN = 2;
+}
+
+enum SchedulingObjective {
+  SCHEDULING_OBJECTIVE_UNSPECIFIED = 0;
+  SCHEDULING_OBJECTIVE_LOWEST_COST = 1;
+  SCHEDULING_OBJECTIVE_FASTEST_TIME = 2;
+  SCHEDULING_OBJECTIVE_BALANCED = 3;
+}
+
+enum WorkloadKind {
+  WORKLOAD_KIND_UNSPECIFIED = 0;
+  WORKLOAD_KIND_BATCH = 1;
+  WORKLOAD_KIND_AI_TRAINING = 2;
+  WORKLOAD_KIND_AI_INFERENCE = 3;
+  WORKLOAD_KIND_SCIENTIFIC = 4;
+}
+
+enum TaskPhase {
+  TASK_PHASE_UNSPECIFIED = 0;
+  TASK_PHASE_PENDING = 1;
+  TASK_PHASE_RUNNING = 2;
+  TASK_PHASE_MIGRATING = 3;
+  TASK_PHASE_FINISHED = 4;
+  TASK_PHASE_FAILED = 5;
+}
+
+enum SignalType {
+  SIGNAL_TYPE_UNSPECIFIED = 0;
+  SIGNAL_TYPE_PRICE_SURGE = 1;
+  SIGNAL_TYPE_SPOT_RECLAIM_RISK = 2;
+  SIGNAL_TYPE_API_THROTTLED = 3;
+  SIGNAL_TYPE_NODE_UNHEALTHY = 4;
+}
+
+enum PricingModel {
+  PRICING_MODEL_UNSPECIFIED = 0;
+  PRICING_MODEL_ON_DEMAND = 1;
+  PRICING_MODEL_SPOT = 2;
+  PRICING_MODEL_RESERVED = 3;
+}
+
+enum DecisionAction {
+  DECISION_ACTION_UNSPECIFIED = 0;
+  DECISION_ACTION_LAUNCH = 1;
+  DECISION_ACTION_KEEP = 2;
+  DECISION_ACTION_MIGRATE = 3;
+}
+
+message TaskSpec {
+  string task_id = 1;
+  WorkloadKind workload_kind = 2;
+  SchedulingObjective objective = 3;
+  SourceSpec source = 4;
+  RunSpec run = 5;
+  ResourceDemand resources = 6;
+  map<string, string> labels = 7;
+  google.protobuf.Timestamp submitted_at = 8;
+}
+
+message SourceSpec {
+  string kind = 1;
+  string uri = 2;
+  string revision = 3;
+  string path = 4;
+}
+
+message RunSpec {
+  repeated string command = 1;
+  map<string, string> env = 2;
+  string work_dir = 3;
+}
+
+message ResourceDemand {
+  uint32 cpu_milli = 1;
+  uint32 memory_mib = 2;
+  uint32 gpu_count = 3;
+  uint32 ephemeral_disk_gib = 4;
+}
+
+message TaskRuntimeState {
+  string execution_id = 1;
+  TaskPhase phase = 2;
+  Placement current_placement = 3;
+  repeated PlanningSignal signals = 4;
+  google.protobuf.Timestamp started_at = 5;
+  uint64 retry_count = 6;
+}
+
+message PlanningSignal {
+  SignalType type = 1;
+  string detail = 2;
+  double severity = 3;
+}
+
+message MarketSnapshot {
+  google.protobuf.Timestamp observed_at = 1;
+  repeated ProviderOffering offerings = 2;
+}
+
+message ProviderOffering {
+  string provider = 1;
+  string region = 2;
+  string zone = 3;
+  string zone_id = 4;
+  string instance_type = 5;
+  PricingModel pricing_model = 6;
+  uint32 cpu_milli = 7;
+  uint32 memory_mib = 8;
+  uint32 gpu_count = 9;
+  double hourly_price_usd = 10;
+  double success_rate = 11;
+  double interruption_rate = 12;
+  map<string, string> attributes = 13;
+}
+
+message AccountLimit {
+  string account_id = 1;
+  string provider = 2;
+  string region = 3;
+  string scope = 4;
+  uint32 limit = 5;
+  uint32 used = 6;
+}
+
+message Decision {
+  string decision_id = 1;
+  DecisionAction action = 2;
+  Placement target = 3;
+  CostEstimate cost = 4;
+  string summary = 5;
+}
+
+message Placement {
+  string provider = 1;
+  string account_id = 2;
+  string region = 3;
+  string zone = 4;
+  string zone_id = 5;
+  string instance_type = 6;
+  PricingModel pricing_model = 7;
+  google.protobuf.Struct provider_config = 8;
+}
+
+message CostEstimate {
+  string currency = 1;
+  double effective_hourly_price = 2;
+  double confidence = 3;
+}
+
+message Explanation {
+  string code = 1;
+  string message = 2;
+}
