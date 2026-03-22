@@ -22,20 +22,6 @@ service ProviderService {
   rpc GetInstancePrices(GetInstancePricesRequest) returns (GetInstancePricesResponse);
 }
 
-enum Cloud {
-  CLOUD_UNSPECIFIED = 0;
-  CLOUD_AWS = 1;
-  CLOUD_AZURE = 2;
-  CLOUD_GCP = 3;
-}
-
-enum AuthScheme {
-  AUTH_SCHEME_UNSPECIFIED = 0;
-  AUTH_SCHEME_AWS_IAM = 1;
-  AUTH_SCHEME_AZURE_CLIENT_SECRET = 2;
-  AUTH_SCHEME_GCP_SERVICE_ACCOUNT = 3;
-}
-
 enum ResourcePlane {
   RESOURCE_PLANE_UNSPECIFIED = 0;
   RESOURCE_PLANE_COMPUTE = 1;
@@ -84,41 +70,23 @@ message ConnectionScope {
   string endpoint_region = 5;
 }
 
-message AwsIamCredentials {
-  string access_key_id = 1;
-  string secret_access_key = 2;
-  string session_token = 3;
-  string role_arn = 4;
-  string external_id = 5;
-}
-
-message AzureClientSecretCredentials {
-  string tenant_id = 1;
-  string client_id = 2;
-  string client_secret = 3;
-  string subscription_id = 4;
-}
-
-message GcpServiceAccountCredentials {
-  string project_id = 1;
-  string client_email = 2;
-  string private_key = 3;
-  string private_key_id = 4;
-}
-
 message Credentials {
-  oneof auth {
-    AwsIamCredentials aws_iam = 1;
-    AzureClientSecretCredentials azure_client_secret = 2;
-    GcpServiceAccountCredentials gcp_service_account = 3;
-  }
+  string auth_method = 1;
+  google.protobuf.Struct data = 2;
+}
+
+message ProviderAuthMethod {
+  string name = 1;
+  string display_name = 2;
+  string description = 3;
+  repeated SchemaAttribute fields = 4;
 }
 
 message ProviderMetadata {
   string name = 1;
   string version = 2;
-  Cloud cloud = 3;
-  repeated AuthScheme supported_auth_schemes = 4;
+  string cloud = 3;
+  repeated ProviderAuthMethod auth_methods = 4;
   repeated string supported_services = 5;
   map<string, string> capabilities = 6;
   repeated ResourcePlane resource_planes = 7;

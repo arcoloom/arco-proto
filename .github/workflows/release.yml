@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+
+      - name: Set up Buf
+        uses: bufbuild/buf-action@v1
+        with:
+          version: "1.66.1"
+          setup_only: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate release contents
+        run: make ci
+
+      - name: Package schema artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          tar -czf dist/arco-proto-${GITHUB_REF_NAME}-proto.tar.gz proto
+          tar -czf dist/arco-proto-${GITHUB_REF_NAME}-gen-go.tar.gz gen/go
+          (
+            cd dist
+            sha256sum ./* > checksums.txt
+          )
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: arco-proto ${{ github.ref_name }}
+          generate_release_notes: true
+          overwrite_files: true
+          files: |
+            dist/arco-proto-${{ github.ref_name }}-proto.tar.gz
+            dist/arco-proto-${{ github.ref_name }}-gen-go.tar.gz
+            dist/checksums.txt

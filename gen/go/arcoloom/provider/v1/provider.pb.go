@@ -22,110 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Cloud int32
-
-const (
-	Cloud_CLOUD_UNSPECIFIED Cloud = 0
-	Cloud_CLOUD_AWS         Cloud = 1
-	Cloud_CLOUD_AZURE       Cloud = 2
-	Cloud_CLOUD_GCP         Cloud = 3
-)
-
-// Enum value maps for Cloud.
-var (
-	Cloud_name = map[int32]string{
-		0: "CLOUD_UNSPECIFIED",
-		1: "CLOUD_AWS",
-		2: "CLOUD_AZURE",
-		3: "CLOUD_GCP",
-	}
-	Cloud_value = map[string]int32{
-		"CLOUD_UNSPECIFIED": 0,
-		"CLOUD_AWS":         1,
-		"CLOUD_AZURE":       2,
-		"CLOUD_GCP":         3,
-	}
-)
-
-func (x Cloud) Enum() *Cloud {
-	p := new(Cloud)
-	*p = x
-	return p
-}
-
-func (x Cloud) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (Cloud) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[0].Descriptor()
-}
-
-func (Cloud) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[0]
-}
-
-func (x Cloud) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use Cloud.Descriptor instead.
-func (Cloud) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{0}
-}
-
-type AuthScheme int32
-
-const (
-	AuthScheme_AUTH_SCHEME_UNSPECIFIED         AuthScheme = 0
-	AuthScheme_AUTH_SCHEME_AWS_IAM             AuthScheme = 1
-	AuthScheme_AUTH_SCHEME_AZURE_CLIENT_SECRET AuthScheme = 2
-	AuthScheme_AUTH_SCHEME_GCP_SERVICE_ACCOUNT AuthScheme = 3
-)
-
-// Enum value maps for AuthScheme.
-var (
-	AuthScheme_name = map[int32]string{
-		0: "AUTH_SCHEME_UNSPECIFIED",
-		1: "AUTH_SCHEME_AWS_IAM",
-		2: "AUTH_SCHEME_AZURE_CLIENT_SECRET",
-		3: "AUTH_SCHEME_GCP_SERVICE_ACCOUNT",
-	}
-	AuthScheme_value = map[string]int32{
-		"AUTH_SCHEME_UNSPECIFIED":         0,
-		"AUTH_SCHEME_AWS_IAM":             1,
-		"AUTH_SCHEME_AZURE_CLIENT_SECRET": 2,
-		"AUTH_SCHEME_GCP_SERVICE_ACCOUNT": 3,
-	}
-)
-
-func (x AuthScheme) Enum() *AuthScheme {
-	p := new(AuthScheme)
-	*p = x
-	return p
-}
-
-func (x AuthScheme) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (AuthScheme) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[1].Descriptor()
-}
-
-func (AuthScheme) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[1]
-}
-
-func (x AuthScheme) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use AuthScheme.Descriptor instead.
-func (AuthScheme) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{1}
-}
-
 type ResourcePlane int32
 
 const (
@@ -162,11 +58,11 @@ func (x ResourcePlane) String() string {
 }
 
 func (ResourcePlane) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[2].Descriptor()
+	return file_arcoloom_provider_v1_provider_proto_enumTypes[0].Descriptor()
 }
 
 func (ResourcePlane) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[2]
+	return &file_arcoloom_provider_v1_provider_proto_enumTypes[0]
 }
 
 func (x ResourcePlane) Number() protoreflect.EnumNumber {
@@ -175,7 +71,7 @@ func (x ResourcePlane) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourcePlane.Descriptor instead.
 func (ResourcePlane) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{2}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{0}
 }
 
 type SchemaAttributeType int32
@@ -223,11 +119,11 @@ func (x SchemaAttributeType) String() string {
 }
 
 func (SchemaAttributeType) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[3].Descriptor()
+	return file_arcoloom_provider_v1_provider_proto_enumTypes[1].Descriptor()
 }
 
 func (SchemaAttributeType) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[3]
+	return &file_arcoloom_provider_v1_provider_proto_enumTypes[1]
 }
 
 func (x SchemaAttributeType) Number() protoreflect.EnumNumber {
@@ -236,7 +132,7 @@ func (x SchemaAttributeType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SchemaAttributeType.Descriptor instead.
 func (SchemaAttributeType) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{3}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{1}
 }
 
 type InstanceMarketType int32
@@ -272,11 +168,11 @@ func (x InstanceMarketType) String() string {
 }
 
 func (InstanceMarketType) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[4].Descriptor()
+	return file_arcoloom_provider_v1_provider_proto_enumTypes[2].Descriptor()
 }
 
 func (InstanceMarketType) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[4]
+	return &file_arcoloom_provider_v1_provider_proto_enumTypes[2]
 }
 
 func (x InstanceMarketType) Number() protoreflect.EnumNumber {
@@ -285,7 +181,7 @@ func (x InstanceMarketType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use InstanceMarketType.Descriptor instead.
 func (InstanceMarketType) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{4}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{2}
 }
 
 type PurchaseOption int32
@@ -321,11 +217,11 @@ func (x PurchaseOption) String() string {
 }
 
 func (PurchaseOption) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[5].Descriptor()
+	return file_arcoloom_provider_v1_provider_proto_enumTypes[3].Descriptor()
 }
 
 func (PurchaseOption) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[5]
+	return &file_arcoloom_provider_v1_provider_proto_enumTypes[3]
 }
 
 func (x PurchaseOption) Number() protoreflect.EnumNumber {
@@ -334,7 +230,7 @@ func (x PurchaseOption) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PurchaseOption.Descriptor instead.
 func (PurchaseOption) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{5}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{3}
 }
 
 type AcceleratorKind int32
@@ -370,11 +266,11 @@ func (x AcceleratorKind) String() string {
 }
 
 func (AcceleratorKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_provider_v1_provider_proto_enumTypes[6].Descriptor()
+	return file_arcoloom_provider_v1_provider_proto_enumTypes[4].Descriptor()
 }
 
 func (AcceleratorKind) Type() protoreflect.EnumType {
-	return &file_arcoloom_provider_v1_provider_proto_enumTypes[6]
+	return &file_arcoloom_provider_v1_provider_proto_enumTypes[4]
 }
 
 func (x AcceleratorKind) Number() protoreflect.EnumNumber {
@@ -383,7 +279,7 @@ func (x AcceleratorKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AcceleratorKind.Descriptor instead.
 func (AcceleratorKind) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{6}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{4}
 }
 
 type SchemaAttribute struct {
@@ -682,233 +578,17 @@ func (x *ConnectionScope) GetEndpointRegion() string {
 	return ""
 }
 
-type AwsIamCredentials struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	AccessKeyId     string                 `protobuf:"bytes,1,opt,name=access_key_id,json=accessKeyId,proto3" json:"access_key_id,omitempty"`
-	SecretAccessKey string                 `protobuf:"bytes,2,opt,name=secret_access_key,json=secretAccessKey,proto3" json:"secret_access_key,omitempty"`
-	SessionToken    string                 `protobuf:"bytes,3,opt,name=session_token,json=sessionToken,proto3" json:"session_token,omitempty"`
-	RoleArn         string                 `protobuf:"bytes,4,opt,name=role_arn,json=roleArn,proto3" json:"role_arn,omitempty"`
-	ExternalId      string                 `protobuf:"bytes,5,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-func (x *AwsIamCredentials) Reset() {
-	*x = AwsIamCredentials{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AwsIamCredentials) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AwsIamCredentials) ProtoMessage() {}
-
-func (x *AwsIamCredentials) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AwsIamCredentials.ProtoReflect.Descriptor instead.
-func (*AwsIamCredentials) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *AwsIamCredentials) GetAccessKeyId() string {
-	if x != nil {
-		return x.AccessKeyId
-	}
-	return ""
-}
-
-func (x *AwsIamCredentials) GetSecretAccessKey() string {
-	if x != nil {
-		return x.SecretAccessKey
-	}
-	return ""
-}
-
-func (x *AwsIamCredentials) GetSessionToken() string {
-	if x != nil {
-		return x.SessionToken
-	}
-	return ""
-}
-
-func (x *AwsIamCredentials) GetRoleArn() string {
-	if x != nil {
-		return x.RoleArn
-	}
-	return ""
-}
-
-func (x *AwsIamCredentials) GetExternalId() string {
-	if x != nil {
-		return x.ExternalId
-	}
-	return ""
-}
-
-type AzureClientSecretCredentials struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	TenantId       string                 `protobuf:"bytes,1,opt,name=tenant_id,json=tenantId,proto3" json:"tenant_id,omitempty"`
-	ClientId       string                 `protobuf:"bytes,2,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	ClientSecret   string                 `protobuf:"bytes,3,opt,name=client_secret,json=clientSecret,proto3" json:"client_secret,omitempty"`
-	SubscriptionId string                 `protobuf:"bytes,4,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *AzureClientSecretCredentials) Reset() {
-	*x = AzureClientSecretCredentials{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AzureClientSecretCredentials) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AzureClientSecretCredentials) ProtoMessage() {}
-
-func (x *AzureClientSecretCredentials) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AzureClientSecretCredentials.ProtoReflect.Descriptor instead.
-func (*AzureClientSecretCredentials) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *AzureClientSecretCredentials) GetTenantId() string {
-	if x != nil {
-		return x.TenantId
-	}
-	return ""
-}
-
-func (x *AzureClientSecretCredentials) GetClientId() string {
-	if x != nil {
-		return x.ClientId
-	}
-	return ""
-}
-
-func (x *AzureClientSecretCredentials) GetClientSecret() string {
-	if x != nil {
-		return x.ClientSecret
-	}
-	return ""
-}
-
-func (x *AzureClientSecretCredentials) GetSubscriptionId() string {
-	if x != nil {
-		return x.SubscriptionId
-	}
-	return ""
-}
-
-type GcpServiceAccountCredentials struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ProjectId     string                 `protobuf:"bytes,1,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty"`
-	ClientEmail   string                 `protobuf:"bytes,2,opt,name=client_email,json=clientEmail,proto3" json:"client_email,omitempty"`
-	PrivateKey    string                 `protobuf:"bytes,3,opt,name=private_key,json=privateKey,proto3" json:"private_key,omitempty"`
-	PrivateKeyId  string                 `protobuf:"bytes,4,opt,name=private_key_id,json=privateKeyId,proto3" json:"private_key_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GcpServiceAccountCredentials) Reset() {
-	*x = GcpServiceAccountCredentials{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GcpServiceAccountCredentials) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GcpServiceAccountCredentials) ProtoMessage() {}
-
-func (x *GcpServiceAccountCredentials) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GcpServiceAccountCredentials.ProtoReflect.Descriptor instead.
-func (*GcpServiceAccountCredentials) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GcpServiceAccountCredentials) GetProjectId() string {
-	if x != nil {
-		return x.ProjectId
-	}
-	return ""
-}
-
-func (x *GcpServiceAccountCredentials) GetClientEmail() string {
-	if x != nil {
-		return x.ClientEmail
-	}
-	return ""
-}
-
-func (x *GcpServiceAccountCredentials) GetPrivateKey() string {
-	if x != nil {
-		return x.PrivateKey
-	}
-	return ""
-}
-
-func (x *GcpServiceAccountCredentials) GetPrivateKeyId() string {
-	if x != nil {
-		return x.PrivateKeyId
-	}
-	return ""
-}
-
 type Credentials struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Auth:
-	//
-	//	*Credentials_AwsIam
-	//	*Credentials_AzureClientSecret
-	//	*Credentials_GcpServiceAccount
-	Auth          isCredentials_Auth `protobuf_oneof:"auth"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AuthMethod    string                 `protobuf:"bytes,1,opt,name=auth_method,json=authMethod,proto3" json:"auth_method,omitempty"`
+	Data          *structpb.Struct       `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Credentials) Reset() {
 	*x = Credentials{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[7]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -920,7 +600,7 @@ func (x *Credentials) String() string {
 func (*Credentials) ProtoMessage() {}
 
 func (x *Credentials) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[7]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -933,81 +613,107 @@ func (x *Credentials) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Credentials.ProtoReflect.Descriptor instead.
 func (*Credentials) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{7}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *Credentials) GetAuth() isCredentials_Auth {
+func (x *Credentials) GetAuthMethod() string {
 	if x != nil {
-		return x.Auth
+		return x.AuthMethod
+	}
+	return ""
+}
+
+func (x *Credentials) GetData() *structpb.Struct {
+	if x != nil {
+		return x.Data
 	}
 	return nil
 }
 
-func (x *Credentials) GetAwsIam() *AwsIamCredentials {
+type ProviderAuthMethod struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	DisplayName   string                 `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
+	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	Fields        []*SchemaAttribute     `protobuf:"bytes,4,rep,name=fields,proto3" json:"fields,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderAuthMethod) Reset() {
+	*x = ProviderAuthMethod{}
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderAuthMethod) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderAuthMethod) ProtoMessage() {}
+
+func (x *ProviderAuthMethod) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[5]
 	if x != nil {
-		if x, ok := x.Auth.(*Credentials_AwsIam); ok {
-			return x.AwsIam
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
 		}
+		return ms
 	}
-	return nil
+	return mi.MessageOf(x)
 }
 
-func (x *Credentials) GetAzureClientSecret() *AzureClientSecretCredentials {
+// Deprecated: Use ProviderAuthMethod.ProtoReflect.Descriptor instead.
+func (*ProviderAuthMethod) Descriptor() ([]byte, []int) {
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ProviderAuthMethod) GetName() string {
 	if x != nil {
-		if x, ok := x.Auth.(*Credentials_AzureClientSecret); ok {
-			return x.AzureClientSecret
-		}
+		return x.Name
 	}
-	return nil
+	return ""
 }
 
-func (x *Credentials) GetGcpServiceAccount() *GcpServiceAccountCredentials {
+func (x *ProviderAuthMethod) GetDisplayName() string {
 	if x != nil {
-		if x, ok := x.Auth.(*Credentials_GcpServiceAccount); ok {
-			return x.GcpServiceAccount
-		}
+		return x.DisplayName
+	}
+	return ""
+}
+
+func (x *ProviderAuthMethod) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ProviderAuthMethod) GetFields() []*SchemaAttribute {
+	if x != nil {
+		return x.Fields
 	}
 	return nil
 }
-
-type isCredentials_Auth interface {
-	isCredentials_Auth()
-}
-
-type Credentials_AwsIam struct {
-	AwsIam *AwsIamCredentials `protobuf:"bytes,1,opt,name=aws_iam,json=awsIam,proto3,oneof"`
-}
-
-type Credentials_AzureClientSecret struct {
-	AzureClientSecret *AzureClientSecretCredentials `protobuf:"bytes,2,opt,name=azure_client_secret,json=azureClientSecret,proto3,oneof"`
-}
-
-type Credentials_GcpServiceAccount struct {
-	GcpServiceAccount *GcpServiceAccountCredentials `protobuf:"bytes,3,opt,name=gcp_service_account,json=gcpServiceAccount,proto3,oneof"`
-}
-
-func (*Credentials_AwsIam) isCredentials_Auth() {}
-
-func (*Credentials_AzureClientSecret) isCredentials_Auth() {}
-
-func (*Credentials_GcpServiceAccount) isCredentials_Auth() {}
 
 type ProviderMetadata struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	Name                 string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Version              string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Cloud                Cloud                  `protobuf:"varint,3,opt,name=cloud,proto3,enum=arcoloom.provider.v1.Cloud" json:"cloud,omitempty"`
-	SupportedAuthSchemes []AuthScheme           `protobuf:"varint,4,rep,packed,name=supported_auth_schemes,json=supportedAuthSchemes,proto3,enum=arcoloom.provider.v1.AuthScheme" json:"supported_auth_schemes,omitempty"`
-	SupportedServices    []string               `protobuf:"bytes,5,rep,name=supported_services,json=supportedServices,proto3" json:"supported_services,omitempty"`
-	Capabilities         map[string]string      `protobuf:"bytes,6,rep,name=capabilities,proto3" json:"capabilities,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	ResourcePlanes       []ResourcePlane        `protobuf:"varint,7,rep,packed,name=resource_planes,json=resourcePlanes,proto3,enum=arcoloom.provider.v1.ResourcePlane" json:"resource_planes,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Name              string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Version           string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
+	Cloud             string                 `protobuf:"bytes,3,opt,name=cloud,proto3" json:"cloud,omitempty"`
+	AuthMethods       []*ProviderAuthMethod  `protobuf:"bytes,4,rep,name=auth_methods,json=authMethods,proto3" json:"auth_methods,omitempty"`
+	SupportedServices []string               `protobuf:"bytes,5,rep,name=supported_services,json=supportedServices,proto3" json:"supported_services,omitempty"`
+	Capabilities      map[string]string      `protobuf:"bytes,6,rep,name=capabilities,proto3" json:"capabilities,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	ResourcePlanes    []ResourcePlane        `protobuf:"varint,7,rep,packed,name=resource_planes,json=resourcePlanes,proto3,enum=arcoloom.provider.v1.ResourcePlane" json:"resource_planes,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ProviderMetadata) Reset() {
 	*x = ProviderMetadata{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[8]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1019,7 +725,7 @@ func (x *ProviderMetadata) String() string {
 func (*ProviderMetadata) ProtoMessage() {}
 
 func (x *ProviderMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[8]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1032,7 +738,7 @@ func (x *ProviderMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderMetadata.ProtoReflect.Descriptor instead.
 func (*ProviderMetadata) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{8}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ProviderMetadata) GetName() string {
@@ -1049,16 +755,16 @@ func (x *ProviderMetadata) GetVersion() string {
 	return ""
 }
 
-func (x *ProviderMetadata) GetCloud() Cloud {
+func (x *ProviderMetadata) GetCloud() string {
 	if x != nil {
 		return x.Cloud
 	}
-	return Cloud_CLOUD_UNSPECIFIED
+	return ""
 }
 
-func (x *ProviderMetadata) GetSupportedAuthSchemes() []AuthScheme {
+func (x *ProviderMetadata) GetAuthMethods() []*ProviderAuthMethod {
 	if x != nil {
-		return x.SupportedAuthSchemes
+		return x.AuthMethods
 	}
 	return nil
 }
@@ -1094,7 +800,7 @@ type Warning struct {
 
 func (x *Warning) Reset() {
 	*x = Warning{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[9]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1106,7 +812,7 @@ func (x *Warning) String() string {
 func (*Warning) ProtoMessage() {}
 
 func (x *Warning) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[9]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1119,7 +825,7 @@ func (x *Warning) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Warning.ProtoReflect.Descriptor instead.
 func (*Warning) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{9}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Warning) GetCode() string {
@@ -1144,7 +850,7 @@ type GetProviderInfoRequest struct {
 
 func (x *GetProviderInfoRequest) Reset() {
 	*x = GetProviderInfoRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[10]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1156,7 +862,7 @@ func (x *GetProviderInfoRequest) String() string {
 func (*GetProviderInfoRequest) ProtoMessage() {}
 
 func (x *GetProviderInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[10]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1169,7 +875,7 @@ func (x *GetProviderInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetProviderInfoRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{10}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{8}
 }
 
 type GetProviderInfoResponse struct {
@@ -1181,7 +887,7 @@ type GetProviderInfoResponse struct {
 
 func (x *GetProviderInfoResponse) Reset() {
 	*x = GetProviderInfoResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[11]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1193,7 +899,7 @@ func (x *GetProviderInfoResponse) String() string {
 func (*GetProviderInfoResponse) ProtoMessage() {}
 
 func (x *GetProviderInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[11]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1206,7 +912,7 @@ func (x *GetProviderInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetProviderInfoResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{11}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetProviderInfoResponse) GetMetadata() *ProviderMetadata {
@@ -1224,7 +930,7 @@ type GetProviderSchemaRequest struct {
 
 func (x *GetProviderSchemaRequest) Reset() {
 	*x = GetProviderSchemaRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[12]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1236,7 +942,7 @@ func (x *GetProviderSchemaRequest) String() string {
 func (*GetProviderSchemaRequest) ProtoMessage() {}
 
 func (x *GetProviderSchemaRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[12]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1249,7 +955,7 @@ func (x *GetProviderSchemaRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderSchemaRequest.ProtoReflect.Descriptor instead.
 func (*GetProviderSchemaRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{12}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{10}
 }
 
 type GetProviderSchemaResponse struct {
@@ -1261,7 +967,7 @@ type GetProviderSchemaResponse struct {
 
 func (x *GetProviderSchemaResponse) Reset() {
 	*x = GetProviderSchemaResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[13]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1273,7 +979,7 @@ func (x *GetProviderSchemaResponse) String() string {
 func (*GetProviderSchemaResponse) ProtoMessage() {}
 
 func (x *GetProviderSchemaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[13]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1286,7 +992,7 @@ func (x *GetProviderSchemaResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderSchemaResponse.ProtoReflect.Descriptor instead.
 func (*GetProviderSchemaResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{13}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetProviderSchemaResponse) GetResources() []*ProviderResourceSchema {
@@ -1308,7 +1014,7 @@ type ValidateConnectionRequest struct {
 
 func (x *ValidateConnectionRequest) Reset() {
 	*x = ValidateConnectionRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[14]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1320,7 +1026,7 @@ func (x *ValidateConnectionRequest) String() string {
 func (*ValidateConnectionRequest) ProtoMessage() {}
 
 func (x *ValidateConnectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[14]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1333,7 +1039,7 @@ func (x *ValidateConnectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateConnectionRequest.ProtoReflect.Descriptor instead.
 func (*ValidateConnectionRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{14}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ValidateConnectionRequest) GetContext() *RequestContext {
@@ -1375,7 +1081,7 @@ type ValidateConnectionResponse struct {
 
 func (x *ValidateConnectionResponse) Reset() {
 	*x = ValidateConnectionResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[15]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1387,7 +1093,7 @@ func (x *ValidateConnectionResponse) String() string {
 func (*ValidateConnectionResponse) ProtoMessage() {}
 
 func (x *ValidateConnectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[15]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1400,7 +1106,7 @@ func (x *ValidateConnectionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateConnectionResponse.ProtoReflect.Descriptor instead.
 func (*ValidateConnectionResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{15}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ValidateConnectionResponse) GetAccepted() bool {
@@ -1434,7 +1140,7 @@ type PingRequest struct {
 
 func (x *PingRequest) Reset() {
 	*x = PingRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[16]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1446,7 +1152,7 @@ func (x *PingRequest) String() string {
 func (*PingRequest) ProtoMessage() {}
 
 func (x *PingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[16]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1459,7 +1165,7 @@ func (x *PingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PingRequest.ProtoReflect.Descriptor instead.
 func (*PingRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{16}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *PingRequest) GetContext() *RequestContext {
@@ -1487,7 +1193,7 @@ type PingResponse struct {
 
 func (x *PingResponse) Reset() {
 	*x = PingResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[17]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1499,7 +1205,7 @@ func (x *PingResponse) String() string {
 func (*PingResponse) ProtoMessage() {}
 
 func (x *PingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[17]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1512,7 +1218,7 @@ func (x *PingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PingResponse.ProtoReflect.Descriptor instead.
 func (*PingResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{17}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *PingResponse) GetPayload() string {
@@ -1548,7 +1254,7 @@ type ListRegionsRequest struct {
 
 func (x *ListRegionsRequest) Reset() {
 	*x = ListRegionsRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[18]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1560,7 +1266,7 @@ func (x *ListRegionsRequest) String() string {
 func (*ListRegionsRequest) ProtoMessage() {}
 
 func (x *ListRegionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[18]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1573,7 +1279,7 @@ func (x *ListRegionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRegionsRequest.ProtoReflect.Descriptor instead.
 func (*ListRegionsRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{18}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ListRegionsRequest) GetContext() *RequestContext {
@@ -1614,7 +1320,7 @@ type ListRegionsResponse struct {
 
 func (x *ListRegionsResponse) Reset() {
 	*x = ListRegionsResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[19]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1626,7 +1332,7 @@ func (x *ListRegionsResponse) String() string {
 func (*ListRegionsResponse) ProtoMessage() {}
 
 func (x *ListRegionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[19]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1639,7 +1345,7 @@ func (x *ListRegionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRegionsResponse.ProtoReflect.Descriptor instead.
 func (*ListRegionsResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{19}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *ListRegionsResponse) GetItems() []*CloudRegion {
@@ -1670,7 +1376,7 @@ type ListAvailabilityZonesRequest struct {
 
 func (x *ListAvailabilityZonesRequest) Reset() {
 	*x = ListAvailabilityZonesRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[20]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1682,7 +1388,7 @@ func (x *ListAvailabilityZonesRequest) String() string {
 func (*ListAvailabilityZonesRequest) ProtoMessage() {}
 
 func (x *ListAvailabilityZonesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[20]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1695,7 +1401,7 @@ func (x *ListAvailabilityZonesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAvailabilityZonesRequest.ProtoReflect.Descriptor instead.
 func (*ListAvailabilityZonesRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{20}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ListAvailabilityZonesRequest) GetContext() *RequestContext {
@@ -1750,7 +1456,7 @@ type ListAvailabilityZonesResponse struct {
 
 func (x *ListAvailabilityZonesResponse) Reset() {
 	*x = ListAvailabilityZonesResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[21]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1762,7 +1468,7 @@ func (x *ListAvailabilityZonesResponse) String() string {
 func (*ListAvailabilityZonesResponse) ProtoMessage() {}
 
 func (x *ListAvailabilityZonesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[21]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1775,7 +1481,7 @@ func (x *ListAvailabilityZonesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListAvailabilityZonesResponse.ProtoReflect.Descriptor instead.
 func (*ListAvailabilityZonesResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{21}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ListAvailabilityZonesResponse) GetItems() []*AvailabilityZone {
@@ -1807,7 +1513,7 @@ type GetSpotDataRequest struct {
 
 func (x *GetSpotDataRequest) Reset() {
 	*x = GetSpotDataRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[22]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1819,7 +1525,7 @@ func (x *GetSpotDataRequest) String() string {
 func (*GetSpotDataRequest) ProtoMessage() {}
 
 func (x *GetSpotDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[22]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1832,7 +1538,7 @@ func (x *GetSpotDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSpotDataRequest.ProtoReflect.Descriptor instead.
 func (*GetSpotDataRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{22}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetSpotDataRequest) GetContext() *RequestContext {
@@ -1896,7 +1602,7 @@ type SpotInventory struct {
 
 func (x *SpotInventory) Reset() {
 	*x = SpotInventory{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[23]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1908,7 +1614,7 @@ func (x *SpotInventory) String() string {
 func (*SpotInventory) ProtoMessage() {}
 
 func (x *SpotInventory) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[23]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1921,7 +1627,7 @@ func (x *SpotInventory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpotInventory.ProtoReflect.Descriptor instead.
 func (*SpotInventory) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{23}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *SpotInventory) GetOffered() bool {
@@ -1968,7 +1674,7 @@ type SpotData struct {
 
 func (x *SpotData) Reset() {
 	*x = SpotData{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[24]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1980,7 +1686,7 @@ func (x *SpotData) String() string {
 func (*SpotData) ProtoMessage() {}
 
 func (x *SpotData) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[24]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1993,7 +1699,7 @@ func (x *SpotData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpotData.ProtoReflect.Descriptor instead.
 func (*SpotData) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{24}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SpotData) GetInstanceType() string {
@@ -2062,7 +1768,7 @@ type GetSpotDataResponse struct {
 
 func (x *GetSpotDataResponse) Reset() {
 	*x = GetSpotDataResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[25]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2074,7 +1780,7 @@ func (x *GetSpotDataResponse) String() string {
 func (*GetSpotDataResponse) ProtoMessage() {}
 
 func (x *GetSpotDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[25]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2087,7 +1793,7 @@ func (x *GetSpotDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSpotDataResponse.ProtoReflect.Descriptor instead.
 func (*GetSpotDataResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{25}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetSpotDataResponse) GetItems() []*SpotData {
@@ -2114,7 +1820,7 @@ type InstanceTag struct {
 
 func (x *InstanceTag) Reset() {
 	*x = InstanceTag{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[26]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2126,7 +1832,7 @@ func (x *InstanceTag) String() string {
 func (*InstanceTag) ProtoMessage() {}
 
 func (x *InstanceTag) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[26]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2139,7 +1845,7 @@ func (x *InstanceTag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceTag.ProtoReflect.Descriptor instead.
 func (*InstanceTag) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{26}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *InstanceTag) GetKey() string {
@@ -2177,7 +1883,7 @@ type StartInstanceRequest struct {
 
 func (x *StartInstanceRequest) Reset() {
 	*x = StartInstanceRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[27]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2189,7 +1895,7 @@ func (x *StartInstanceRequest) String() string {
 func (*StartInstanceRequest) ProtoMessage() {}
 
 func (x *StartInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[27]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2202,7 +1908,7 @@ func (x *StartInstanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartInstanceRequest.ProtoReflect.Descriptor instead.
 func (*StartInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{27}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *StartInstanceRequest) GetContext() *RequestContext {
@@ -2310,7 +2016,7 @@ type StartInstanceResponse struct {
 
 func (x *StartInstanceResponse) Reset() {
 	*x = StartInstanceResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[28]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2322,7 +2028,7 @@ func (x *StartInstanceResponse) String() string {
 func (*StartInstanceResponse) ProtoMessage() {}
 
 func (x *StartInstanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[28]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2335,7 +2041,7 @@ func (x *StartInstanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartInstanceResponse.ProtoReflect.Descriptor instead.
 func (*StartInstanceResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{28}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *StartInstanceResponse) GetStackName() string {
@@ -2394,7 +2100,7 @@ type StopInstanceRequest struct {
 
 func (x *StopInstanceRequest) Reset() {
 	*x = StopInstanceRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[29]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2406,7 +2112,7 @@ func (x *StopInstanceRequest) String() string {
 func (*StopInstanceRequest) ProtoMessage() {}
 
 func (x *StopInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[29]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2419,7 +2125,7 @@ func (x *StopInstanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopInstanceRequest.ProtoReflect.Descriptor instead.
 func (*StopInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{29}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *StopInstanceRequest) GetContext() *RequestContext {
@@ -2475,7 +2181,7 @@ type StopInstanceResponse struct {
 
 func (x *StopInstanceResponse) Reset() {
 	*x = StopInstanceResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[30]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2487,7 +2193,7 @@ func (x *StopInstanceResponse) String() string {
 func (*StopInstanceResponse) ProtoMessage() {}
 
 func (x *StopInstanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[30]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2500,7 +2206,7 @@ func (x *StopInstanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopInstanceResponse.ProtoReflect.Descriptor instead.
 func (*StopInstanceResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{30}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *StopInstanceResponse) GetInstanceId() string {
@@ -2540,7 +2246,7 @@ type ListActiveInstancesRequest struct {
 
 func (x *ListActiveInstancesRequest) Reset() {
 	*x = ListActiveInstancesRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[31]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2552,7 +2258,7 @@ func (x *ListActiveInstancesRequest) String() string {
 func (*ListActiveInstancesRequest) ProtoMessage() {}
 
 func (x *ListActiveInstancesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[31]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2565,7 +2271,7 @@ func (x *ListActiveInstancesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListActiveInstancesRequest.ProtoReflect.Descriptor instead.
 func (*ListActiveInstancesRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{31}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *ListActiveInstancesRequest) GetContext() *RequestContext {
@@ -2645,7 +2351,7 @@ type ActiveInstance struct {
 
 func (x *ActiveInstance) Reset() {
 	*x = ActiveInstance{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[32]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2657,7 +2363,7 @@ func (x *ActiveInstance) String() string {
 func (*ActiveInstance) ProtoMessage() {}
 
 func (x *ActiveInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[32]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2670,7 +2376,7 @@ func (x *ActiveInstance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ActiveInstance.ProtoReflect.Descriptor instead.
 func (*ActiveInstance) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{32}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *ActiveInstance) GetInstanceId() string {
@@ -2774,7 +2480,7 @@ type ListActiveInstancesResponse struct {
 
 func (x *ListActiveInstancesResponse) Reset() {
 	*x = ListActiveInstancesResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[33]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2786,7 +2492,7 @@ func (x *ListActiveInstancesResponse) String() string {
 func (*ListActiveInstancesResponse) ProtoMessage() {}
 
 func (x *ListActiveInstancesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[33]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2799,7 +2505,7 @@ func (x *ListActiveInstancesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListActiveInstancesResponse.ProtoReflect.Descriptor instead.
 func (*ListActiveInstancesResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{33}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *ListActiveInstancesResponse) GetItems() []*ActiveInstance {
@@ -2826,7 +2532,7 @@ type CloudRegion struct {
 
 func (x *CloudRegion) Reset() {
 	*x = CloudRegion{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[34]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2838,7 +2544,7 @@ func (x *CloudRegion) String() string {
 func (*CloudRegion) ProtoMessage() {}
 
 func (x *CloudRegion) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[34]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2851,7 +2557,7 @@ func (x *CloudRegion) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloudRegion.ProtoReflect.Descriptor instead.
 func (*CloudRegion) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{34}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *CloudRegion) GetCode() string {
@@ -2886,7 +2592,7 @@ type AvailabilityZone struct {
 
 func (x *AvailabilityZone) Reset() {
 	*x = AvailabilityZone{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[35]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2898,7 +2604,7 @@ func (x *AvailabilityZone) String() string {
 func (*AvailabilityZone) ProtoMessage() {}
 
 func (x *AvailabilityZone) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[35]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2911,7 +2617,7 @@ func (x *AvailabilityZone) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AvailabilityZone.ProtoReflect.Descriptor instead.
 func (*AvailabilityZone) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{35}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *AvailabilityZone) GetName() string {
@@ -2996,7 +2702,7 @@ type Accelerator struct {
 
 func (x *Accelerator) Reset() {
 	*x = Accelerator{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[36]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3008,7 +2714,7 @@ func (x *Accelerator) String() string {
 func (*Accelerator) ProtoMessage() {}
 
 func (x *Accelerator) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[36]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3021,7 +2727,7 @@ func (x *Accelerator) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Accelerator.ProtoReflect.Descriptor instead.
 func (*Accelerator) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{36}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *Accelerator) GetKind() AcceleratorKind {
@@ -3064,7 +2770,7 @@ type LocalStorage struct {
 
 func (x *LocalStorage) Reset() {
 	*x = LocalStorage{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[37]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3076,7 +2782,7 @@ func (x *LocalStorage) String() string {
 func (*LocalStorage) ProtoMessage() {}
 
 func (x *LocalStorage) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[37]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3089,7 +2795,7 @@ func (x *LocalStorage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LocalStorage.ProtoReflect.Descriptor instead.
 func (*LocalStorage) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{37}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *LocalStorage) GetHasLocalStorage() bool {
@@ -3138,7 +2844,7 @@ type InstanceTypeSummary struct {
 
 func (x *InstanceTypeSummary) Reset() {
 	*x = InstanceTypeSummary{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[38]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3150,7 +2856,7 @@ func (x *InstanceTypeSummary) String() string {
 func (*InstanceTypeSummary) ProtoMessage() {}
 
 func (x *InstanceTypeSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[38]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3163,7 +2869,7 @@ func (x *InstanceTypeSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceTypeSummary.ProtoReflect.Descriptor instead.
 func (*InstanceTypeSummary) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{38}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *InstanceTypeSummary) GetInstanceType() string {
@@ -3264,7 +2970,7 @@ type InstanceTypeInfo struct {
 
 func (x *InstanceTypeInfo) Reset() {
 	*x = InstanceTypeInfo{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[39]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3276,7 +2982,7 @@ func (x *InstanceTypeInfo) String() string {
 func (*InstanceTypeInfo) ProtoMessage() {}
 
 func (x *InstanceTypeInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[39]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3289,7 +2995,7 @@ func (x *InstanceTypeInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstanceTypeInfo.ProtoReflect.Descriptor instead.
 func (*InstanceTypeInfo) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{39}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *InstanceTypeInfo) GetInstanceType() string {
@@ -3453,7 +3159,7 @@ type InstancePrice struct {
 
 func (x *InstancePrice) Reset() {
 	*x = InstancePrice{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[40]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3465,7 +3171,7 @@ func (x *InstancePrice) String() string {
 func (*InstancePrice) ProtoMessage() {}
 
 func (x *InstancePrice) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[40]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3478,7 +3184,7 @@ func (x *InstancePrice) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstancePrice.ProtoReflect.Descriptor instead.
 func (*InstancePrice) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{40}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *InstancePrice) GetInstanceType() string {
@@ -3588,7 +3294,7 @@ type ListInstanceTypesRequest struct {
 
 func (x *ListInstanceTypesRequest) Reset() {
 	*x = ListInstanceTypesRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[41]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3600,7 +3306,7 @@ func (x *ListInstanceTypesRequest) String() string {
 func (*ListInstanceTypesRequest) ProtoMessage() {}
 
 func (x *ListInstanceTypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[41]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3613,7 +3319,7 @@ func (x *ListInstanceTypesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListInstanceTypesRequest.ProtoReflect.Descriptor instead.
 func (*ListInstanceTypesRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{41}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *ListInstanceTypesRequest) GetContext() *RequestContext {
@@ -3682,7 +3388,7 @@ type ListInstanceTypesResponse struct {
 
 func (x *ListInstanceTypesResponse) Reset() {
 	*x = ListInstanceTypesResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[42]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3694,7 +3400,7 @@ func (x *ListInstanceTypesResponse) String() string {
 func (*ListInstanceTypesResponse) ProtoMessage() {}
 
 func (x *ListInstanceTypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[42]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3707,7 +3413,7 @@ func (x *ListInstanceTypesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListInstanceTypesResponse.ProtoReflect.Descriptor instead.
 func (*ListInstanceTypesResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{42}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *ListInstanceTypesResponse) GetItems() []*InstanceTypeSummary {
@@ -3738,7 +3444,7 @@ type GetInstanceTypeInfoRequest struct {
 
 func (x *GetInstanceTypeInfoRequest) Reset() {
 	*x = GetInstanceTypeInfoRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[43]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3750,7 +3456,7 @@ func (x *GetInstanceTypeInfoRequest) String() string {
 func (*GetInstanceTypeInfoRequest) ProtoMessage() {}
 
 func (x *GetInstanceTypeInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[43]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3763,7 +3469,7 @@ func (x *GetInstanceTypeInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstanceTypeInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetInstanceTypeInfoRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{43}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetInstanceTypeInfoRequest) GetContext() *RequestContext {
@@ -3818,7 +3524,7 @@ type GetInstanceTypeInfoResponse struct {
 
 func (x *GetInstanceTypeInfoResponse) Reset() {
 	*x = GetInstanceTypeInfoResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[44]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3830,7 +3536,7 @@ func (x *GetInstanceTypeInfoResponse) String() string {
 func (*GetInstanceTypeInfoResponse) ProtoMessage() {}
 
 func (x *GetInstanceTypeInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[44]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3843,7 +3549,7 @@ func (x *GetInstanceTypeInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstanceTypeInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetInstanceTypeInfoResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{44}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetInstanceTypeInfoResponse) GetItems() []*InstanceTypeInfo {
@@ -3879,7 +3585,7 @@ type GetInstancePricesRequest struct {
 
 func (x *GetInstancePricesRequest) Reset() {
 	*x = GetInstancePricesRequest{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[45]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3891,7 +3597,7 @@ func (x *GetInstancePricesRequest) String() string {
 func (*GetInstancePricesRequest) ProtoMessage() {}
 
 func (x *GetInstancePricesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[45]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3904,7 +3610,7 @@ func (x *GetInstancePricesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstancePricesRequest.ProtoReflect.Descriptor instead.
 func (*GetInstancePricesRequest) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{45}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetInstancePricesRequest) GetContext() *RequestContext {
@@ -3994,7 +3700,7 @@ type GetInstancePricesResponse struct {
 
 func (x *GetInstancePricesResponse) Reset() {
 	*x = GetInstancePricesResponse{}
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[46]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4006,7 +3712,7 @@ func (x *GetInstancePricesResponse) String() string {
 func (*GetInstancePricesResponse) ProtoMessage() {}
 
 func (x *GetInstancePricesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[46]
+	mi := &file_arcoloom_provider_v1_provider_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4019,7 +3725,7 @@ func (x *GetInstancePricesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstancePricesResponse.ProtoReflect.Descriptor instead.
 func (*GetInstancePricesResponse) Descriptor() ([]byte, []int) {
-	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{46}
+	return file_arcoloom_provider_v1_provider_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *GetInstancePricesResponse) GetItems() []*InstancePrice {
@@ -4072,36 +3778,21 @@ const file_arcoloom_provider_v1_provider_proto_rawDesc = "" +
 	"\x0fendpoint_region\x18\x05 \x01(\tR\x0eendpointRegion\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xc4\x01\n" +
-	"\x11AwsIamCredentials\x12\"\n" +
-	"\raccess_key_id\x18\x01 \x01(\tR\vaccessKeyId\x12*\n" +
-	"\x11secret_access_key\x18\x02 \x01(\tR\x0fsecretAccessKey\x12#\n" +
-	"\rsession_token\x18\x03 \x01(\tR\fsessionToken\x12\x19\n" +
-	"\brole_arn\x18\x04 \x01(\tR\aroleArn\x12\x1f\n" +
-	"\vexternal_id\x18\x05 \x01(\tR\n" +
-	"externalId\"\xa6\x01\n" +
-	"\x1cAzureClientSecretCredentials\x12\x1b\n" +
-	"\ttenant_id\x18\x01 \x01(\tR\btenantId\x12\x1b\n" +
-	"\tclient_id\x18\x02 \x01(\tR\bclientId\x12#\n" +
-	"\rclient_secret\x18\x03 \x01(\tR\fclientSecret\x12'\n" +
-	"\x0fsubscription_id\x18\x04 \x01(\tR\x0esubscriptionId\"\xa7\x01\n" +
-	"\x1cGcpServiceAccountCredentials\x12\x1d\n" +
-	"\n" +
-	"project_id\x18\x01 \x01(\tR\tprojectId\x12!\n" +
-	"\fclient_email\x18\x02 \x01(\tR\vclientEmail\x12\x1f\n" +
-	"\vprivate_key\x18\x03 \x01(\tR\n" +
-	"privateKey\x12$\n" +
-	"\x0eprivate_key_id\x18\x04 \x01(\tR\fprivateKeyId\"\xa5\x02\n" +
-	"\vCredentials\x12B\n" +
-	"\aaws_iam\x18\x01 \x01(\v2'.arcoloom.provider.v1.AwsIamCredentialsH\x00R\x06awsIam\x12d\n" +
-	"\x13azure_client_secret\x18\x02 \x01(\v22.arcoloom.provider.v1.AzureClientSecretCredentialsH\x00R\x11azureClientSecret\x12d\n" +
-	"\x13gcp_service_account\x18\x03 \x01(\v22.arcoloom.provider.v1.GcpServiceAccountCredentialsH\x00R\x11gcpServiceAccountB\x06\n" +
-	"\x04auth\"\xe7\x03\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"[\n" +
+	"\vCredentials\x12\x1f\n" +
+	"\vauth_method\x18\x01 \x01(\tR\n" +
+	"authMethod\x12+\n" +
+	"\x04data\x18\x02 \x01(\v2\x17.google.protobuf.StructR\x04data\"\xac\x01\n" +
+	"\x12ProviderAuthMethod\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12!\n" +
+	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12=\n" +
+	"\x06fields\x18\x04 \x03(\v2%.arcoloom.provider.v1.SchemaAttributeR\x06fields\"\xbf\x03\n" +
 	"\x10ProviderMetadata\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
-	"\aversion\x18\x02 \x01(\tR\aversion\x121\n" +
-	"\x05cloud\x18\x03 \x01(\x0e2\x1b.arcoloom.provider.v1.CloudR\x05cloud\x12V\n" +
-	"\x16supported_auth_schemes\x18\x04 \x03(\x0e2 .arcoloom.provider.v1.AuthSchemeR\x14supportedAuthSchemes\x12-\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x14\n" +
+	"\x05cloud\x18\x03 \x01(\tR\x05cloud\x12K\n" +
+	"\fauth_methods\x18\x04 \x03(\v2(.arcoloom.provider.v1.ProviderAuthMethodR\vauthMethods\x12-\n" +
 	"\x12supported_services\x18\x05 \x03(\tR\x11supportedServices\x12\\\n" +
 	"\fcapabilities\x18\x06 \x03(\v28.arcoloom.provider.v1.ProviderMetadata.CapabilitiesEntryR\fcapabilities\x12L\n" +
 	"\x0fresource_planes\x18\a \x03(\x0e2#.arcoloom.provider.v1.ResourcePlaneR\x0eresourcePlanes\x1a?\n" +
@@ -4410,18 +4101,7 @@ const file_arcoloom_provider_v1_provider_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x91\x01\n" +
 	"\x19GetInstancePricesResponse\x129\n" +
 	"\x05items\x18\x01 \x03(\v2#.arcoloom.provider.v1.InstancePriceR\x05items\x129\n" +
-	"\bwarnings\x18\x02 \x03(\v2\x1d.arcoloom.provider.v1.WarningR\bwarnings*M\n" +
-	"\x05Cloud\x12\x15\n" +
-	"\x11CLOUD_UNSPECIFIED\x10\x00\x12\r\n" +
-	"\tCLOUD_AWS\x10\x01\x12\x0f\n" +
-	"\vCLOUD_AZURE\x10\x02\x12\r\n" +
-	"\tCLOUD_GCP\x10\x03*\x8c\x01\n" +
-	"\n" +
-	"AuthScheme\x12\x1b\n" +
-	"\x17AUTH_SCHEME_UNSPECIFIED\x10\x00\x12\x17\n" +
-	"\x13AUTH_SCHEME_AWS_IAM\x10\x01\x12#\n" +
-	"\x1fAUTH_SCHEME_AZURE_CLIENT_SECRET\x10\x02\x12#\n" +
-	"\x1fAUTH_SCHEME_GCP_SERVICE_ACCOUNT\x10\x03*\x83\x01\n" +
+	"\bwarnings\x18\x02 \x03(\v2\x1d.arcoloom.provider.v1.WarningR\bwarnings*\x83\x01\n" +
 	"\rResourcePlane\x12\x1e\n" +
 	"\x1aRESOURCE_PLANE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16RESOURCE_PLANE_COMPUTE\x10\x01\x12\x1a\n" +
@@ -4474,197 +4154,191 @@ func file_arcoloom_provider_v1_provider_proto_rawDescGZIP() []byte {
 	return file_arcoloom_provider_v1_provider_proto_rawDescData
 }
 
-var file_arcoloom_provider_v1_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
-var file_arcoloom_provider_v1_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 61)
+var file_arcoloom_provider_v1_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_arcoloom_provider_v1_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 59)
 var file_arcoloom_provider_v1_provider_proto_goTypes = []any{
-	(Cloud)(0),                            // 0: arcoloom.provider.v1.Cloud
-	(AuthScheme)(0),                       // 1: arcoloom.provider.v1.AuthScheme
-	(ResourcePlane)(0),                    // 2: arcoloom.provider.v1.ResourcePlane
-	(SchemaAttributeType)(0),              // 3: arcoloom.provider.v1.SchemaAttributeType
-	(InstanceMarketType)(0),               // 4: arcoloom.provider.v1.InstanceMarketType
-	(PurchaseOption)(0),                   // 5: arcoloom.provider.v1.PurchaseOption
-	(AcceleratorKind)(0),                  // 6: arcoloom.provider.v1.AcceleratorKind
-	(*SchemaAttribute)(nil),               // 7: arcoloom.provider.v1.SchemaAttribute
-	(*ProviderResourceSchema)(nil),        // 8: arcoloom.provider.v1.ProviderResourceSchema
-	(*RequestContext)(nil),                // 9: arcoloom.provider.v1.RequestContext
-	(*ConnectionScope)(nil),               // 10: arcoloom.provider.v1.ConnectionScope
-	(*AwsIamCredentials)(nil),             // 11: arcoloom.provider.v1.AwsIamCredentials
-	(*AzureClientSecretCredentials)(nil),  // 12: arcoloom.provider.v1.AzureClientSecretCredentials
-	(*GcpServiceAccountCredentials)(nil),  // 13: arcoloom.provider.v1.GcpServiceAccountCredentials
-	(*Credentials)(nil),                   // 14: arcoloom.provider.v1.Credentials
-	(*ProviderMetadata)(nil),              // 15: arcoloom.provider.v1.ProviderMetadata
-	(*Warning)(nil),                       // 16: arcoloom.provider.v1.Warning
-	(*GetProviderInfoRequest)(nil),        // 17: arcoloom.provider.v1.GetProviderInfoRequest
-	(*GetProviderInfoResponse)(nil),       // 18: arcoloom.provider.v1.GetProviderInfoResponse
-	(*GetProviderSchemaRequest)(nil),      // 19: arcoloom.provider.v1.GetProviderSchemaRequest
-	(*GetProviderSchemaResponse)(nil),     // 20: arcoloom.provider.v1.GetProviderSchemaResponse
-	(*ValidateConnectionRequest)(nil),     // 21: arcoloom.provider.v1.ValidateConnectionRequest
-	(*ValidateConnectionResponse)(nil),    // 22: arcoloom.provider.v1.ValidateConnectionResponse
-	(*PingRequest)(nil),                   // 23: arcoloom.provider.v1.PingRequest
-	(*PingResponse)(nil),                  // 24: arcoloom.provider.v1.PingResponse
-	(*ListRegionsRequest)(nil),            // 25: arcoloom.provider.v1.ListRegionsRequest
-	(*ListRegionsResponse)(nil),           // 26: arcoloom.provider.v1.ListRegionsResponse
-	(*ListAvailabilityZonesRequest)(nil),  // 27: arcoloom.provider.v1.ListAvailabilityZonesRequest
-	(*ListAvailabilityZonesResponse)(nil), // 28: arcoloom.provider.v1.ListAvailabilityZonesResponse
-	(*GetSpotDataRequest)(nil),            // 29: arcoloom.provider.v1.GetSpotDataRequest
-	(*SpotInventory)(nil),                 // 30: arcoloom.provider.v1.SpotInventory
-	(*SpotData)(nil),                      // 31: arcoloom.provider.v1.SpotData
-	(*GetSpotDataResponse)(nil),           // 32: arcoloom.provider.v1.GetSpotDataResponse
-	(*InstanceTag)(nil),                   // 33: arcoloom.provider.v1.InstanceTag
-	(*StartInstanceRequest)(nil),          // 34: arcoloom.provider.v1.StartInstanceRequest
-	(*StartInstanceResponse)(nil),         // 35: arcoloom.provider.v1.StartInstanceResponse
-	(*StopInstanceRequest)(nil),           // 36: arcoloom.provider.v1.StopInstanceRequest
-	(*StopInstanceResponse)(nil),          // 37: arcoloom.provider.v1.StopInstanceResponse
-	(*ListActiveInstancesRequest)(nil),    // 38: arcoloom.provider.v1.ListActiveInstancesRequest
-	(*ActiveInstance)(nil),                // 39: arcoloom.provider.v1.ActiveInstance
-	(*ListActiveInstancesResponse)(nil),   // 40: arcoloom.provider.v1.ListActiveInstancesResponse
-	(*CloudRegion)(nil),                   // 41: arcoloom.provider.v1.CloudRegion
-	(*AvailabilityZone)(nil),              // 42: arcoloom.provider.v1.AvailabilityZone
-	(*Accelerator)(nil),                   // 43: arcoloom.provider.v1.Accelerator
-	(*LocalStorage)(nil),                  // 44: arcoloom.provider.v1.LocalStorage
-	(*InstanceTypeSummary)(nil),           // 45: arcoloom.provider.v1.InstanceTypeSummary
-	(*InstanceTypeInfo)(nil),              // 46: arcoloom.provider.v1.InstanceTypeInfo
-	(*InstancePrice)(nil),                 // 47: arcoloom.provider.v1.InstancePrice
-	(*ListInstanceTypesRequest)(nil),      // 48: arcoloom.provider.v1.ListInstanceTypesRequest
-	(*ListInstanceTypesResponse)(nil),     // 49: arcoloom.provider.v1.ListInstanceTypesResponse
-	(*GetInstanceTypeInfoRequest)(nil),    // 50: arcoloom.provider.v1.GetInstanceTypeInfoRequest
-	(*GetInstanceTypeInfoResponse)(nil),   // 51: arcoloom.provider.v1.GetInstanceTypeInfoResponse
-	(*GetInstancePricesRequest)(nil),      // 52: arcoloom.provider.v1.GetInstancePricesRequest
-	(*GetInstancePricesResponse)(nil),     // 53: arcoloom.provider.v1.GetInstancePricesResponse
-	nil,                                   // 54: arcoloom.provider.v1.ConnectionScope.AttributesEntry
-	nil,                                   // 55: arcoloom.provider.v1.ProviderMetadata.CapabilitiesEntry
-	nil,                                   // 56: arcoloom.provider.v1.ValidateConnectionRequest.OptionsEntry
-	nil,                                   // 57: arcoloom.provider.v1.ListRegionsRequest.OptionsEntry
-	nil,                                   // 58: arcoloom.provider.v1.ListAvailabilityZonesRequest.OptionsEntry
-	nil,                                   // 59: arcoloom.provider.v1.GetSpotDataRequest.OptionsEntry
-	nil,                                   // 60: arcoloom.provider.v1.StartInstanceRequest.OptionsEntry
-	nil,                                   // 61: arcoloom.provider.v1.StopInstanceRequest.OptionsEntry
-	nil,                                   // 62: arcoloom.provider.v1.ListActiveInstancesRequest.OptionsEntry
-	nil,                                   // 63: arcoloom.provider.v1.ActiveInstance.ProviderAttributesEntry
-	nil,                                   // 64: arcoloom.provider.v1.InstanceTypeInfo.AttributesEntry
-	nil,                                   // 65: arcoloom.provider.v1.ListInstanceTypesRequest.OptionsEntry
-	nil,                                   // 66: arcoloom.provider.v1.GetInstanceTypeInfoRequest.OptionsEntry
-	nil,                                   // 67: arcoloom.provider.v1.GetInstancePricesRequest.OptionsEntry
-	(*structpb.Value)(nil),                // 68: google.protobuf.Value
-	(*structpb.Struct)(nil),               // 69: google.protobuf.Struct
+	(ResourcePlane)(0),                    // 0: arcoloom.provider.v1.ResourcePlane
+	(SchemaAttributeType)(0),              // 1: arcoloom.provider.v1.SchemaAttributeType
+	(InstanceMarketType)(0),               // 2: arcoloom.provider.v1.InstanceMarketType
+	(PurchaseOption)(0),                   // 3: arcoloom.provider.v1.PurchaseOption
+	(AcceleratorKind)(0),                  // 4: arcoloom.provider.v1.AcceleratorKind
+	(*SchemaAttribute)(nil),               // 5: arcoloom.provider.v1.SchemaAttribute
+	(*ProviderResourceSchema)(nil),        // 6: arcoloom.provider.v1.ProviderResourceSchema
+	(*RequestContext)(nil),                // 7: arcoloom.provider.v1.RequestContext
+	(*ConnectionScope)(nil),               // 8: arcoloom.provider.v1.ConnectionScope
+	(*Credentials)(nil),                   // 9: arcoloom.provider.v1.Credentials
+	(*ProviderAuthMethod)(nil),            // 10: arcoloom.provider.v1.ProviderAuthMethod
+	(*ProviderMetadata)(nil),              // 11: arcoloom.provider.v1.ProviderMetadata
+	(*Warning)(nil),                       // 12: arcoloom.provider.v1.Warning
+	(*GetProviderInfoRequest)(nil),        // 13: arcoloom.provider.v1.GetProviderInfoRequest
+	(*GetProviderInfoResponse)(nil),       // 14: arcoloom.provider.v1.GetProviderInfoResponse
+	(*GetProviderSchemaRequest)(nil),      // 15: arcoloom.provider.v1.GetProviderSchemaRequest
+	(*GetProviderSchemaResponse)(nil),     // 16: arcoloom.provider.v1.GetProviderSchemaResponse
+	(*ValidateConnectionRequest)(nil),     // 17: arcoloom.provider.v1.ValidateConnectionRequest
+	(*ValidateConnectionResponse)(nil),    // 18: arcoloom.provider.v1.ValidateConnectionResponse
+	(*PingRequest)(nil),                   // 19: arcoloom.provider.v1.PingRequest
+	(*PingResponse)(nil),                  // 20: arcoloom.provider.v1.PingResponse
+	(*ListRegionsRequest)(nil),            // 21: arcoloom.provider.v1.ListRegionsRequest
+	(*ListRegionsResponse)(nil),           // 22: arcoloom.provider.v1.ListRegionsResponse
+	(*ListAvailabilityZonesRequest)(nil),  // 23: arcoloom.provider.v1.ListAvailabilityZonesRequest
+	(*ListAvailabilityZonesResponse)(nil), // 24: arcoloom.provider.v1.ListAvailabilityZonesResponse
+	(*GetSpotDataRequest)(nil),            // 25: arcoloom.provider.v1.GetSpotDataRequest
+	(*SpotInventory)(nil),                 // 26: arcoloom.provider.v1.SpotInventory
+	(*SpotData)(nil),                      // 27: arcoloom.provider.v1.SpotData
+	(*GetSpotDataResponse)(nil),           // 28: arcoloom.provider.v1.GetSpotDataResponse
+	(*InstanceTag)(nil),                   // 29: arcoloom.provider.v1.InstanceTag
+	(*StartInstanceRequest)(nil),          // 30: arcoloom.provider.v1.StartInstanceRequest
+	(*StartInstanceResponse)(nil),         // 31: arcoloom.provider.v1.StartInstanceResponse
+	(*StopInstanceRequest)(nil),           // 32: arcoloom.provider.v1.StopInstanceRequest
+	(*StopInstanceResponse)(nil),          // 33: arcoloom.provider.v1.StopInstanceResponse
+	(*ListActiveInstancesRequest)(nil),    // 34: arcoloom.provider.v1.ListActiveInstancesRequest
+	(*ActiveInstance)(nil),                // 35: arcoloom.provider.v1.ActiveInstance
+	(*ListActiveInstancesResponse)(nil),   // 36: arcoloom.provider.v1.ListActiveInstancesResponse
+	(*CloudRegion)(nil),                   // 37: arcoloom.provider.v1.CloudRegion
+	(*AvailabilityZone)(nil),              // 38: arcoloom.provider.v1.AvailabilityZone
+	(*Accelerator)(nil),                   // 39: arcoloom.provider.v1.Accelerator
+	(*LocalStorage)(nil),                  // 40: arcoloom.provider.v1.LocalStorage
+	(*InstanceTypeSummary)(nil),           // 41: arcoloom.provider.v1.InstanceTypeSummary
+	(*InstanceTypeInfo)(nil),              // 42: arcoloom.provider.v1.InstanceTypeInfo
+	(*InstancePrice)(nil),                 // 43: arcoloom.provider.v1.InstancePrice
+	(*ListInstanceTypesRequest)(nil),      // 44: arcoloom.provider.v1.ListInstanceTypesRequest
+	(*ListInstanceTypesResponse)(nil),     // 45: arcoloom.provider.v1.ListInstanceTypesResponse
+	(*GetInstanceTypeInfoRequest)(nil),    // 46: arcoloom.provider.v1.GetInstanceTypeInfoRequest
+	(*GetInstanceTypeInfoResponse)(nil),   // 47: arcoloom.provider.v1.GetInstanceTypeInfoResponse
+	(*GetInstancePricesRequest)(nil),      // 48: arcoloom.provider.v1.GetInstancePricesRequest
+	(*GetInstancePricesResponse)(nil),     // 49: arcoloom.provider.v1.GetInstancePricesResponse
+	nil,                                   // 50: arcoloom.provider.v1.ConnectionScope.AttributesEntry
+	nil,                                   // 51: arcoloom.provider.v1.ProviderMetadata.CapabilitiesEntry
+	nil,                                   // 52: arcoloom.provider.v1.ValidateConnectionRequest.OptionsEntry
+	nil,                                   // 53: arcoloom.provider.v1.ListRegionsRequest.OptionsEntry
+	nil,                                   // 54: arcoloom.provider.v1.ListAvailabilityZonesRequest.OptionsEntry
+	nil,                                   // 55: arcoloom.provider.v1.GetSpotDataRequest.OptionsEntry
+	nil,                                   // 56: arcoloom.provider.v1.StartInstanceRequest.OptionsEntry
+	nil,                                   // 57: arcoloom.provider.v1.StopInstanceRequest.OptionsEntry
+	nil,                                   // 58: arcoloom.provider.v1.ListActiveInstancesRequest.OptionsEntry
+	nil,                                   // 59: arcoloom.provider.v1.ActiveInstance.ProviderAttributesEntry
+	nil,                                   // 60: arcoloom.provider.v1.InstanceTypeInfo.AttributesEntry
+	nil,                                   // 61: arcoloom.provider.v1.ListInstanceTypesRequest.OptionsEntry
+	nil,                                   // 62: arcoloom.provider.v1.GetInstanceTypeInfoRequest.OptionsEntry
+	nil,                                   // 63: arcoloom.provider.v1.GetInstancePricesRequest.OptionsEntry
+	(*structpb.Value)(nil),                // 64: google.protobuf.Value
+	(*structpb.Struct)(nil),               // 65: google.protobuf.Struct
 }
 var file_arcoloom_provider_v1_provider_proto_depIdxs = []int32{
-	3,  // 0: arcoloom.provider.v1.SchemaAttribute.type:type_name -> arcoloom.provider.v1.SchemaAttributeType
-	68, // 1: arcoloom.provider.v1.SchemaAttribute.default_value:type_name -> google.protobuf.Value
-	7,  // 2: arcoloom.provider.v1.ProviderResourceSchema.attributes:type_name -> arcoloom.provider.v1.SchemaAttribute
-	54, // 3: arcoloom.provider.v1.ConnectionScope.attributes:type_name -> arcoloom.provider.v1.ConnectionScope.AttributesEntry
-	11, // 4: arcoloom.provider.v1.Credentials.aws_iam:type_name -> arcoloom.provider.v1.AwsIamCredentials
-	12, // 5: arcoloom.provider.v1.Credentials.azure_client_secret:type_name -> arcoloom.provider.v1.AzureClientSecretCredentials
-	13, // 6: arcoloom.provider.v1.Credentials.gcp_service_account:type_name -> arcoloom.provider.v1.GcpServiceAccountCredentials
-	0,  // 7: arcoloom.provider.v1.ProviderMetadata.cloud:type_name -> arcoloom.provider.v1.Cloud
-	1,  // 8: arcoloom.provider.v1.ProviderMetadata.supported_auth_schemes:type_name -> arcoloom.provider.v1.AuthScheme
-	55, // 9: arcoloom.provider.v1.ProviderMetadata.capabilities:type_name -> arcoloom.provider.v1.ProviderMetadata.CapabilitiesEntry
-	2,  // 10: arcoloom.provider.v1.ProviderMetadata.resource_planes:type_name -> arcoloom.provider.v1.ResourcePlane
-	15, // 11: arcoloom.provider.v1.GetProviderInfoResponse.metadata:type_name -> arcoloom.provider.v1.ProviderMetadata
-	8,  // 12: arcoloom.provider.v1.GetProviderSchemaResponse.resources:type_name -> arcoloom.provider.v1.ProviderResourceSchema
-	9,  // 13: arcoloom.provider.v1.ValidateConnectionRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 14: arcoloom.provider.v1.ValidateConnectionRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 15: arcoloom.provider.v1.ValidateConnectionRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	56, // 16: arcoloom.provider.v1.ValidateConnectionRequest.options:type_name -> arcoloom.provider.v1.ValidateConnectionRequest.OptionsEntry
-	16, // 17: arcoloom.provider.v1.ValidateConnectionResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 18: arcoloom.provider.v1.PingRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	15, // 19: arcoloom.provider.v1.PingResponse.metadata:type_name -> arcoloom.provider.v1.ProviderMetadata
-	9,  // 20: arcoloom.provider.v1.ListRegionsRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 21: arcoloom.provider.v1.ListRegionsRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 22: arcoloom.provider.v1.ListRegionsRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	57, // 23: arcoloom.provider.v1.ListRegionsRequest.options:type_name -> arcoloom.provider.v1.ListRegionsRequest.OptionsEntry
-	41, // 24: arcoloom.provider.v1.ListRegionsResponse.items:type_name -> arcoloom.provider.v1.CloudRegion
-	16, // 25: arcoloom.provider.v1.ListRegionsResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 26: arcoloom.provider.v1.ListAvailabilityZonesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 27: arcoloom.provider.v1.ListAvailabilityZonesRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 28: arcoloom.provider.v1.ListAvailabilityZonesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	58, // 29: arcoloom.provider.v1.ListAvailabilityZonesRequest.options:type_name -> arcoloom.provider.v1.ListAvailabilityZonesRequest.OptionsEntry
-	42, // 30: arcoloom.provider.v1.ListAvailabilityZonesResponse.items:type_name -> arcoloom.provider.v1.AvailabilityZone
-	16, // 31: arcoloom.provider.v1.ListAvailabilityZonesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 32: arcoloom.provider.v1.GetSpotDataRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 33: arcoloom.provider.v1.GetSpotDataRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 34: arcoloom.provider.v1.GetSpotDataRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	59, // 35: arcoloom.provider.v1.GetSpotDataRequest.options:type_name -> arcoloom.provider.v1.GetSpotDataRequest.OptionsEntry
-	30, // 36: arcoloom.provider.v1.SpotData.inventory:type_name -> arcoloom.provider.v1.SpotInventory
-	31, // 37: arcoloom.provider.v1.GetSpotDataResponse.items:type_name -> arcoloom.provider.v1.SpotData
-	16, // 38: arcoloom.provider.v1.GetSpotDataResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 39: arcoloom.provider.v1.StartInstanceRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 40: arcoloom.provider.v1.StartInstanceRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 41: arcoloom.provider.v1.StartInstanceRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	4,  // 42: arcoloom.provider.v1.StartInstanceRequest.market_type:type_name -> arcoloom.provider.v1.InstanceMarketType
-	60, // 43: arcoloom.provider.v1.StartInstanceRequest.options:type_name -> arcoloom.provider.v1.StartInstanceRequest.OptionsEntry
-	33, // 44: arcoloom.provider.v1.StartInstanceRequest.tags:type_name -> arcoloom.provider.v1.InstanceTag
-	69, // 45: arcoloom.provider.v1.StartInstanceRequest.provider_config:type_name -> google.protobuf.Struct
-	16, // 46: arcoloom.provider.v1.StartInstanceResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 47: arcoloom.provider.v1.StopInstanceRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 48: arcoloom.provider.v1.StopInstanceRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 49: arcoloom.provider.v1.StopInstanceRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	61, // 50: arcoloom.provider.v1.StopInstanceRequest.options:type_name -> arcoloom.provider.v1.StopInstanceRequest.OptionsEntry
-	16, // 51: arcoloom.provider.v1.StopInstanceResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 52: arcoloom.provider.v1.ListActiveInstancesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	14, // 53: arcoloom.provider.v1.ListActiveInstancesRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
-	10, // 54: arcoloom.provider.v1.ListActiveInstancesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	33, // 55: arcoloom.provider.v1.ListActiveInstancesRequest.tags:type_name -> arcoloom.provider.v1.InstanceTag
-	62, // 56: arcoloom.provider.v1.ListActiveInstancesRequest.options:type_name -> arcoloom.provider.v1.ListActiveInstancesRequest.OptionsEntry
-	4,  // 57: arcoloom.provider.v1.ActiveInstance.market_type:type_name -> arcoloom.provider.v1.InstanceMarketType
-	33, // 58: arcoloom.provider.v1.ActiveInstance.tags:type_name -> arcoloom.provider.v1.InstanceTag
-	63, // 59: arcoloom.provider.v1.ActiveInstance.provider_attributes:type_name -> arcoloom.provider.v1.ActiveInstance.ProviderAttributesEntry
-	39, // 60: arcoloom.provider.v1.ListActiveInstancesResponse.items:type_name -> arcoloom.provider.v1.ActiveInstance
-	16, // 61: arcoloom.provider.v1.ListActiveInstancesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	6,  // 62: arcoloom.provider.v1.Accelerator.kind:type_name -> arcoloom.provider.v1.AcceleratorKind
-	41, // 63: arcoloom.provider.v1.InstanceTypeInfo.supported_regions:type_name -> arcoloom.provider.v1.CloudRegion
-	43, // 64: arcoloom.provider.v1.InstanceTypeInfo.accelerators:type_name -> arcoloom.provider.v1.Accelerator
-	44, // 65: arcoloom.provider.v1.InstanceTypeInfo.local_storage:type_name -> arcoloom.provider.v1.LocalStorage
-	64, // 66: arcoloom.provider.v1.InstanceTypeInfo.attributes:type_name -> arcoloom.provider.v1.InstanceTypeInfo.AttributesEntry
-	41, // 67: arcoloom.provider.v1.InstancePrice.region:type_name -> arcoloom.provider.v1.CloudRegion
-	5,  // 68: arcoloom.provider.v1.InstancePrice.purchase_option:type_name -> arcoloom.provider.v1.PurchaseOption
-	9,  // 69: arcoloom.provider.v1.ListInstanceTypesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	10, // 70: arcoloom.provider.v1.ListInstanceTypesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	65, // 71: arcoloom.provider.v1.ListInstanceTypesRequest.options:type_name -> arcoloom.provider.v1.ListInstanceTypesRequest.OptionsEntry
-	45, // 72: arcoloom.provider.v1.ListInstanceTypesResponse.items:type_name -> arcoloom.provider.v1.InstanceTypeSummary
-	16, // 73: arcoloom.provider.v1.ListInstanceTypesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 74: arcoloom.provider.v1.GetInstanceTypeInfoRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	10, // 75: arcoloom.provider.v1.GetInstanceTypeInfoRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	66, // 76: arcoloom.provider.v1.GetInstanceTypeInfoRequest.options:type_name -> arcoloom.provider.v1.GetInstanceTypeInfoRequest.OptionsEntry
-	46, // 77: arcoloom.provider.v1.GetInstanceTypeInfoResponse.items:type_name -> arcoloom.provider.v1.InstanceTypeInfo
-	16, // 78: arcoloom.provider.v1.GetInstanceTypeInfoResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	9,  // 79: arcoloom.provider.v1.GetInstancePricesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
-	10, // 80: arcoloom.provider.v1.GetInstancePricesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
-	5,  // 81: arcoloom.provider.v1.GetInstancePricesRequest.purchase_option:type_name -> arcoloom.provider.v1.PurchaseOption
-	67, // 82: arcoloom.provider.v1.GetInstancePricesRequest.options:type_name -> arcoloom.provider.v1.GetInstancePricesRequest.OptionsEntry
-	47, // 83: arcoloom.provider.v1.GetInstancePricesResponse.items:type_name -> arcoloom.provider.v1.InstancePrice
-	16, // 84: arcoloom.provider.v1.GetInstancePricesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
-	17, // 85: arcoloom.provider.v1.ProviderService.GetProviderInfo:input_type -> arcoloom.provider.v1.GetProviderInfoRequest
-	19, // 86: arcoloom.provider.v1.ProviderService.GetProviderSchema:input_type -> arcoloom.provider.v1.GetProviderSchemaRequest
-	21, // 87: arcoloom.provider.v1.ProviderService.ValidateConnection:input_type -> arcoloom.provider.v1.ValidateConnectionRequest
-	23, // 88: arcoloom.provider.v1.ProviderService.Ping:input_type -> arcoloom.provider.v1.PingRequest
-	25, // 89: arcoloom.provider.v1.ProviderService.ListRegions:input_type -> arcoloom.provider.v1.ListRegionsRequest
-	27, // 90: arcoloom.provider.v1.ProviderService.ListAvailabilityZones:input_type -> arcoloom.provider.v1.ListAvailabilityZonesRequest
-	29, // 91: arcoloom.provider.v1.ProviderService.GetSpotData:input_type -> arcoloom.provider.v1.GetSpotDataRequest
-	34, // 92: arcoloom.provider.v1.ProviderService.StartInstance:input_type -> arcoloom.provider.v1.StartInstanceRequest
-	36, // 93: arcoloom.provider.v1.ProviderService.StopInstance:input_type -> arcoloom.provider.v1.StopInstanceRequest
-	38, // 94: arcoloom.provider.v1.ProviderService.ListActiveInstances:input_type -> arcoloom.provider.v1.ListActiveInstancesRequest
-	48, // 95: arcoloom.provider.v1.ProviderService.ListInstanceTypes:input_type -> arcoloom.provider.v1.ListInstanceTypesRequest
-	50, // 96: arcoloom.provider.v1.ProviderService.GetInstanceTypeInfo:input_type -> arcoloom.provider.v1.GetInstanceTypeInfoRequest
-	52, // 97: arcoloom.provider.v1.ProviderService.GetInstancePrices:input_type -> arcoloom.provider.v1.GetInstancePricesRequest
-	18, // 98: arcoloom.provider.v1.ProviderService.GetProviderInfo:output_type -> arcoloom.provider.v1.GetProviderInfoResponse
-	20, // 99: arcoloom.provider.v1.ProviderService.GetProviderSchema:output_type -> arcoloom.provider.v1.GetProviderSchemaResponse
-	22, // 100: arcoloom.provider.v1.ProviderService.ValidateConnection:output_type -> arcoloom.provider.v1.ValidateConnectionResponse
-	24, // 101: arcoloom.provider.v1.ProviderService.Ping:output_type -> arcoloom.provider.v1.PingResponse
-	26, // 102: arcoloom.provider.v1.ProviderService.ListRegions:output_type -> arcoloom.provider.v1.ListRegionsResponse
-	28, // 103: arcoloom.provider.v1.ProviderService.ListAvailabilityZones:output_type -> arcoloom.provider.v1.ListAvailabilityZonesResponse
-	32, // 104: arcoloom.provider.v1.ProviderService.GetSpotData:output_type -> arcoloom.provider.v1.GetSpotDataResponse
-	35, // 105: arcoloom.provider.v1.ProviderService.StartInstance:output_type -> arcoloom.provider.v1.StartInstanceResponse
-	37, // 106: arcoloom.provider.v1.ProviderService.StopInstance:output_type -> arcoloom.provider.v1.StopInstanceResponse
-	40, // 107: arcoloom.provider.v1.ProviderService.ListActiveInstances:output_type -> arcoloom.provider.v1.ListActiveInstancesResponse
-	49, // 108: arcoloom.provider.v1.ProviderService.ListInstanceTypes:output_type -> arcoloom.provider.v1.ListInstanceTypesResponse
-	51, // 109: arcoloom.provider.v1.ProviderService.GetInstanceTypeInfo:output_type -> arcoloom.provider.v1.GetInstanceTypeInfoResponse
-	53, // 110: arcoloom.provider.v1.ProviderService.GetInstancePrices:output_type -> arcoloom.provider.v1.GetInstancePricesResponse
-	98, // [98:111] is the sub-list for method output_type
-	85, // [85:98] is the sub-list for method input_type
-	85, // [85:85] is the sub-list for extension type_name
-	85, // [85:85] is the sub-list for extension extendee
-	0,  // [0:85] is the sub-list for field type_name
+	1,  // 0: arcoloom.provider.v1.SchemaAttribute.type:type_name -> arcoloom.provider.v1.SchemaAttributeType
+	64, // 1: arcoloom.provider.v1.SchemaAttribute.default_value:type_name -> google.protobuf.Value
+	5,  // 2: arcoloom.provider.v1.ProviderResourceSchema.attributes:type_name -> arcoloom.provider.v1.SchemaAttribute
+	50, // 3: arcoloom.provider.v1.ConnectionScope.attributes:type_name -> arcoloom.provider.v1.ConnectionScope.AttributesEntry
+	65, // 4: arcoloom.provider.v1.Credentials.data:type_name -> google.protobuf.Struct
+	5,  // 5: arcoloom.provider.v1.ProviderAuthMethod.fields:type_name -> arcoloom.provider.v1.SchemaAttribute
+	10, // 6: arcoloom.provider.v1.ProviderMetadata.auth_methods:type_name -> arcoloom.provider.v1.ProviderAuthMethod
+	51, // 7: arcoloom.provider.v1.ProviderMetadata.capabilities:type_name -> arcoloom.provider.v1.ProviderMetadata.CapabilitiesEntry
+	0,  // 8: arcoloom.provider.v1.ProviderMetadata.resource_planes:type_name -> arcoloom.provider.v1.ResourcePlane
+	11, // 9: arcoloom.provider.v1.GetProviderInfoResponse.metadata:type_name -> arcoloom.provider.v1.ProviderMetadata
+	6,  // 10: arcoloom.provider.v1.GetProviderSchemaResponse.resources:type_name -> arcoloom.provider.v1.ProviderResourceSchema
+	7,  // 11: arcoloom.provider.v1.ValidateConnectionRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 12: arcoloom.provider.v1.ValidateConnectionRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 13: arcoloom.provider.v1.ValidateConnectionRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	52, // 14: arcoloom.provider.v1.ValidateConnectionRequest.options:type_name -> arcoloom.provider.v1.ValidateConnectionRequest.OptionsEntry
+	12, // 15: arcoloom.provider.v1.ValidateConnectionResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 16: arcoloom.provider.v1.PingRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	11, // 17: arcoloom.provider.v1.PingResponse.metadata:type_name -> arcoloom.provider.v1.ProviderMetadata
+	7,  // 18: arcoloom.provider.v1.ListRegionsRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 19: arcoloom.provider.v1.ListRegionsRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 20: arcoloom.provider.v1.ListRegionsRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	53, // 21: arcoloom.provider.v1.ListRegionsRequest.options:type_name -> arcoloom.provider.v1.ListRegionsRequest.OptionsEntry
+	37, // 22: arcoloom.provider.v1.ListRegionsResponse.items:type_name -> arcoloom.provider.v1.CloudRegion
+	12, // 23: arcoloom.provider.v1.ListRegionsResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 24: arcoloom.provider.v1.ListAvailabilityZonesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 25: arcoloom.provider.v1.ListAvailabilityZonesRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 26: arcoloom.provider.v1.ListAvailabilityZonesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	54, // 27: arcoloom.provider.v1.ListAvailabilityZonesRequest.options:type_name -> arcoloom.provider.v1.ListAvailabilityZonesRequest.OptionsEntry
+	38, // 28: arcoloom.provider.v1.ListAvailabilityZonesResponse.items:type_name -> arcoloom.provider.v1.AvailabilityZone
+	12, // 29: arcoloom.provider.v1.ListAvailabilityZonesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 30: arcoloom.provider.v1.GetSpotDataRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 31: arcoloom.provider.v1.GetSpotDataRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 32: arcoloom.provider.v1.GetSpotDataRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	55, // 33: arcoloom.provider.v1.GetSpotDataRequest.options:type_name -> arcoloom.provider.v1.GetSpotDataRequest.OptionsEntry
+	26, // 34: arcoloom.provider.v1.SpotData.inventory:type_name -> arcoloom.provider.v1.SpotInventory
+	27, // 35: arcoloom.provider.v1.GetSpotDataResponse.items:type_name -> arcoloom.provider.v1.SpotData
+	12, // 36: arcoloom.provider.v1.GetSpotDataResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 37: arcoloom.provider.v1.StartInstanceRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 38: arcoloom.provider.v1.StartInstanceRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 39: arcoloom.provider.v1.StartInstanceRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	2,  // 40: arcoloom.provider.v1.StartInstanceRequest.market_type:type_name -> arcoloom.provider.v1.InstanceMarketType
+	56, // 41: arcoloom.provider.v1.StartInstanceRequest.options:type_name -> arcoloom.provider.v1.StartInstanceRequest.OptionsEntry
+	29, // 42: arcoloom.provider.v1.StartInstanceRequest.tags:type_name -> arcoloom.provider.v1.InstanceTag
+	65, // 43: arcoloom.provider.v1.StartInstanceRequest.provider_config:type_name -> google.protobuf.Struct
+	12, // 44: arcoloom.provider.v1.StartInstanceResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 45: arcoloom.provider.v1.StopInstanceRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 46: arcoloom.provider.v1.StopInstanceRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 47: arcoloom.provider.v1.StopInstanceRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	57, // 48: arcoloom.provider.v1.StopInstanceRequest.options:type_name -> arcoloom.provider.v1.StopInstanceRequest.OptionsEntry
+	12, // 49: arcoloom.provider.v1.StopInstanceResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 50: arcoloom.provider.v1.ListActiveInstancesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	9,  // 51: arcoloom.provider.v1.ListActiveInstancesRequest.credentials:type_name -> arcoloom.provider.v1.Credentials
+	8,  // 52: arcoloom.provider.v1.ListActiveInstancesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	29, // 53: arcoloom.provider.v1.ListActiveInstancesRequest.tags:type_name -> arcoloom.provider.v1.InstanceTag
+	58, // 54: arcoloom.provider.v1.ListActiveInstancesRequest.options:type_name -> arcoloom.provider.v1.ListActiveInstancesRequest.OptionsEntry
+	2,  // 55: arcoloom.provider.v1.ActiveInstance.market_type:type_name -> arcoloom.provider.v1.InstanceMarketType
+	29, // 56: arcoloom.provider.v1.ActiveInstance.tags:type_name -> arcoloom.provider.v1.InstanceTag
+	59, // 57: arcoloom.provider.v1.ActiveInstance.provider_attributes:type_name -> arcoloom.provider.v1.ActiveInstance.ProviderAttributesEntry
+	35, // 58: arcoloom.provider.v1.ListActiveInstancesResponse.items:type_name -> arcoloom.provider.v1.ActiveInstance
+	12, // 59: arcoloom.provider.v1.ListActiveInstancesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	4,  // 60: arcoloom.provider.v1.Accelerator.kind:type_name -> arcoloom.provider.v1.AcceleratorKind
+	37, // 61: arcoloom.provider.v1.InstanceTypeInfo.supported_regions:type_name -> arcoloom.provider.v1.CloudRegion
+	39, // 62: arcoloom.provider.v1.InstanceTypeInfo.accelerators:type_name -> arcoloom.provider.v1.Accelerator
+	40, // 63: arcoloom.provider.v1.InstanceTypeInfo.local_storage:type_name -> arcoloom.provider.v1.LocalStorage
+	60, // 64: arcoloom.provider.v1.InstanceTypeInfo.attributes:type_name -> arcoloom.provider.v1.InstanceTypeInfo.AttributesEntry
+	37, // 65: arcoloom.provider.v1.InstancePrice.region:type_name -> arcoloom.provider.v1.CloudRegion
+	3,  // 66: arcoloom.provider.v1.InstancePrice.purchase_option:type_name -> arcoloom.provider.v1.PurchaseOption
+	7,  // 67: arcoloom.provider.v1.ListInstanceTypesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	8,  // 68: arcoloom.provider.v1.ListInstanceTypesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	61, // 69: arcoloom.provider.v1.ListInstanceTypesRequest.options:type_name -> arcoloom.provider.v1.ListInstanceTypesRequest.OptionsEntry
+	41, // 70: arcoloom.provider.v1.ListInstanceTypesResponse.items:type_name -> arcoloom.provider.v1.InstanceTypeSummary
+	12, // 71: arcoloom.provider.v1.ListInstanceTypesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 72: arcoloom.provider.v1.GetInstanceTypeInfoRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	8,  // 73: arcoloom.provider.v1.GetInstanceTypeInfoRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	62, // 74: arcoloom.provider.v1.GetInstanceTypeInfoRequest.options:type_name -> arcoloom.provider.v1.GetInstanceTypeInfoRequest.OptionsEntry
+	42, // 75: arcoloom.provider.v1.GetInstanceTypeInfoResponse.items:type_name -> arcoloom.provider.v1.InstanceTypeInfo
+	12, // 76: arcoloom.provider.v1.GetInstanceTypeInfoResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	7,  // 77: arcoloom.provider.v1.GetInstancePricesRequest.context:type_name -> arcoloom.provider.v1.RequestContext
+	8,  // 78: arcoloom.provider.v1.GetInstancePricesRequest.scope:type_name -> arcoloom.provider.v1.ConnectionScope
+	3,  // 79: arcoloom.provider.v1.GetInstancePricesRequest.purchase_option:type_name -> arcoloom.provider.v1.PurchaseOption
+	63, // 80: arcoloom.provider.v1.GetInstancePricesRequest.options:type_name -> arcoloom.provider.v1.GetInstancePricesRequest.OptionsEntry
+	43, // 81: arcoloom.provider.v1.GetInstancePricesResponse.items:type_name -> arcoloom.provider.v1.InstancePrice
+	12, // 82: arcoloom.provider.v1.GetInstancePricesResponse.warnings:type_name -> arcoloom.provider.v1.Warning
+	13, // 83: arcoloom.provider.v1.ProviderService.GetProviderInfo:input_type -> arcoloom.provider.v1.GetProviderInfoRequest
+	15, // 84: arcoloom.provider.v1.ProviderService.GetProviderSchema:input_type -> arcoloom.provider.v1.GetProviderSchemaRequest
+	17, // 85: arcoloom.provider.v1.ProviderService.ValidateConnection:input_type -> arcoloom.provider.v1.ValidateConnectionRequest
+	19, // 86: arcoloom.provider.v1.ProviderService.Ping:input_type -> arcoloom.provider.v1.PingRequest
+	21, // 87: arcoloom.provider.v1.ProviderService.ListRegions:input_type -> arcoloom.provider.v1.ListRegionsRequest
+	23, // 88: arcoloom.provider.v1.ProviderService.ListAvailabilityZones:input_type -> arcoloom.provider.v1.ListAvailabilityZonesRequest
+	25, // 89: arcoloom.provider.v1.ProviderService.GetSpotData:input_type -> arcoloom.provider.v1.GetSpotDataRequest
+	30, // 90: arcoloom.provider.v1.ProviderService.StartInstance:input_type -> arcoloom.provider.v1.StartInstanceRequest
+	32, // 91: arcoloom.provider.v1.ProviderService.StopInstance:input_type -> arcoloom.provider.v1.StopInstanceRequest
+	34, // 92: arcoloom.provider.v1.ProviderService.ListActiveInstances:input_type -> arcoloom.provider.v1.ListActiveInstancesRequest
+	44, // 93: arcoloom.provider.v1.ProviderService.ListInstanceTypes:input_type -> arcoloom.provider.v1.ListInstanceTypesRequest
+	46, // 94: arcoloom.provider.v1.ProviderService.GetInstanceTypeInfo:input_type -> arcoloom.provider.v1.GetInstanceTypeInfoRequest
+	48, // 95: arcoloom.provider.v1.ProviderService.GetInstancePrices:input_type -> arcoloom.provider.v1.GetInstancePricesRequest
+	14, // 96: arcoloom.provider.v1.ProviderService.GetProviderInfo:output_type -> arcoloom.provider.v1.GetProviderInfoResponse
+	16, // 97: arcoloom.provider.v1.ProviderService.GetProviderSchema:output_type -> arcoloom.provider.v1.GetProviderSchemaResponse
+	18, // 98: arcoloom.provider.v1.ProviderService.ValidateConnection:output_type -> arcoloom.provider.v1.ValidateConnectionResponse
+	20, // 99: arcoloom.provider.v1.ProviderService.Ping:output_type -> arcoloom.provider.v1.PingResponse
+	22, // 100: arcoloom.provider.v1.ProviderService.ListRegions:output_type -> arcoloom.provider.v1.ListRegionsResponse
+	24, // 101: arcoloom.provider.v1.ProviderService.ListAvailabilityZones:output_type -> arcoloom.provider.v1.ListAvailabilityZonesResponse
+	28, // 102: arcoloom.provider.v1.ProviderService.GetSpotData:output_type -> arcoloom.provider.v1.GetSpotDataResponse
+	31, // 103: arcoloom.provider.v1.ProviderService.StartInstance:output_type -> arcoloom.provider.v1.StartInstanceResponse
+	33, // 104: arcoloom.provider.v1.ProviderService.StopInstance:output_type -> arcoloom.provider.v1.StopInstanceResponse
+	36, // 105: arcoloom.provider.v1.ProviderService.ListActiveInstances:output_type -> arcoloom.provider.v1.ListActiveInstancesResponse
+	45, // 106: arcoloom.provider.v1.ProviderService.ListInstanceTypes:output_type -> arcoloom.provider.v1.ListInstanceTypesResponse
+	47, // 107: arcoloom.provider.v1.ProviderService.GetInstanceTypeInfo:output_type -> arcoloom.provider.v1.GetInstanceTypeInfoResponse
+	49, // 108: arcoloom.provider.v1.ProviderService.GetInstancePrices:output_type -> arcoloom.provider.v1.GetInstancePricesResponse
+	96, // [96:109] is the sub-list for method output_type
+	83, // [83:96] is the sub-list for method input_type
+	83, // [83:83] is the sub-list for extension type_name
+	83, // [83:83] is the sub-list for extension extendee
+	0,  // [0:83] is the sub-list for field type_name
 }
 
 func init() { file_arcoloom_provider_v1_provider_proto_init() }
@@ -4672,18 +4346,13 @@ func file_arcoloom_provider_v1_provider_proto_init() {
 	if File_arcoloom_provider_v1_provider_proto != nil {
 		return
 	}
-	file_arcoloom_provider_v1_provider_proto_msgTypes[7].OneofWrappers = []any{
-		(*Credentials_AwsIam)(nil),
-		(*Credentials_AzureClientSecret)(nil),
-		(*Credentials_GcpServiceAccount)(nil),
-	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_arcoloom_provider_v1_provider_proto_rawDesc), len(file_arcoloom_provider_v1_provider_proto_rawDesc)),
-			NumEnums:      7,
-			NumMessages:   61,
+			NumEnums:      5,
+			NumMessages:   59,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

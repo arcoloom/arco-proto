@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package arcoloom.ee.v1;
 
-option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/ee/v1;eev1";
-
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/ee/v1;eev1";
 
 service EcoEngine {
   rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
