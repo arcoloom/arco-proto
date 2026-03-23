@@ -25,6 +25,7 @@ const (
 	ProviderService_Ping_FullMethodName                  = "/arcoloom.provider.v1.ProviderService/Ping"
 	ProviderService_ListRegions_FullMethodName           = "/arcoloom.provider.v1.ProviderService/ListRegions"
 	ProviderService_ListAvailabilityZones_FullMethodName = "/arcoloom.provider.v1.ProviderService/ListAvailabilityZones"
+	ProviderService_WatchMarketFeed_FullMethodName       = "/arcoloom.provider.v1.ProviderService/WatchMarketFeed"
 	ProviderService_GetSpotData_FullMethodName           = "/arcoloom.provider.v1.ProviderService/GetSpotData"
 	ProviderService_StartInstance_FullMethodName         = "/arcoloom.provider.v1.ProviderService/StartInstance"
 	ProviderService_StopInstance_FullMethodName          = "/arcoloom.provider.v1.ProviderService/StopInstance"
@@ -44,6 +45,7 @@ type ProviderServiceClient interface {
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error)
 	ListRegions(ctx context.Context, in *ListRegionsRequest, opts ...grpc.CallOption) (*ListRegionsResponse, error)
 	ListAvailabilityZones(ctx context.Context, in *ListAvailabilityZonesRequest, opts ...grpc.CallOption) (*ListAvailabilityZonesResponse, error)
+	WatchMarketFeed(ctx context.Context, in *WatchMarketFeedRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchMarketFeedResponse], error)
 	GetSpotData(ctx context.Context, in *GetSpotDataRequest, opts ...grpc.CallOption) (*GetSpotDataResponse, error)
 	StartInstance(ctx context.Context, in *StartInstanceRequest, opts ...grpc.CallOption) (*StartInstanceResponse, error)
 	StopInstance(ctx context.Context, in *StopInstanceRequest, opts ...grpc.CallOption) (*StopInstanceResponse, error)
@@ -120,6 +122,25 @@ func (c *providerServiceClient) ListAvailabilityZones(ctx context.Context, in *L
 	}
 	return out, nil
 }
+
+func (c *providerServiceClient) WatchMarketFeed(ctx context.Context, in *WatchMarketFeedRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchMarketFeedResponse], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &ProviderService_ServiceDesc.Streams[0], ProviderService_WatchMarketFeed_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[WatchMarketFeedRequest, WatchMarketFeedResponse]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ProviderService_WatchMarketFeedClient = grpc.ServerStreamingClient[WatchMarketFeedResponse]
 
 func (c *providerServiceClient) GetSpotData(ctx context.Context, in *GetSpotDataRequest, opts ...grpc.CallOption) (*GetSpotDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
@@ -201,6 +222,7 @@ type ProviderServiceServer interface {
 	Ping(context.Context, *PingRequest) (*PingResponse, error)
 	ListRegions(context.Context, *ListRegionsRequest) (*ListRegionsResponse, error)
 	ListAvailabilityZones(context.Context, *ListAvailabilityZonesRequest) (*ListAvailabilityZonesResponse, error)
+	WatchMarketFeed(*WatchMarketFeedRequest, grpc.ServerStreamingServer[WatchMarketFeedResponse]) error
 	GetSpotData(context.Context, *GetSpotDataRequest) (*GetSpotDataResponse, error)
 	StartInstance(context.Context, *StartInstanceRequest) (*StartInstanceResponse, error)
 	StopInstance(context.Context, *StopInstanceRequest) (*StopInstanceResponse, error)
@@ -235,6 +257,9 @@ func (UnimplementedProviderServiceServer) ListRegions(context.Context, *ListRegi
 }
 func (UnimplementedProviderServiceServer) ListAvailabilityZones(context.Context, *ListAvailabilityZonesRequest) (*ListAvailabilityZonesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListAvailabilityZones not implemented")
+}
+func (UnimplementedProviderServiceServer) WatchMarketFeed(*WatchMarketFeedRequest, grpc.ServerStreamingServer[WatchMarketFeedResponse]) error {
+	return status.Errorf(codes.Unimplemented, "method WatchMarketFeed not implemented")
 }
 func (UnimplementedProviderServiceServer) GetSpotData(context.Context, *GetSpotDataRequest) (*GetSpotDataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSpotData not implemented")
@@ -385,6 +410,17 @@ func _ProviderService_ListAvailabilityZones_Handler(srv interface{}, ctx context
 	}
 	return interceptor(ctx, in, info, handler)
 }
+
+func _ProviderService_WatchMarketFeed_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(WatchMarketFeedRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(ProviderServiceServer).WatchMarketFeed(m, &grpc.GenericServerStream[WatchMarketFeedRequest, WatchMarketFeedResponse]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ProviderService_WatchMarketFeedServer = grpc.ServerStreamingServer[WatchMarketFeedResponse]
 
 func _ProviderService_GetSpotData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpotDataRequest)
@@ -572,6 +608,12 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ProviderService_GetInstancePrices_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "WatchMarketFeed",
+			Handler:       _ProviderService_WatchMarketFeed_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "arcoloom/provider/v1/provider.proto",
 }

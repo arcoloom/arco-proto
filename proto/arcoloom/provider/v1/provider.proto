@@ -13,6 +13,7 @@ service ProviderService {
   rpc Ping(PingRequest) returns (PingResponse);
   rpc ListRegions(ListRegionsRequest) returns (ListRegionsResponse);
   rpc ListAvailabilityZones(ListAvailabilityZonesRequest) returns (ListAvailabilityZonesResponse);
+  rpc WatchMarketFeed(WatchMarketFeedRequest) returns (stream WatchMarketFeedResponse);
   rpc GetSpotData(GetSpotDataRequest) returns (GetSpotDataResponse);
   rpc StartInstance(StartInstanceRequest) returns (StartInstanceResponse);
   rpc StopInstance(StopInstanceRequest) returns (StopInstanceResponse);
@@ -159,6 +160,57 @@ message ListAvailabilityZonesResponse {
   repeated Warning warnings = 2;
 }
 
+message WatchMarketFeedRequest {
+  RequestContext context = 1;
+  Credentials credentials = 2;
+  ConnectionScope scope = 3;
+  string resume_token = 4;
+  map<string, string> options = 5;
+}
+
+message MarketOffering {
+  string account_id = 1;
+  string region = 2;
+  string availability_zone = 3;
+  string zone_id = 4;
+  string instance_type = 5;
+  PurchaseOption purchase_option = 6;
+  int32 cpu_milli = 7;
+  int32 memory_mib = 8;
+  int32 gpu_count = 9;
+  double hourly_price_usd = 10;
+  map<string, string> attributes = 13;
+  reserved 11, 12;
+}
+
+message MarketFeedBegin {
+  string snapshot_token = 1;
+}
+
+message MarketFeedChunk {
+  repeated MarketOffering offerings = 1;
+}
+
+message MarketFeedCommit {
+  string snapshot_token = 1;
+  string resume_token = 2;
+}
+
+message MarketFeedHeartbeat {
+  string resume_token = 1;
+  repeated Warning warnings = 2;
+}
+
+message WatchMarketFeedResponse {
+  oneof event {
+    MarketFeedBegin begin = 1;
+    MarketFeedChunk chunk = 2;
+    MarketFeedCommit commit = 3;
+    MarketFeedHeartbeat heartbeat = 4;
+    Warning warning = 5;
+  }
+}
+
 message GetSpotDataRequest {
   RequestContext context = 1;
   Credentials credentials = 2;
@@ -217,6 +269,7 @@ message StartInstanceRequest {
   map<string, string> options = 11;
   repeated InstanceTag tags = 12;
   google.protobuf.Struct provider_config = 13;
+  string account_id = 14;
 }
 
 message StartInstanceResponse {
@@ -235,6 +288,7 @@ message StopInstanceRequest {
   string instance_id = 4;
   string region = 5;
   map<string, string> options = 6;
+  string account_id = 7;
 }
 
 message StopInstanceResponse {
@@ -268,6 +322,7 @@ message ActiveInstance {
   string launch_time = 11;
   repeated InstanceTag tags = 12;
   map<string, string> provider_attributes = 13;
+  string account_id = 14;
 }
 
 message ListActiveInstancesResponse {
@@ -415,6 +470,7 @@ message GetInstancePricesRequest {
   string license_model = 9;
   string currency = 10;
   map<string, string> options = 11;
+  Credentials credentials = 12;
 }
 
 message GetInstancePricesResponse {

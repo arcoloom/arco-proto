@@ -1137,22 +1137,21 @@ func (x *MarketSnapshot) GetOfferings() []*ProviderOffering {
 }
 
 type ProviderOffering struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Provider         string                 `protobuf:"bytes,1,opt,name=provider,proto3" json:"provider,omitempty"`
-	Region           string                 `protobuf:"bytes,2,opt,name=region,proto3" json:"region,omitempty"`
-	Zone             string                 `protobuf:"bytes,3,opt,name=zone,proto3" json:"zone,omitempty"`
-	ZoneId           string                 `protobuf:"bytes,4,opt,name=zone_id,json=zoneId,proto3" json:"zone_id,omitempty"`
-	InstanceType     string                 `protobuf:"bytes,5,opt,name=instance_type,json=instanceType,proto3" json:"instance_type,omitempty"`
-	PricingModel     PricingModel           `protobuf:"varint,6,opt,name=pricing_model,json=pricingModel,proto3,enum=arcoloom.ee.v1.PricingModel" json:"pricing_model,omitempty"`
-	CpuMilli         uint32                 `protobuf:"varint,7,opt,name=cpu_milli,json=cpuMilli,proto3" json:"cpu_milli,omitempty"`
-	MemoryMib        uint32                 `protobuf:"varint,8,opt,name=memory_mib,json=memoryMib,proto3" json:"memory_mib,omitempty"`
-	GpuCount         uint32                 `protobuf:"varint,9,opt,name=gpu_count,json=gpuCount,proto3" json:"gpu_count,omitempty"`
-	HourlyPriceUsd   float64                `protobuf:"fixed64,10,opt,name=hourly_price_usd,json=hourlyPriceUsd,proto3" json:"hourly_price_usd,omitempty"`
-	SuccessRate      float64                `protobuf:"fixed64,11,opt,name=success_rate,json=successRate,proto3" json:"success_rate,omitempty"`
-	InterruptionRate float64                `protobuf:"fixed64,12,opt,name=interruption_rate,json=interruptionRate,proto3" json:"interruption_rate,omitempty"`
-	Attributes       map[string]string      `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Provider       string                 `protobuf:"bytes,1,opt,name=provider,proto3" json:"provider,omitempty"`
+	Region         string                 `protobuf:"bytes,2,opt,name=region,proto3" json:"region,omitempty"`
+	Zone           string                 `protobuf:"bytes,3,opt,name=zone,proto3" json:"zone,omitempty"`
+	ZoneId         string                 `protobuf:"bytes,4,opt,name=zone_id,json=zoneId,proto3" json:"zone_id,omitempty"`
+	InstanceType   string                 `protobuf:"bytes,5,opt,name=instance_type,json=instanceType,proto3" json:"instance_type,omitempty"`
+	PricingModel   PricingModel           `protobuf:"varint,6,opt,name=pricing_model,json=pricingModel,proto3,enum=arcoloom.ee.v1.PricingModel" json:"pricing_model,omitempty"`
+	CpuMilli       uint32                 `protobuf:"varint,7,opt,name=cpu_milli,json=cpuMilli,proto3" json:"cpu_milli,omitempty"`
+	MemoryMib      uint32                 `protobuf:"varint,8,opt,name=memory_mib,json=memoryMib,proto3" json:"memory_mib,omitempty"`
+	GpuCount       uint32                 `protobuf:"varint,9,opt,name=gpu_count,json=gpuCount,proto3" json:"gpu_count,omitempty"`
+	HourlyPriceUsd float64                `protobuf:"fixed64,10,opt,name=hourly_price_usd,json=hourlyPriceUsd,proto3" json:"hourly_price_usd,omitempty"`
+	Attributes     map[string]string      `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	AccountId      string                 `protobuf:"bytes,14,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ProviderOffering) Reset() {
@@ -1255,25 +1254,18 @@ func (x *ProviderOffering) GetHourlyPriceUsd() float64 {
 	return 0
 }
 
-func (x *ProviderOffering) GetSuccessRate() float64 {
-	if x != nil {
-		return x.SuccessRate
-	}
-	return 0
-}
-
-func (x *ProviderOffering) GetInterruptionRate() float64 {
-	if x != nil {
-		return x.InterruptionRate
-	}
-	return 0
-}
-
 func (x *ProviderOffering) GetAttributes() map[string]string {
 	if x != nil {
 		return x.Attributes
 	}
 	return nil
+}
+
+func (x *ProviderOffering) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
 }
 
 type AccountLimit struct {
@@ -1718,7 +1710,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x0eMarketSnapshot\x12;\n" +
 	"\vobserved_at\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"observedAt\x12>\n" +
-	"\tofferings\x18\x02 \x03(\v2 .arcoloom.ee.v1.ProviderOfferingR\tofferings\"\xbf\x04\n" +
+	"\tofferings\x18\x02 \x03(\v2 .arcoloom.ee.v1.ProviderOfferingR\tofferings\"\x9a\x04\n" +
 	"\x10ProviderOffering\x12\x1a\n" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x16\n" +
 	"\x06region\x18\x02 \x01(\tR\x06region\x12\x12\n" +
@@ -1731,15 +1723,15 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"memory_mib\x18\b \x01(\rR\tmemoryMib\x12\x1b\n" +
 	"\tgpu_count\x18\t \x01(\rR\bgpuCount\x12(\n" +
 	"\x10hourly_price_usd\x18\n" +
-	" \x01(\x01R\x0ehourlyPriceUsd\x12!\n" +
-	"\fsuccess_rate\x18\v \x01(\x01R\vsuccessRate\x12+\n" +
-	"\x11interruption_rate\x18\f \x01(\x01R\x10interruptionRate\x12P\n" +
+	" \x01(\x01R\x0ehourlyPriceUsd\x12P\n" +
 	"\n" +
 	"attributes\x18\r \x03(\v20.arcoloom.ee.v1.ProviderOffering.AttributesEntryR\n" +
-	"attributes\x1a=\n" +
+	"attributes\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x0e \x01(\tR\taccountId\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xa1\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\v\x10\fJ\x04\b\f\x10\r\"\xa1\x01\n" +
 	"\fAccountLimit\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\tR\taccountId\x12\x1a\n" +

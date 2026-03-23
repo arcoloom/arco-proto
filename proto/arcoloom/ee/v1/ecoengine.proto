@@ -150,9 +150,9 @@ message ProviderOffering {
   uint32 memory_mib = 8;
   uint32 gpu_count = 9;
   double hourly_price_usd = 10;
-  double success_rate = 11;
-  double interruption_rate = 12;
   map<string, string> attributes = 13;
+  string account_id = 14;
+  reserved 11, 12;
 }
 
 message AccountLimit {
