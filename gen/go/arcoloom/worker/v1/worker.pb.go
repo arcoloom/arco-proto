@@ -174,6 +174,104 @@ func (SignalType) EnumDescriptor() ([]byte, []int) {
 	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{2}
 }
 
+type LogSource int32
+
+const (
+	LogSource_LOG_SOURCE_UNSPECIFIED LogSource = 0
+	LogSource_LOG_SOURCE_WORKER      LogSource = 1
+	LogSource_LOG_SOURCE_PROGRAM     LogSource = 2
+)
+
+// Enum value maps for LogSource.
+var (
+	LogSource_name = map[int32]string{
+		0: "LOG_SOURCE_UNSPECIFIED",
+		1: "LOG_SOURCE_WORKER",
+		2: "LOG_SOURCE_PROGRAM",
+	}
+	LogSource_value = map[string]int32{
+		"LOG_SOURCE_UNSPECIFIED": 0,
+		"LOG_SOURCE_WORKER":      1,
+		"LOG_SOURCE_PROGRAM":     2,
+	}
+)
+
+func (x LogSource) Enum() *LogSource {
+	p := new(LogSource)
+	*p = x
+	return p
+}
+
+func (x LogSource) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (LogSource) Descriptor() protoreflect.EnumDescriptor {
+	return file_arcoloom_worker_v1_worker_proto_enumTypes[3].Descriptor()
+}
+
+func (LogSource) Type() protoreflect.EnumType {
+	return &file_arcoloom_worker_v1_worker_proto_enumTypes[3]
+}
+
+func (x LogSource) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use LogSource.Descriptor instead.
+func (LogSource) EnumDescriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{3}
+}
+
+type LogStream int32
+
+const (
+	LogStream_LOG_STREAM_UNSPECIFIED LogStream = 0
+	LogStream_LOG_STREAM_STDOUT      LogStream = 1
+	LogStream_LOG_STREAM_STDERR      LogStream = 2
+)
+
+// Enum value maps for LogStream.
+var (
+	LogStream_name = map[int32]string{
+		0: "LOG_STREAM_UNSPECIFIED",
+		1: "LOG_STREAM_STDOUT",
+		2: "LOG_STREAM_STDERR",
+	}
+	LogStream_value = map[string]int32{
+		"LOG_STREAM_UNSPECIFIED": 0,
+		"LOG_STREAM_STDOUT":      1,
+		"LOG_STREAM_STDERR":      2,
+	}
+)
+
+func (x LogStream) Enum() *LogStream {
+	p := new(LogStream)
+	*p = x
+	return p
+}
+
+func (x LogStream) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (LogStream) Descriptor() protoreflect.EnumDescriptor {
+	return file_arcoloom_worker_v1_worker_proto_enumTypes[4].Descriptor()
+}
+
+func (LogStream) Type() protoreflect.EnumType {
+	return &file_arcoloom_worker_v1_worker_proto_enumTypes[4]
+}
+
+func (x LogStream) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use LogStream.Descriptor instead.
+func (LogStream) EnumDescriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{4}
+}
+
 type Hello struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	InstanceId        string                 `protobuf:"bytes,1,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
@@ -466,6 +564,82 @@ func (x *Signal) GetDetail() string {
 	return ""
 }
 
+type TaskLog struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TaskId        string                 `protobuf:"bytes,1,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	Source        LogSource              `protobuf:"varint,2,opt,name=source,proto3,enum=arcoloom.worker.v1.LogSource" json:"source,omitempty"`
+	Stream        LogStream              `protobuf:"varint,3,opt,name=stream,proto3,enum=arcoloom.worker.v1.LogStream" json:"stream,omitempty"`
+	Line          string                 `protobuf:"bytes,4,opt,name=line,proto3" json:"line,omitempty"`
+	Sequence      uint64                 `protobuf:"varint,5,opt,name=sequence,proto3" json:"sequence,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TaskLog) Reset() {
+	*x = TaskLog{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TaskLog) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TaskLog) ProtoMessage() {}
+
+func (x *TaskLog) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TaskLog.ProtoReflect.Descriptor instead.
+func (*TaskLog) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *TaskLog) GetTaskId() string {
+	if x != nil {
+		return x.TaskId
+	}
+	return ""
+}
+
+func (x *TaskLog) GetSource() LogSource {
+	if x != nil {
+		return x.Source
+	}
+	return LogSource_LOG_SOURCE_UNSPECIFIED
+}
+
+func (x *TaskLog) GetStream() LogStream {
+	if x != nil {
+		return x.Stream
+	}
+	return LogStream_LOG_STREAM_UNSPECIFIED
+}
+
+func (x *TaskLog) GetLine() string {
+	if x != nil {
+		return x.Line
+	}
+	return ""
+}
+
+func (x *TaskLog) GetSequence() uint64 {
+	if x != nil {
+		return x.Sequence
+	}
+	return 0
+}
+
 type Heartbeat struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	WorkerId      string                 `protobuf:"bytes,1,opt,name=worker_id,json=workerId,proto3" json:"worker_id,omitempty"`
@@ -475,7 +649,7 @@ type Heartbeat struct {
 
 func (x *Heartbeat) Reset() {
 	*x = Heartbeat{}
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[5]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -487,7 +661,7 @@ func (x *Heartbeat) String() string {
 func (*Heartbeat) ProtoMessage() {}
 
 func (x *Heartbeat) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[5]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -500,7 +674,7 @@ func (x *Heartbeat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Heartbeat.ProtoReflect.Descriptor instead.
 func (*Heartbeat) Descriptor() ([]byte, []int) {
-	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{5}
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Heartbeat) GetWorkerId() string {
@@ -519,7 +693,7 @@ type Shutdown struct {
 
 func (x *Shutdown) Reset() {
 	*x = Shutdown{}
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[6]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -531,7 +705,7 @@ func (x *Shutdown) String() string {
 func (*Shutdown) ProtoMessage() {}
 
 func (x *Shutdown) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[6]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -544,7 +718,7 @@ func (x *Shutdown) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Shutdown.ProtoReflect.Descriptor instead.
 func (*Shutdown) Descriptor() ([]byte, []int) {
-	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{6}
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Shutdown) GetReason() string {
@@ -562,6 +736,7 @@ type WorkerToControl struct {
 	//	*WorkerToControl_Status
 	//	*WorkerToControl_Signal
 	//	*WorkerToControl_Heartbeat
+	//	*WorkerToControl_Log
 	Message       isWorkerToControl_Message `protobuf_oneof:"message"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -569,7 +744,7 @@ type WorkerToControl struct {
 
 func (x *WorkerToControl) Reset() {
 	*x = WorkerToControl{}
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[7]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -581,7 +756,7 @@ func (x *WorkerToControl) String() string {
 func (*WorkerToControl) ProtoMessage() {}
 
 func (x *WorkerToControl) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[7]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -594,7 +769,7 @@ func (x *WorkerToControl) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkerToControl.ProtoReflect.Descriptor instead.
 func (*WorkerToControl) Descriptor() ([]byte, []int) {
-	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{7}
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *WorkerToControl) GetMessage() isWorkerToControl_Message {
@@ -640,6 +815,15 @@ func (x *WorkerToControl) GetHeartbeat() *Heartbeat {
 	return nil
 }
 
+func (x *WorkerToControl) GetLog() *TaskLog {
+	if x != nil {
+		if x, ok := x.Message.(*WorkerToControl_Log); ok {
+			return x.Log
+		}
+	}
+	return nil
+}
+
 type isWorkerToControl_Message interface {
 	isWorkerToControl_Message()
 }
@@ -660,6 +844,10 @@ type WorkerToControl_Heartbeat struct {
 	Heartbeat *Heartbeat `protobuf:"bytes,4,opt,name=heartbeat,proto3,oneof"`
 }
 
+type WorkerToControl_Log struct {
+	Log *TaskLog `protobuf:"bytes,5,opt,name=log,proto3,oneof"`
+}
+
 func (*WorkerToControl_Hello) isWorkerToControl_Message() {}
 
 func (*WorkerToControl_Status) isWorkerToControl_Message() {}
@@ -667,6 +855,8 @@ func (*WorkerToControl_Status) isWorkerToControl_Message() {}
 func (*WorkerToControl_Signal) isWorkerToControl_Message() {}
 
 func (*WorkerToControl_Heartbeat) isWorkerToControl_Message() {}
+
+func (*WorkerToControl_Log) isWorkerToControl_Message() {}
 
 type ControlToWorker struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -682,7 +872,7 @@ type ControlToWorker struct {
 
 func (x *ControlToWorker) Reset() {
 	*x = ControlToWorker{}
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -694,7 +884,7 @@ func (x *ControlToWorker) String() string {
 func (*ControlToWorker) ProtoMessage() {}
 
 func (x *ControlToWorker) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -707,7 +897,7 @@ func (x *ControlToWorker) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ControlToWorker.ProtoReflect.Descriptor instead.
 func (*ControlToWorker) Descriptor() ([]byte, []int) {
-	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{8}
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ControlToWorker) GetMessage() isControlToWorker_Message {
@@ -792,16 +982,23 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x12?\n" +
 	"\vsignal_type\x18\x02 \x01(\x0e2\x1e.arcoloom.worker.v1.SignalTypeR\n" +
 	"signalType\x12\x16\n" +
-	"\x06detail\x18\x03 \x01(\tR\x06detail\"(\n" +
+	"\x06detail\x18\x03 \x01(\tR\x06detail\"\xc0\x01\n" +
+	"\aTaskLog\x12\x17\n" +
+	"\atask_id\x18\x01 \x01(\tR\x06taskId\x125\n" +
+	"\x06source\x18\x02 \x01(\x0e2\x1d.arcoloom.worker.v1.LogSourceR\x06source\x125\n" +
+	"\x06stream\x18\x03 \x01(\x0e2\x1d.arcoloom.worker.v1.LogStreamR\x06stream\x12\x12\n" +
+	"\x04line\x18\x04 \x01(\tR\x04line\x12\x1a\n" +
+	"\bsequence\x18\x05 \x01(\x04R\bsequence\"(\n" +
 	"\tHeartbeat\x12\x1b\n" +
 	"\tworker_id\x18\x01 \x01(\tR\bworkerId\"\"\n" +
 	"\bShutdown\x12\x16\n" +
-	"\x06reason\x18\x01 \x01(\tR\x06reason\"\x80\x02\n" +
+	"\x06reason\x18\x01 \x01(\tR\x06reason\"\xb1\x02\n" +
 	"\x0fWorkerToControl\x121\n" +
 	"\x05hello\x18\x01 \x01(\v2\x19.arcoloom.worker.v1.HelloH\x00R\x05hello\x12:\n" +
 	"\x06status\x18\x02 \x01(\v2 .arcoloom.worker.v1.StatusUpdateH\x00R\x06status\x124\n" +
 	"\x06signal\x18\x03 \x01(\v2\x1a.arcoloom.worker.v1.SignalH\x00R\x06signal\x12=\n" +
-	"\theartbeat\x18\x04 \x01(\v2\x1d.arcoloom.worker.v1.HeartbeatH\x00R\theartbeatB\t\n" +
+	"\theartbeat\x18\x04 \x01(\v2\x1d.arcoloom.worker.v1.HeartbeatH\x00R\theartbeat\x12/\n" +
+	"\x03log\x18\x05 \x01(\v2\x1b.arcoloom.worker.v1.TaskLogH\x00R\x03logB\t\n" +
 	"\amessage\"\xd7\x01\n" +
 	"\x0fControlToWorker\x12;\n" +
 	"\thello_ack\x18\x01 \x01(\v2\x1c.arcoloom.worker.v1.HelloAckH\x00R\bhelloAck\x12@\n" +
@@ -824,7 +1021,15 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"SignalType\x12\x1b\n" +
 	"\x17SIGNAL_TYPE_UNSPECIFIED\x10\x00\x12!\n" +
 	"\x1dSIGNAL_TYPE_SPOT_RECLAIM_RISK\x10\x01\x12\x1e\n" +
-	"\x1aSIGNAL_TYPE_NODE_UNHEALTHY\x10\x022h\n" +
+	"\x1aSIGNAL_TYPE_NODE_UNHEALTHY\x10\x02*V\n" +
+	"\tLogSource\x12\x1a\n" +
+	"\x16LOG_SOURCE_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11LOG_SOURCE_WORKER\x10\x01\x12\x16\n" +
+	"\x12LOG_SOURCE_PROGRAM\x10\x02*U\n" +
+	"\tLogStream\x12\x1a\n" +
+	"\x16LOG_STREAM_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11LOG_STREAM_STDOUT\x10\x01\x12\x15\n" +
+	"\x11LOG_STREAM_STDERR\x10\x022h\n" +
 	"\rWorkerService\x12W\n" +
 	"\aConnect\x12#.arcoloom.worker.v1.WorkerToControl\x1a#.arcoloom.worker.v1.ControlToWorker(\x010\x01BCZAgithub.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1b\x06proto3"
 
@@ -840,40 +1045,46 @@ func file_arcoloom_worker_v1_worker_proto_rawDescGZIP() []byte {
 	return file_arcoloom_worker_v1_worker_proto_rawDescData
 }
 
-var file_arcoloom_worker_v1_worker_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_arcoloom_worker_v1_worker_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_arcoloom_worker_v1_worker_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_arcoloom_worker_v1_worker_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_arcoloom_worker_v1_worker_proto_goTypes = []any{
 	(RuntimeKind)(0),        // 0: arcoloom.worker.v1.RuntimeKind
 	(TaskState)(0),          // 1: arcoloom.worker.v1.TaskState
 	(SignalType)(0),         // 2: arcoloom.worker.v1.SignalType
-	(*Hello)(nil),           // 3: arcoloom.worker.v1.Hello
-	(*HelloAck)(nil),        // 4: arcoloom.worker.v1.HelloAck
-	(*Assignment)(nil),      // 5: arcoloom.worker.v1.Assignment
-	(*StatusUpdate)(nil),    // 6: arcoloom.worker.v1.StatusUpdate
-	(*Signal)(nil),          // 7: arcoloom.worker.v1.Signal
-	(*Heartbeat)(nil),       // 8: arcoloom.worker.v1.Heartbeat
-	(*Shutdown)(nil),        // 9: arcoloom.worker.v1.Shutdown
-	(*WorkerToControl)(nil), // 10: arcoloom.worker.v1.WorkerToControl
-	(*ControlToWorker)(nil), // 11: arcoloom.worker.v1.ControlToWorker
+	(LogSource)(0),          // 3: arcoloom.worker.v1.LogSource
+	(LogStream)(0),          // 4: arcoloom.worker.v1.LogStream
+	(*Hello)(nil),           // 5: arcoloom.worker.v1.Hello
+	(*HelloAck)(nil),        // 6: arcoloom.worker.v1.HelloAck
+	(*Assignment)(nil),      // 7: arcoloom.worker.v1.Assignment
+	(*StatusUpdate)(nil),    // 8: arcoloom.worker.v1.StatusUpdate
+	(*Signal)(nil),          // 9: arcoloom.worker.v1.Signal
+	(*TaskLog)(nil),         // 10: arcoloom.worker.v1.TaskLog
+	(*Heartbeat)(nil),       // 11: arcoloom.worker.v1.Heartbeat
+	(*Shutdown)(nil),        // 12: arcoloom.worker.v1.Shutdown
+	(*WorkerToControl)(nil), // 13: arcoloom.worker.v1.WorkerToControl
+	(*ControlToWorker)(nil), // 14: arcoloom.worker.v1.ControlToWorker
 }
 var file_arcoloom_worker_v1_worker_proto_depIdxs = []int32{
 	0,  // 0: arcoloom.worker.v1.Assignment.runtime_kind:type_name -> arcoloom.worker.v1.RuntimeKind
 	1,  // 1: arcoloom.worker.v1.StatusUpdate.state:type_name -> arcoloom.worker.v1.TaskState
 	2,  // 2: arcoloom.worker.v1.Signal.signal_type:type_name -> arcoloom.worker.v1.SignalType
-	3,  // 3: arcoloom.worker.v1.WorkerToControl.hello:type_name -> arcoloom.worker.v1.Hello
-	6,  // 4: arcoloom.worker.v1.WorkerToControl.status:type_name -> arcoloom.worker.v1.StatusUpdate
-	7,  // 5: arcoloom.worker.v1.WorkerToControl.signal:type_name -> arcoloom.worker.v1.Signal
-	8,  // 6: arcoloom.worker.v1.WorkerToControl.heartbeat:type_name -> arcoloom.worker.v1.Heartbeat
-	4,  // 7: arcoloom.worker.v1.ControlToWorker.hello_ack:type_name -> arcoloom.worker.v1.HelloAck
-	5,  // 8: arcoloom.worker.v1.ControlToWorker.assignment:type_name -> arcoloom.worker.v1.Assignment
-	9,  // 9: arcoloom.worker.v1.ControlToWorker.shutdown:type_name -> arcoloom.worker.v1.Shutdown
-	10, // 10: arcoloom.worker.v1.WorkerService.Connect:input_type -> arcoloom.worker.v1.WorkerToControl
-	11, // 11: arcoloom.worker.v1.WorkerService.Connect:output_type -> arcoloom.worker.v1.ControlToWorker
-	11, // [11:12] is the sub-list for method output_type
-	10, // [10:11] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	3,  // 3: arcoloom.worker.v1.TaskLog.source:type_name -> arcoloom.worker.v1.LogSource
+	4,  // 4: arcoloom.worker.v1.TaskLog.stream:type_name -> arcoloom.worker.v1.LogStream
+	5,  // 5: arcoloom.worker.v1.WorkerToControl.hello:type_name -> arcoloom.worker.v1.Hello
+	8,  // 6: arcoloom.worker.v1.WorkerToControl.status:type_name -> arcoloom.worker.v1.StatusUpdate
+	9,  // 7: arcoloom.worker.v1.WorkerToControl.signal:type_name -> arcoloom.worker.v1.Signal
+	11, // 8: arcoloom.worker.v1.WorkerToControl.heartbeat:type_name -> arcoloom.worker.v1.Heartbeat
+	10, // 9: arcoloom.worker.v1.WorkerToControl.log:type_name -> arcoloom.worker.v1.TaskLog
+	6,  // 10: arcoloom.worker.v1.ControlToWorker.hello_ack:type_name -> arcoloom.worker.v1.HelloAck
+	7,  // 11: arcoloom.worker.v1.ControlToWorker.assignment:type_name -> arcoloom.worker.v1.Assignment
+	12, // 12: arcoloom.worker.v1.ControlToWorker.shutdown:type_name -> arcoloom.worker.v1.Shutdown
+	13, // 13: arcoloom.worker.v1.WorkerService.Connect:input_type -> arcoloom.worker.v1.WorkerToControl
+	14, // 14: arcoloom.worker.v1.WorkerService.Connect:output_type -> arcoloom.worker.v1.ControlToWorker
+	14, // [14:15] is the sub-list for method output_type
+	13, // [13:14] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_arcoloom_worker_v1_worker_proto_init() }
@@ -881,13 +1092,14 @@ func file_arcoloom_worker_v1_worker_proto_init() {
 	if File_arcoloom_worker_v1_worker_proto != nil {
 		return
 	}
-	file_arcoloom_worker_v1_worker_proto_msgTypes[7].OneofWrappers = []any{
+	file_arcoloom_worker_v1_worker_proto_msgTypes[8].OneofWrappers = []any{
 		(*WorkerToControl_Hello)(nil),
 		(*WorkerToControl_Status)(nil),
 		(*WorkerToControl_Signal)(nil),
 		(*WorkerToControl_Heartbeat)(nil),
+		(*WorkerToControl_Log)(nil),
 	}
-	file_arcoloom_worker_v1_worker_proto_msgTypes[8].OneofWrappers = []any{
+	file_arcoloom_worker_v1_worker_proto_msgTypes[9].OneofWrappers = []any{
 		(*ControlToWorker_HelloAck)(nil),
 		(*ControlToWorker_Assignment)(nil),
 		(*ControlToWorker_Shutdown)(nil),
@@ -897,8 +1109,8 @@ func file_arcoloom_worker_v1_worker_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_arcoloom_worker_v1_worker_proto_rawDesc), len(file_arcoloom_worker_v1_worker_proto_rawDesc)),
-			NumEnums:      3,
-			NumMessages:   9,
+			NumEnums:      5,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
