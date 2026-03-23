@@ -273,6 +273,8 @@ message ActiveInstance {
 message ListActiveInstancesResponse {
   repeated ActiveInstance items = 1;
   repeated Warning warnings = 2;
+  string next_cursor = 3;
+  repeated string covered_regions = 4;
 }
 
 enum PurchaseOption {

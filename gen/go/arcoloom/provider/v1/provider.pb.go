@@ -2471,11 +2471,13 @@ func (x *ActiveInstance) GetProviderAttributes() map[string]string {
 }
 
 type ListActiveInstancesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Items         []*ActiveInstance      `protobuf:"bytes,1,rep,name=items,proto3" json:"items,omitempty"`
-	Warnings      []*Warning             `protobuf:"bytes,2,rep,name=warnings,proto3" json:"warnings,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Items          []*ActiveInstance      `protobuf:"bytes,1,rep,name=items,proto3" json:"items,omitempty"`
+	Warnings       []*Warning             `protobuf:"bytes,2,rep,name=warnings,proto3" json:"warnings,omitempty"`
+	NextCursor     string                 `protobuf:"bytes,3,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	CoveredRegions []string               `protobuf:"bytes,4,rep,name=covered_regions,json=coveredRegions,proto3" json:"covered_regions,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ListActiveInstancesResponse) Reset() {
@@ -2518,6 +2520,20 @@ func (x *ListActiveInstancesResponse) GetItems() []*ActiveInstance {
 func (x *ListActiveInstancesResponse) GetWarnings() []*Warning {
 	if x != nil {
 		return x.Warnings
+	}
+	return nil
+}
+
+func (x *ListActiveInstancesResponse) GetNextCursor() string {
+	if x != nil {
+		return x.NextCursor
+	}
+	return ""
+}
+
+func (x *ListActiveInstancesResponse) GetCoveredRegions() []string {
+	if x != nil {
+		return x.CoveredRegions
 	}
 	return nil
 }
@@ -3961,10 +3977,13 @@ const file_arcoloom_provider_v1_provider_proto_rawDesc = "" +
 	"\x13provider_attributes\x18\r \x03(\v2<.arcoloom.provider.v1.ActiveInstance.ProviderAttributesEntryR\x12providerAttributes\x1aE\n" +
 	"\x17ProviderAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x94\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xde\x01\n" +
 	"\x1bListActiveInstancesResponse\x12:\n" +
 	"\x05items\x18\x01 \x03(\v2$.arcoloom.provider.v1.ActiveInstanceR\x05items\x129\n" +
-	"\bwarnings\x18\x02 \x03(\v2\x1d.arcoloom.provider.v1.WarningR\bwarnings\"5\n" +
+	"\bwarnings\x18\x02 \x03(\v2\x1d.arcoloom.provider.v1.WarningR\bwarnings\x12\x1f\n" +
+	"\vnext_cursor\x18\x03 \x01(\tR\n" +
+	"nextCursor\x12'\n" +
+	"\x0fcovered_regions\x18\x04 \x03(\tR\x0ecoveredRegions\"5\n" +
 	"\vCloudRegion\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"\xcf\x02\n" +
