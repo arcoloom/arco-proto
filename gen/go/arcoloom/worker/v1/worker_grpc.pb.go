@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	WorkerService_Connect_FullMethodName = "/arcoloom.worker.v1.WorkerService/Connect"
+	WorkerService_Connect_FullMethodName         = "/arcoloom.worker.v1.WorkerService/Connect"
+	WorkerService_ConnectTerminal_FullMethodName = "/arcoloom.worker.v1.WorkerService/ConnectTerminal"
 )
 
 // WorkerServiceClient is the client API for WorkerService service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WorkerServiceClient interface {
 	Connect(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[WorkerToControl, ControlToWorker], error)
+	ConnectTerminal(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[WorkerTerminalToControl, ControlToWorkerTerminal], error)
 }
 
 type workerServiceClient struct {
@@ -50,11 +52,25 @@ func (c *workerServiceClient) Connect(ctx context.Context, opts ...grpc.CallOpti
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type WorkerService_ConnectClient = grpc.BidiStreamingClient[WorkerToControl, ControlToWorker]
 
+func (c *workerServiceClient) ConnectTerminal(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[WorkerTerminalToControl, ControlToWorkerTerminal], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &WorkerService_ServiceDesc.Streams[1], WorkerService_ConnectTerminal_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[WorkerTerminalToControl, ControlToWorkerTerminal]{ClientStream: stream}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type WorkerService_ConnectTerminalClient = grpc.BidiStreamingClient[WorkerTerminalToControl, ControlToWorkerTerminal]
+
 // WorkerServiceServer is the server API for WorkerService service.
 // All implementations must embed UnimplementedWorkerServiceServer
 // for forward compatibility.
 type WorkerServiceServer interface {
 	Connect(grpc.BidiStreamingServer[WorkerToControl, ControlToWorker]) error
+	ConnectTerminal(grpc.BidiStreamingServer[WorkerTerminalToControl, ControlToWorkerTerminal]) error
 	mustEmbedUnimplementedWorkerServiceServer()
 }
 
@@ -67,6 +83,9 @@ type UnimplementedWorkerServiceServer struct{}
 
 func (UnimplementedWorkerServiceServer) Connect(grpc.BidiStreamingServer[WorkerToControl, ControlToWorker]) error {
 	return status.Errorf(codes.Unimplemented, "method Connect not implemented")
+}
+func (UnimplementedWorkerServiceServer) ConnectTerminal(grpc.BidiStreamingServer[WorkerTerminalToControl, ControlToWorkerTerminal]) error {
+	return status.Errorf(codes.Unimplemented, "method ConnectTerminal not implemented")
 }
 func (UnimplementedWorkerServiceServer) mustEmbedUnimplementedWorkerServiceServer() {}
 func (UnimplementedWorkerServiceServer) testEmbeddedByValue()                       {}
@@ -96,6 +115,13 @@ func _WorkerService_Connect_Handler(srv interface{}, stream grpc.ServerStream) e
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type WorkerService_ConnectServer = grpc.BidiStreamingServer[WorkerToControl, ControlToWorker]
 
+func _WorkerService_ConnectTerminal_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(WorkerServiceServer).ConnectTerminal(&grpc.GenericServerStream[WorkerTerminalToControl, ControlToWorkerTerminal]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type WorkerService_ConnectTerminalServer = grpc.BidiStreamingServer[WorkerTerminalToControl, ControlToWorkerTerminal]
+
 // WorkerService_ServiceDesc is the grpc.ServiceDesc for WorkerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -107,6 +133,12 @@ var WorkerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			StreamName:    "Connect",
 			Handler:       _WorkerService_Connect_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "ConnectTerminal",
+			Handler:       _WorkerService_ConnectTerminal_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
 		},

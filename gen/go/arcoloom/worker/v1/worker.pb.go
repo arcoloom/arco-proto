@@ -728,6 +728,550 @@ func (x *Shutdown) GetReason() string {
 	return ""
 }
 
+type TerminalHello struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	InstanceId        string                 `protobuf:"bytes,1,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
+	Provider          string                 `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
+	RegistrationToken string                 `protobuf:"bytes,3,opt,name=registration_token,json=registrationToken,proto3" json:"registration_token,omitempty"`
+	WorkerVersion     string                 `protobuf:"bytes,4,opt,name=worker_version,json=workerVersion,proto3" json:"worker_version,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *TerminalHello) Reset() {
+	*x = TerminalHello{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalHello) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalHello) ProtoMessage() {}
+
+func (x *TerminalHello) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalHello.ProtoReflect.Descriptor instead.
+func (*TerminalHello) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *TerminalHello) GetInstanceId() string {
+	if x != nil {
+		return x.InstanceId
+	}
+	return ""
+}
+
+func (x *TerminalHello) GetProvider() string {
+	if x != nil {
+		return x.Provider
+	}
+	return ""
+}
+
+func (x *TerminalHello) GetRegistrationToken() string {
+	if x != nil {
+		return x.RegistrationToken
+	}
+	return ""
+}
+
+func (x *TerminalHello) GetWorkerVersion() string {
+	if x != nil {
+		return x.WorkerVersion
+	}
+	return ""
+}
+
+type TerminalHelloAck struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	WorkerId      string                 `protobuf:"bytes,1,opt,name=worker_id,json=workerId,proto3" json:"worker_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalHelloAck) Reset() {
+	*x = TerminalHelloAck{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalHelloAck) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalHelloAck) ProtoMessage() {}
+
+func (x *TerminalHelloAck) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalHelloAck.ProtoReflect.Descriptor instead.
+func (*TerminalHelloAck) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *TerminalHelloAck) GetWorkerId() string {
+	if x != nil {
+		return x.WorkerId
+	}
+	return ""
+}
+
+type TerminalOpenShell struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	Cols          uint32                 `protobuf:"varint,2,opt,name=cols,proto3" json:"cols,omitempty"`
+	Rows          uint32                 `protobuf:"varint,3,opt,name=rows,proto3" json:"rows,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalOpenShell) Reset() {
+	*x = TerminalOpenShell{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalOpenShell) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalOpenShell) ProtoMessage() {}
+
+func (x *TerminalOpenShell) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalOpenShell.ProtoReflect.Descriptor instead.
+func (*TerminalOpenShell) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *TerminalOpenShell) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalOpenShell) GetCols() uint32 {
+	if x != nil {
+		return x.Cols
+	}
+	return 0
+}
+
+func (x *TerminalOpenShell) GetRows() uint32 {
+	if x != nil {
+		return x.Rows
+	}
+	return 0
+}
+
+type TerminalInput struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalInput) Reset() {
+	*x = TerminalInput{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalInput) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalInput) ProtoMessage() {}
+
+func (x *TerminalInput) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalInput.ProtoReflect.Descriptor instead.
+func (*TerminalInput) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *TerminalInput) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalInput) GetData() []byte {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type TerminalResize struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	Cols          uint32                 `protobuf:"varint,2,opt,name=cols,proto3" json:"cols,omitempty"`
+	Rows          uint32                 `protobuf:"varint,3,opt,name=rows,proto3" json:"rows,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalResize) Reset() {
+	*x = TerminalResize{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalResize) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalResize) ProtoMessage() {}
+
+func (x *TerminalResize) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalResize.ProtoReflect.Descriptor instead.
+func (*TerminalResize) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *TerminalResize) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalResize) GetCols() uint32 {
+	if x != nil {
+		return x.Cols
+	}
+	return 0
+}
+
+func (x *TerminalResize) GetRows() uint32 {
+	if x != nil {
+		return x.Rows
+	}
+	return 0
+}
+
+type TerminalClose struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	Reason        string                 `protobuf:"bytes,2,opt,name=reason,proto3" json:"reason,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalClose) Reset() {
+	*x = TerminalClose{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalClose) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalClose) ProtoMessage() {}
+
+func (x *TerminalClose) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalClose.ProtoReflect.Descriptor instead.
+func (*TerminalClose) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *TerminalClose) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalClose) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
+type TerminalReady struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalReady) Reset() {
+	*x = TerminalReady{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalReady) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalReady) ProtoMessage() {}
+
+func (x *TerminalReady) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalReady.ProtoReflect.Descriptor instead.
+func (*TerminalReady) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *TerminalReady) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+type TerminalOutput struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalOutput) Reset() {
+	*x = TerminalOutput{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalOutput) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalOutput) ProtoMessage() {}
+
+func (x *TerminalOutput) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalOutput.ProtoReflect.Descriptor instead.
+func (*TerminalOutput) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *TerminalOutput) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalOutput) GetData() []byte {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type TerminalExit struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	ExitCode      int32                  `protobuf:"varint,2,opt,name=exit_code,json=exitCode,proto3" json:"exit_code,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalExit) Reset() {
+	*x = TerminalExit{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalExit) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalExit) ProtoMessage() {}
+
+func (x *TerminalExit) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalExit.ProtoReflect.Descriptor instead.
+func (*TerminalExit) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *TerminalExit) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalExit) GetExitCode() int32 {
+	if x != nil {
+		return x.ExitCode
+	}
+	return 0
+}
+
+func (x *TerminalExit) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type TerminalError struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TerminalError) Reset() {
+	*x = TerminalError{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TerminalError) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TerminalError) ProtoMessage() {}
+
+func (x *TerminalError) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TerminalError.ProtoReflect.Descriptor instead.
+func (*TerminalError) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *TerminalError) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
+	}
+	return ""
+}
+
+func (x *TerminalError) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 type WorkerToControl struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Message:
@@ -744,7 +1288,7 @@ type WorkerToControl struct {
 
 func (x *WorkerToControl) Reset() {
 	*x = WorkerToControl{}
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -756,7 +1300,7 @@ func (x *WorkerToControl) String() string {
 func (*WorkerToControl) ProtoMessage() {}
 
 func (x *WorkerToControl) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[8]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -769,7 +1313,7 @@ func (x *WorkerToControl) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkerToControl.ProtoReflect.Descriptor instead.
 func (*WorkerToControl) Descriptor() ([]byte, []int) {
-	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{8}
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *WorkerToControl) GetMessage() isWorkerToControl_Message {
@@ -872,7 +1416,7 @@ type ControlToWorker struct {
 
 func (x *ControlToWorker) Reset() {
 	*x = ControlToWorker{}
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[9]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -884,7 +1428,7 @@ func (x *ControlToWorker) String() string {
 func (*ControlToWorker) ProtoMessage() {}
 
 func (x *ControlToWorker) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[9]
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -897,7 +1441,7 @@ func (x *ControlToWorker) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ControlToWorker.ProtoReflect.Descriptor instead.
 func (*ControlToWorker) Descriptor() ([]byte, []int) {
-	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{9}
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ControlToWorker) GetMessage() isControlToWorker_Message {
@@ -956,6 +1500,266 @@ func (*ControlToWorker_Assignment) isControlToWorker_Message() {}
 
 func (*ControlToWorker_Shutdown) isControlToWorker_Message() {}
 
+type WorkerTerminalToControl struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Message:
+	//
+	//	*WorkerTerminalToControl_Hello
+	//	*WorkerTerminalToControl_Ready
+	//	*WorkerTerminalToControl_Output
+	//	*WorkerTerminalToControl_Exit
+	//	*WorkerTerminalToControl_Error
+	Message       isWorkerTerminalToControl_Message `protobuf_oneof:"message"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorkerTerminalToControl) Reset() {
+	*x = WorkerTerminalToControl{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorkerTerminalToControl) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorkerTerminalToControl) ProtoMessage() {}
+
+func (x *WorkerTerminalToControl) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorkerTerminalToControl.ProtoReflect.Descriptor instead.
+func (*WorkerTerminalToControl) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *WorkerTerminalToControl) GetMessage() isWorkerTerminalToControl_Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+func (x *WorkerTerminalToControl) GetHello() *TerminalHello {
+	if x != nil {
+		if x, ok := x.Message.(*WorkerTerminalToControl_Hello); ok {
+			return x.Hello
+		}
+	}
+	return nil
+}
+
+func (x *WorkerTerminalToControl) GetReady() *TerminalReady {
+	if x != nil {
+		if x, ok := x.Message.(*WorkerTerminalToControl_Ready); ok {
+			return x.Ready
+		}
+	}
+	return nil
+}
+
+func (x *WorkerTerminalToControl) GetOutput() *TerminalOutput {
+	if x != nil {
+		if x, ok := x.Message.(*WorkerTerminalToControl_Output); ok {
+			return x.Output
+		}
+	}
+	return nil
+}
+
+func (x *WorkerTerminalToControl) GetExit() *TerminalExit {
+	if x != nil {
+		if x, ok := x.Message.(*WorkerTerminalToControl_Exit); ok {
+			return x.Exit
+		}
+	}
+	return nil
+}
+
+func (x *WorkerTerminalToControl) GetError() *TerminalError {
+	if x != nil {
+		if x, ok := x.Message.(*WorkerTerminalToControl_Error); ok {
+			return x.Error
+		}
+	}
+	return nil
+}
+
+type isWorkerTerminalToControl_Message interface {
+	isWorkerTerminalToControl_Message()
+}
+
+type WorkerTerminalToControl_Hello struct {
+	Hello *TerminalHello `protobuf:"bytes,1,opt,name=hello,proto3,oneof"`
+}
+
+type WorkerTerminalToControl_Ready struct {
+	Ready *TerminalReady `protobuf:"bytes,2,opt,name=ready,proto3,oneof"`
+}
+
+type WorkerTerminalToControl_Output struct {
+	Output *TerminalOutput `protobuf:"bytes,3,opt,name=output,proto3,oneof"`
+}
+
+type WorkerTerminalToControl_Exit struct {
+	Exit *TerminalExit `protobuf:"bytes,4,opt,name=exit,proto3,oneof"`
+}
+
+type WorkerTerminalToControl_Error struct {
+	Error *TerminalError `protobuf:"bytes,5,opt,name=error,proto3,oneof"`
+}
+
+func (*WorkerTerminalToControl_Hello) isWorkerTerminalToControl_Message() {}
+
+func (*WorkerTerminalToControl_Ready) isWorkerTerminalToControl_Message() {}
+
+func (*WorkerTerminalToControl_Output) isWorkerTerminalToControl_Message() {}
+
+func (*WorkerTerminalToControl_Exit) isWorkerTerminalToControl_Message() {}
+
+func (*WorkerTerminalToControl_Error) isWorkerTerminalToControl_Message() {}
+
+type ControlToWorkerTerminal struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Message:
+	//
+	//	*ControlToWorkerTerminal_HelloAck
+	//	*ControlToWorkerTerminal_OpenShell
+	//	*ControlToWorkerTerminal_Input
+	//	*ControlToWorkerTerminal_Resize
+	//	*ControlToWorkerTerminal_Close
+	Message       isControlToWorkerTerminal_Message `protobuf_oneof:"message"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ControlToWorkerTerminal) Reset() {
+	*x = ControlToWorkerTerminal{}
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ControlToWorkerTerminal) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ControlToWorkerTerminal) ProtoMessage() {}
+
+func (x *ControlToWorkerTerminal) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_worker_v1_worker_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ControlToWorkerTerminal.ProtoReflect.Descriptor instead.
+func (*ControlToWorkerTerminal) Descriptor() ([]byte, []int) {
+	return file_arcoloom_worker_v1_worker_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *ControlToWorkerTerminal) GetMessage() isControlToWorkerTerminal_Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+func (x *ControlToWorkerTerminal) GetHelloAck() *TerminalHelloAck {
+	if x != nil {
+		if x, ok := x.Message.(*ControlToWorkerTerminal_HelloAck); ok {
+			return x.HelloAck
+		}
+	}
+	return nil
+}
+
+func (x *ControlToWorkerTerminal) GetOpenShell() *TerminalOpenShell {
+	if x != nil {
+		if x, ok := x.Message.(*ControlToWorkerTerminal_OpenShell); ok {
+			return x.OpenShell
+		}
+	}
+	return nil
+}
+
+func (x *ControlToWorkerTerminal) GetInput() *TerminalInput {
+	if x != nil {
+		if x, ok := x.Message.(*ControlToWorkerTerminal_Input); ok {
+			return x.Input
+		}
+	}
+	return nil
+}
+
+func (x *ControlToWorkerTerminal) GetResize() *TerminalResize {
+	if x != nil {
+		if x, ok := x.Message.(*ControlToWorkerTerminal_Resize); ok {
+			return x.Resize
+		}
+	}
+	return nil
+}
+
+func (x *ControlToWorkerTerminal) GetClose() *TerminalClose {
+	if x != nil {
+		if x, ok := x.Message.(*ControlToWorkerTerminal_Close); ok {
+			return x.Close
+		}
+	}
+	return nil
+}
+
+type isControlToWorkerTerminal_Message interface {
+	isControlToWorkerTerminal_Message()
+}
+
+type ControlToWorkerTerminal_HelloAck struct {
+	HelloAck *TerminalHelloAck `protobuf:"bytes,1,opt,name=hello_ack,json=helloAck,proto3,oneof"`
+}
+
+type ControlToWorkerTerminal_OpenShell struct {
+	OpenShell *TerminalOpenShell `protobuf:"bytes,2,opt,name=open_shell,json=openShell,proto3,oneof"`
+}
+
+type ControlToWorkerTerminal_Input struct {
+	Input *TerminalInput `protobuf:"bytes,3,opt,name=input,proto3,oneof"`
+}
+
+type ControlToWorkerTerminal_Resize struct {
+	Resize *TerminalResize `protobuf:"bytes,4,opt,name=resize,proto3,oneof"`
+}
+
+type ControlToWorkerTerminal_Close struct {
+	Close *TerminalClose `protobuf:"bytes,5,opt,name=close,proto3,oneof"`
+}
+
+func (*ControlToWorkerTerminal_HelloAck) isControlToWorkerTerminal_Message() {}
+
+func (*ControlToWorkerTerminal_OpenShell) isControlToWorkerTerminal_Message() {}
+
+func (*ControlToWorkerTerminal_Input) isControlToWorkerTerminal_Message() {}
+
+func (*ControlToWorkerTerminal_Resize) isControlToWorkerTerminal_Message() {}
+
+func (*ControlToWorkerTerminal_Close) isControlToWorkerTerminal_Message() {}
+
 var File_arcoloom_worker_v1_worker_proto protoreflect.FileDescriptor
 
 const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
@@ -992,7 +1796,49 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\tHeartbeat\x12\x1b\n" +
 	"\tworker_id\x18\x01 \x01(\tR\bworkerId\"\"\n" +
 	"\bShutdown\x12\x16\n" +
-	"\x06reason\x18\x01 \x01(\tR\x06reason\"\xb1\x02\n" +
+	"\x06reason\x18\x01 \x01(\tR\x06reason\"\xa2\x01\n" +
+	"\rTerminalHello\x12\x1f\n" +
+	"\vinstance_id\x18\x01 \x01(\tR\n" +
+	"instanceId\x12\x1a\n" +
+	"\bprovider\x18\x02 \x01(\tR\bprovider\x12-\n" +
+	"\x12registration_token\x18\x03 \x01(\tR\x11registrationToken\x12%\n" +
+	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\"/\n" +
+	"\x10TerminalHelloAck\x12\x1b\n" +
+	"\tworker_id\x18\x01 \x01(\tR\bworkerId\"Z\n" +
+	"\x11TerminalOpenShell\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x12\n" +
+	"\x04cols\x18\x02 \x01(\rR\x04cols\x12\x12\n" +
+	"\x04rows\x18\x03 \x01(\rR\x04rows\"B\n" +
+	"\rTerminalInput\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x12\n" +
+	"\x04data\x18\x02 \x01(\fR\x04data\"W\n" +
+	"\x0eTerminalResize\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x12\n" +
+	"\x04cols\x18\x02 \x01(\rR\x04cols\x12\x12\n" +
+	"\x04rows\x18\x03 \x01(\rR\x04rows\"F\n" +
+	"\rTerminalClose\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x16\n" +
+	"\x06reason\x18\x02 \x01(\tR\x06reason\".\n" +
+	"\rTerminalReady\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\"C\n" +
+	"\x0eTerminalOutput\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x12\n" +
+	"\x04data\x18\x02 \x01(\fR\x04data\"d\n" +
+	"\fTerminalExit\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x1b\n" +
+	"\texit_code\x18\x02 \x01(\x05R\bexitCode\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"H\n" +
+	"\rTerminalError\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xb1\x02\n" +
 	"\x0fWorkerToControl\x121\n" +
 	"\x05hello\x18\x01 \x01(\v2\x19.arcoloom.worker.v1.HelloH\x00R\x05hello\x12:\n" +
 	"\x06status\x18\x02 \x01(\v2 .arcoloom.worker.v1.StatusUpdateH\x00R\x06status\x124\n" +
@@ -1006,6 +1852,21 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"assignment\x18\x02 \x01(\v2\x1e.arcoloom.worker.v1.AssignmentH\x00R\n" +
 	"assignment\x12:\n" +
 	"\bshutdown\x18\x03 \x01(\v2\x1c.arcoloom.worker.v1.ShutdownH\x00R\bshutdownB\t\n" +
+	"\amessage\"\xcb\x02\n" +
+	"\x17WorkerTerminalToControl\x129\n" +
+	"\x05hello\x18\x01 \x01(\v2!.arcoloom.worker.v1.TerminalHelloH\x00R\x05hello\x129\n" +
+	"\x05ready\x18\x02 \x01(\v2!.arcoloom.worker.v1.TerminalReadyH\x00R\x05ready\x12<\n" +
+	"\x06output\x18\x03 \x01(\v2\".arcoloom.worker.v1.TerminalOutputH\x00R\x06output\x126\n" +
+	"\x04exit\x18\x04 \x01(\v2 .arcoloom.worker.v1.TerminalExitH\x00R\x04exit\x129\n" +
+	"\x05error\x18\x05 \x01(\v2!.arcoloom.worker.v1.TerminalErrorH\x00R\x05errorB\t\n" +
+	"\amessage\"\xe5\x02\n" +
+	"\x17ControlToWorkerTerminal\x12C\n" +
+	"\thello_ack\x18\x01 \x01(\v2$.arcoloom.worker.v1.TerminalHelloAckH\x00R\bhelloAck\x12F\n" +
+	"\n" +
+	"open_shell\x18\x02 \x01(\v2%.arcoloom.worker.v1.TerminalOpenShellH\x00R\topenShell\x129\n" +
+	"\x05input\x18\x03 \x01(\v2!.arcoloom.worker.v1.TerminalInputH\x00R\x05input\x12<\n" +
+	"\x06resize\x18\x04 \x01(\v2\".arcoloom.worker.v1.TerminalResizeH\x00R\x06resize\x129\n" +
+	"\x05close\x18\x05 \x01(\v2!.arcoloom.worker.v1.TerminalCloseH\x00R\x05closeB\t\n" +
 	"\amessage*[\n" +
 	"\vRuntimeKind\x12\x1c\n" +
 	"\x18RUNTIME_KIND_UNSPECIFIED\x10\x00\x12\x17\n" +
@@ -1029,9 +1890,10 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\tLogStream\x12\x1a\n" +
 	"\x16LOG_STREAM_UNSPECIFIED\x10\x00\x12\x15\n" +
 	"\x11LOG_STREAM_STDOUT\x10\x01\x12\x15\n" +
-	"\x11LOG_STREAM_STDERR\x10\x022h\n" +
+	"\x11LOG_STREAM_STDERR\x10\x022\xd9\x01\n" +
 	"\rWorkerService\x12W\n" +
-	"\aConnect\x12#.arcoloom.worker.v1.WorkerToControl\x1a#.arcoloom.worker.v1.ControlToWorker(\x010\x01BCZAgithub.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1b\x06proto3"
+	"\aConnect\x12#.arcoloom.worker.v1.WorkerToControl\x1a#.arcoloom.worker.v1.ControlToWorker(\x010\x01\x12o\n" +
+	"\x0fConnectTerminal\x12+.arcoloom.worker.v1.WorkerTerminalToControl\x1a+.arcoloom.worker.v1.ControlToWorkerTerminal(\x010\x01BCZAgithub.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1b\x06proto3"
 
 var (
 	file_arcoloom_worker_v1_worker_proto_rawDescOnce sync.Once
@@ -1046,23 +1908,35 @@ func file_arcoloom_worker_v1_worker_proto_rawDescGZIP() []byte {
 }
 
 var file_arcoloom_worker_v1_worker_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_arcoloom_worker_v1_worker_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_arcoloom_worker_v1_worker_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_arcoloom_worker_v1_worker_proto_goTypes = []any{
-	(RuntimeKind)(0),        // 0: arcoloom.worker.v1.RuntimeKind
-	(TaskState)(0),          // 1: arcoloom.worker.v1.TaskState
-	(SignalType)(0),         // 2: arcoloom.worker.v1.SignalType
-	(LogSource)(0),          // 3: arcoloom.worker.v1.LogSource
-	(LogStream)(0),          // 4: arcoloom.worker.v1.LogStream
-	(*Hello)(nil),           // 5: arcoloom.worker.v1.Hello
-	(*HelloAck)(nil),        // 6: arcoloom.worker.v1.HelloAck
-	(*Assignment)(nil),      // 7: arcoloom.worker.v1.Assignment
-	(*StatusUpdate)(nil),    // 8: arcoloom.worker.v1.StatusUpdate
-	(*Signal)(nil),          // 9: arcoloom.worker.v1.Signal
-	(*TaskLog)(nil),         // 10: arcoloom.worker.v1.TaskLog
-	(*Heartbeat)(nil),       // 11: arcoloom.worker.v1.Heartbeat
-	(*Shutdown)(nil),        // 12: arcoloom.worker.v1.Shutdown
-	(*WorkerToControl)(nil), // 13: arcoloom.worker.v1.WorkerToControl
-	(*ControlToWorker)(nil), // 14: arcoloom.worker.v1.ControlToWorker
+	(RuntimeKind)(0),                // 0: arcoloom.worker.v1.RuntimeKind
+	(TaskState)(0),                  // 1: arcoloom.worker.v1.TaskState
+	(SignalType)(0),                 // 2: arcoloom.worker.v1.SignalType
+	(LogSource)(0),                  // 3: arcoloom.worker.v1.LogSource
+	(LogStream)(0),                  // 4: arcoloom.worker.v1.LogStream
+	(*Hello)(nil),                   // 5: arcoloom.worker.v1.Hello
+	(*HelloAck)(nil),                // 6: arcoloom.worker.v1.HelloAck
+	(*Assignment)(nil),              // 7: arcoloom.worker.v1.Assignment
+	(*StatusUpdate)(nil),            // 8: arcoloom.worker.v1.StatusUpdate
+	(*Signal)(nil),                  // 9: arcoloom.worker.v1.Signal
+	(*TaskLog)(nil),                 // 10: arcoloom.worker.v1.TaskLog
+	(*Heartbeat)(nil),               // 11: arcoloom.worker.v1.Heartbeat
+	(*Shutdown)(nil),                // 12: arcoloom.worker.v1.Shutdown
+	(*TerminalHello)(nil),           // 13: arcoloom.worker.v1.TerminalHello
+	(*TerminalHelloAck)(nil),        // 14: arcoloom.worker.v1.TerminalHelloAck
+	(*TerminalOpenShell)(nil),       // 15: arcoloom.worker.v1.TerminalOpenShell
+	(*TerminalInput)(nil),           // 16: arcoloom.worker.v1.TerminalInput
+	(*TerminalResize)(nil),          // 17: arcoloom.worker.v1.TerminalResize
+	(*TerminalClose)(nil),           // 18: arcoloom.worker.v1.TerminalClose
+	(*TerminalReady)(nil),           // 19: arcoloom.worker.v1.TerminalReady
+	(*TerminalOutput)(nil),          // 20: arcoloom.worker.v1.TerminalOutput
+	(*TerminalExit)(nil),            // 21: arcoloom.worker.v1.TerminalExit
+	(*TerminalError)(nil),           // 22: arcoloom.worker.v1.TerminalError
+	(*WorkerToControl)(nil),         // 23: arcoloom.worker.v1.WorkerToControl
+	(*ControlToWorker)(nil),         // 24: arcoloom.worker.v1.ControlToWorker
+	(*WorkerTerminalToControl)(nil), // 25: arcoloom.worker.v1.WorkerTerminalToControl
+	(*ControlToWorkerTerminal)(nil), // 26: arcoloom.worker.v1.ControlToWorkerTerminal
 }
 var file_arcoloom_worker_v1_worker_proto_depIdxs = []int32{
 	0,  // 0: arcoloom.worker.v1.Assignment.runtime_kind:type_name -> arcoloom.worker.v1.RuntimeKind
@@ -1078,13 +1952,25 @@ var file_arcoloom_worker_v1_worker_proto_depIdxs = []int32{
 	6,  // 10: arcoloom.worker.v1.ControlToWorker.hello_ack:type_name -> arcoloom.worker.v1.HelloAck
 	7,  // 11: arcoloom.worker.v1.ControlToWorker.assignment:type_name -> arcoloom.worker.v1.Assignment
 	12, // 12: arcoloom.worker.v1.ControlToWorker.shutdown:type_name -> arcoloom.worker.v1.Shutdown
-	13, // 13: arcoloom.worker.v1.WorkerService.Connect:input_type -> arcoloom.worker.v1.WorkerToControl
-	14, // 14: arcoloom.worker.v1.WorkerService.Connect:output_type -> arcoloom.worker.v1.ControlToWorker
-	14, // [14:15] is the sub-list for method output_type
-	13, // [13:14] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	13, // 13: arcoloom.worker.v1.WorkerTerminalToControl.hello:type_name -> arcoloom.worker.v1.TerminalHello
+	19, // 14: arcoloom.worker.v1.WorkerTerminalToControl.ready:type_name -> arcoloom.worker.v1.TerminalReady
+	20, // 15: arcoloom.worker.v1.WorkerTerminalToControl.output:type_name -> arcoloom.worker.v1.TerminalOutput
+	21, // 16: arcoloom.worker.v1.WorkerTerminalToControl.exit:type_name -> arcoloom.worker.v1.TerminalExit
+	22, // 17: arcoloom.worker.v1.WorkerTerminalToControl.error:type_name -> arcoloom.worker.v1.TerminalError
+	14, // 18: arcoloom.worker.v1.ControlToWorkerTerminal.hello_ack:type_name -> arcoloom.worker.v1.TerminalHelloAck
+	15, // 19: arcoloom.worker.v1.ControlToWorkerTerminal.open_shell:type_name -> arcoloom.worker.v1.TerminalOpenShell
+	16, // 20: arcoloom.worker.v1.ControlToWorkerTerminal.input:type_name -> arcoloom.worker.v1.TerminalInput
+	17, // 21: arcoloom.worker.v1.ControlToWorkerTerminal.resize:type_name -> arcoloom.worker.v1.TerminalResize
+	18, // 22: arcoloom.worker.v1.ControlToWorkerTerminal.close:type_name -> arcoloom.worker.v1.TerminalClose
+	23, // 23: arcoloom.worker.v1.WorkerService.Connect:input_type -> arcoloom.worker.v1.WorkerToControl
+	25, // 24: arcoloom.worker.v1.WorkerService.ConnectTerminal:input_type -> arcoloom.worker.v1.WorkerTerminalToControl
+	24, // 25: arcoloom.worker.v1.WorkerService.Connect:output_type -> arcoloom.worker.v1.ControlToWorker
+	26, // 26: arcoloom.worker.v1.WorkerService.ConnectTerminal:output_type -> arcoloom.worker.v1.ControlToWorkerTerminal
+	25, // [25:27] is the sub-list for method output_type
+	23, // [23:25] is the sub-list for method input_type
+	23, // [23:23] is the sub-list for extension type_name
+	23, // [23:23] is the sub-list for extension extendee
+	0,  // [0:23] is the sub-list for field type_name
 }
 
 func init() { file_arcoloom_worker_v1_worker_proto_init() }
@@ -1092,17 +1978,31 @@ func file_arcoloom_worker_v1_worker_proto_init() {
 	if File_arcoloom_worker_v1_worker_proto != nil {
 		return
 	}
-	file_arcoloom_worker_v1_worker_proto_msgTypes[8].OneofWrappers = []any{
+	file_arcoloom_worker_v1_worker_proto_msgTypes[18].OneofWrappers = []any{
 		(*WorkerToControl_Hello)(nil),
 		(*WorkerToControl_Status)(nil),
 		(*WorkerToControl_Signal)(nil),
 		(*WorkerToControl_Heartbeat)(nil),
 		(*WorkerToControl_Log)(nil),
 	}
-	file_arcoloom_worker_v1_worker_proto_msgTypes[9].OneofWrappers = []any{
+	file_arcoloom_worker_v1_worker_proto_msgTypes[19].OneofWrappers = []any{
 		(*ControlToWorker_HelloAck)(nil),
 		(*ControlToWorker_Assignment)(nil),
 		(*ControlToWorker_Shutdown)(nil),
+	}
+	file_arcoloom_worker_v1_worker_proto_msgTypes[20].OneofWrappers = []any{
+		(*WorkerTerminalToControl_Hello)(nil),
+		(*WorkerTerminalToControl_Ready)(nil),
+		(*WorkerTerminalToControl_Output)(nil),
+		(*WorkerTerminalToControl_Exit)(nil),
+		(*WorkerTerminalToControl_Error)(nil),
+	}
+	file_arcoloom_worker_v1_worker_proto_msgTypes[21].OneofWrappers = []any{
+		(*ControlToWorkerTerminal_HelloAck)(nil),
+		(*ControlToWorkerTerminal_OpenShell)(nil),
+		(*ControlToWorkerTerminal_Input)(nil),
+		(*ControlToWorkerTerminal_Resize)(nil),
+		(*ControlToWorkerTerminal_Close)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1110,7 +2010,7 @@ func file_arcoloom_worker_v1_worker_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_arcoloom_worker_v1_worker_proto_rawDesc), len(file_arcoloom_worker_v1_worker_proto_rawDesc)),
 			NumEnums:      5,
-			NumMessages:   10,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

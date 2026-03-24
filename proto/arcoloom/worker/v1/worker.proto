@@ -6,6 +6,7 @@ option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;wo
 
 service WorkerService {
   rpc Connect(stream WorkerToControl) returns (stream ControlToWorker);
+  rpc ConnectTerminal(stream WorkerTerminalToControl) returns (stream ControlToWorkerTerminal);
 }
 
 enum RuntimeKind {
@@ -85,6 +86,59 @@ message Shutdown {
   string reason = 1;
 }
 
+message TerminalHello {
+  string instance_id = 1;
+  string provider = 2;
+  string registration_token = 3;
+  string worker_version = 4;
+}
+
+message TerminalHelloAck {
+  string worker_id = 1;
+}
+
+message TerminalOpenShell {
+  string session_id = 1;
+  uint32 cols = 2;
+  uint32 rows = 3;
+}
+
+message TerminalInput {
+  string session_id = 1;
+  bytes data = 2;
+}
+
+message TerminalResize {
+  string session_id = 1;
+  uint32 cols = 2;
+  uint32 rows = 3;
+}
+
+message TerminalClose {
+  string session_id = 1;
+  string reason = 2;
+}
+
+message TerminalReady {
+  string session_id = 1;
+}
+
+message TerminalOutput {
+  string session_id = 1;
+  bytes data = 2;
+}
+
+message TerminalExit {
+  string session_id = 1;
+  int32 exit_code = 2;
+  string message = 3;
+}
+
+message TerminalError {
+  string session_id = 1;
+  string message = 2;
+}
+
 message WorkerToControl {
   oneof message {
     Hello hello = 1;
@@ -100,5 +154,25 @@ message ControlToWorker {
     HelloAck hello_ack = 1;
     Assignment assignment = 2;
     Shutdown shutdown = 3;
+  }
+}
+
+message WorkerTerminalToControl {
+  oneof message {
+    TerminalHello hello = 1;
+    TerminalReady ready = 2;
+    TerminalOutput output = 3;
+    TerminalExit exit = 4;
+    TerminalError error = 5;
+  }
+}
+
+message ControlToWorkerTerminal {
+  oneof message {
+    TerminalHelloAck hello_ack = 1;
+    TerminalOpenShell open_shell = 2;
+    TerminalInput input = 3;
+    TerminalResize resize = 4;
+    TerminalClose close = 5;
   }
 }
