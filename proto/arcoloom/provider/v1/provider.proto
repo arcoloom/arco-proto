@@ -64,7 +64,7 @@ message RequestContext {
 }
 
 message ConnectionScope {
-  string account_id = 1;
+  string scope_id = 1;
   string region = 2;
   string endpoint = 3;
   map<string, string> attributes = 4;
@@ -200,7 +200,7 @@ message WatchMarketFeedRequest {
 }
 
 message MarketOffering {
-  string account_id = 1;
+  string scope_id = 1;
   string region = 2;
   string availability_zone = 3;
   string zone_id = 4;
@@ -300,7 +300,7 @@ message StartInstanceRequest {
   map<string, string> options = 11;
   repeated InstanceTag tags = 12;
   google.protobuf.Struct provider_config = 13;
-  string account_id = 14;
+  string scope_id = 14;
 }
 
 message StartInstanceResponse {
@@ -320,7 +320,7 @@ message StopInstanceRequest {
   string instance_id = 4;
   string region = 5;
   map<string, string> options = 6;
-  string account_id = 7;
+  string scope_id = 7;
 }
 
 message StopInstanceResponse {
@@ -354,7 +354,7 @@ message ActiveInstance {
   string launch_time = 11;
   repeated InstanceTag tags = 12;
   map<string, string> provider_attributes = 13;
-  string account_id = 14;
+  string scope_id = 14;
 }
 
 message ListActiveInstancesResponse {

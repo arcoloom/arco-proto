@@ -1152,7 +1152,7 @@ type ProviderOffering struct {
 	GpuCount       uint32                 `protobuf:"varint,9,opt,name=gpu_count,json=gpuCount,proto3" json:"gpu_count,omitempty"`
 	HourlyPriceUsd float64                `protobuf:"fixed64,10,opt,name=hourly_price_usd,json=hourlyPriceUsd,proto3" json:"hourly_price_usd,omitempty"`
 	Attributes     map[string]string      `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	AccountId      string                 `protobuf:"bytes,14,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	ScopeId        string                 `protobuf:"bytes,14,opt,name=scope_id,json=scopeId,proto3" json:"scope_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1264,16 +1264,16 @@ func (x *ProviderOffering) GetAttributes() map[string]string {
 	return nil
 }
 
-func (x *ProviderOffering) GetAccountId() string {
+func (x *ProviderOffering) GetScopeId() string {
 	if x != nil {
-		return x.AccountId
+		return x.ScopeId
 	}
 	return ""
 }
 
 type AccountLimit struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	ScopeId       string                 `protobuf:"bytes,1,opt,name=scope_id,json=scopeId,proto3" json:"scope_id,omitempty"`
 	Provider      string                 `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
 	Region        string                 `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
 	Scope         string                 `protobuf:"bytes,4,opt,name=scope,proto3" json:"scope,omitempty"`
@@ -1313,9 +1313,9 @@ func (*AccountLimit) Descriptor() ([]byte, []int) {
 	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *AccountLimit) GetAccountId() string {
+func (x *AccountLimit) GetScopeId() string {
 	if x != nil {
-		return x.AccountId
+		return x.ScopeId
 	}
 	return ""
 }
@@ -1434,7 +1434,7 @@ func (x *Decision) GetSummary() string {
 type Placement struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Provider       string                 `protobuf:"bytes,1,opt,name=provider,proto3" json:"provider,omitempty"`
-	AccountId      string                 `protobuf:"bytes,2,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	ScopeId        string                 `protobuf:"bytes,2,opt,name=scope_id,json=scopeId,proto3" json:"scope_id,omitempty"`
 	Region         string                 `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
 	Zone           string                 `protobuf:"bytes,4,opt,name=zone,proto3" json:"zone,omitempty"`
 	ZoneId         string                 `protobuf:"bytes,5,opt,name=zone_id,json=zoneId,proto3" json:"zone_id,omitempty"`
@@ -1482,9 +1482,9 @@ func (x *Placement) GetProvider() string {
 	return ""
 }
 
-func (x *Placement) GetAccountId() string {
+func (x *Placement) GetScopeId() string {
 	if x != nil {
-		return x.AccountId
+		return x.ScopeId
 	}
 	return ""
 }
@@ -1713,7 +1713,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x0eMarketSnapshot\x12;\n" +
 	"\vobserved_at\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"observedAt\x12>\n" +
-	"\tofferings\x18\x02 \x03(\v2 .arcoloom.ee.v1.ProviderOfferingR\tofferings\"\x9a\x04\n" +
+	"\tofferings\x18\x02 \x03(\v2 .arcoloom.ee.v1.ProviderOfferingR\tofferings\"\x96\x04\n" +
 	"\x10ProviderOffering\x12\x1a\n" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x16\n" +
 	"\x06region\x18\x02 \x01(\tR\x06region\x12\x12\n" +
@@ -1729,15 +1729,13 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	" \x01(\x01R\x0ehourlyPriceUsd\x12P\n" +
 	"\n" +
 	"attributes\x18\r \x03(\v20.arcoloom.ee.v1.ProviderOffering.AttributesEntryR\n" +
-	"attributes\x12\x1d\n" +
-	"\n" +
-	"account_id\x18\x0e \x01(\tR\taccountId\x1a=\n" +
+	"attributes\x12\x19\n" +
+	"\bscope_id\x18\x0e \x01(\tR\ascopeId\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\v\x10\fJ\x04\b\f\x10\r\"\xa1\x01\n" +
-	"\fAccountLimit\x12\x1d\n" +
-	"\n" +
-	"account_id\x18\x01 \x01(\tR\taccountId\x12\x1a\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\v\x10\fJ\x04\b\f\x10\r\"\x9d\x01\n" +
+	"\fAccountLimit\x12\x19\n" +
+	"\bscope_id\x18\x01 \x01(\tR\ascopeId\x12\x1a\n" +
 	"\bprovider\x18\x02 \x01(\tR\bprovider\x12\x16\n" +
 	"\x06region\x18\x03 \x01(\tR\x06region\x12\x14\n" +
 	"\x05scope\x18\x04 \x01(\tR\x05scope\x12\x14\n" +
@@ -1749,11 +1747,10 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x06action\x18\x02 \x01(\x0e2\x1e.arcoloom.ee.v1.DecisionActionR\x06action\x121\n" +
 	"\x06target\x18\x03 \x01(\v2\x19.arcoloom.ee.v1.PlacementR\x06target\x120\n" +
 	"\x04cost\x18\x04 \x01(\v2\x1c.arcoloom.ee.v1.CostEstimateR\x04cost\x12\x18\n" +
-	"\asummary\x18\x05 \x01(\tR\asummary\"\xb5\x02\n" +
+	"\asummary\x18\x05 \x01(\tR\asummary\"\xb1\x02\n" +
 	"\tPlacement\x12\x1a\n" +
-	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x1d\n" +
-	"\n" +
-	"account_id\x18\x02 \x01(\tR\taccountId\x12\x16\n" +
+	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x19\n" +
+	"\bscope_id\x18\x02 \x01(\tR\ascopeId\x12\x16\n" +
 	"\x06region\x18\x03 \x01(\tR\x06region\x12\x12\n" +
 	"\x04zone\x18\x04 \x01(\tR\x04zone\x12\x17\n" +
 	"\azone_id\x18\x05 \x01(\tR\x06zoneId\x12#\n" +

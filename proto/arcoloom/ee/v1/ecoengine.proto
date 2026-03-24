@@ -152,12 +152,12 @@ message ProviderOffering {
   uint32 gpu_count = 9;
   double hourly_price_usd = 10;
   map<string, string> attributes = 13;
-  string account_id = 14;
+  string scope_id = 14;
   reserved 11, 12;
 }
 
 message AccountLimit {
-  string account_id = 1;
+  string scope_id = 1;
   string provider = 2;
   string region = 3;
   string scope = 4;
@@ -175,7 +175,7 @@ message Decision {
 
 message Placement {
   string provider = 1;
-  string account_id = 2;
+  string scope_id = 2;
   string region = 3;
   string zone = 4;
   string zone_id = 5;
