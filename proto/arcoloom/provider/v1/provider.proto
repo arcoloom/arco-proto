@@ -98,6 +98,37 @@ message Warning {
   string message = 2;
 }
 
+enum LaunchFailureClass {
+  LAUNCH_FAILURE_CLASS_UNSPECIFIED = 0;
+  LAUNCH_FAILURE_CLASS_CAPACITY = 1;
+  LAUNCH_FAILURE_CLASS_QUOTA = 2;
+  LAUNCH_FAILURE_CLASS_PRICE = 3;
+  LAUNCH_FAILURE_CLASS_API = 4;
+  LAUNCH_FAILURE_CLASS_AUTH = 5;
+  LAUNCH_FAILURE_CLASS_CONFIG = 6;
+  LAUNCH_FAILURE_CLASS_PROVIDER = 7;
+}
+
+enum LaunchFailureScope {
+  LAUNCH_FAILURE_SCOPE_UNSPECIFIED = 0;
+  LAUNCH_FAILURE_SCOPE_PLACEMENT = 1;
+  LAUNCH_FAILURE_SCOPE_ZONE = 2;
+  LAUNCH_FAILURE_SCOPE_REGION = 3;
+  LAUNCH_FAILURE_SCOPE_ACCOUNT = 4;
+  LAUNCH_FAILURE_SCOPE_PROVIDER = 5;
+  LAUNCH_FAILURE_SCOPE_JOB = 6;
+}
+
+message LaunchFailure {
+  string code = 1;
+  LaunchFailureClass class = 2;
+  LaunchFailureScope scope = 3;
+  bool retryable = 4;
+  string message = 5;
+  string raw_code = 6;
+  map<string, string> attributes = 7;
+}
+
 message GetProviderInfoRequest {}
 
 message GetProviderInfoResponse {
@@ -279,6 +310,7 @@ message StartInstanceResponse {
   string public_ip = 4;
   string private_ip = 5;
   repeated Warning warnings = 6;
+  LaunchFailure launch_failure = 7;
 }
 
 message StopInstanceRequest {

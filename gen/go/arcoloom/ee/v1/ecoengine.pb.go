@@ -132,6 +132,7 @@ const (
 	WorkloadKind_WORKLOAD_KIND_AI_TRAINING  WorkloadKind = 2
 	WorkloadKind_WORKLOAD_KIND_AI_INFERENCE WorkloadKind = 3
 	WorkloadKind_WORKLOAD_KIND_SCIENTIFIC   WorkloadKind = 4
+	WorkloadKind_WORKLOAD_KIND_SINGLE       WorkloadKind = 5
 )
 
 // Enum value maps for WorkloadKind.
@@ -142,6 +143,7 @@ var (
 		2: "WORKLOAD_KIND_AI_TRAINING",
 		3: "WORKLOAD_KIND_AI_INFERENCE",
 		4: "WORKLOAD_KIND_SCIENTIFIC",
+		5: "WORKLOAD_KIND_SINGLE",
 	}
 	WorkloadKind_value = map[string]int32{
 		"WORKLOAD_KIND_UNSPECIFIED":  0,
@@ -149,6 +151,7 @@ var (
 		"WORKLOAD_KIND_AI_TRAINING":  2,
 		"WORKLOAD_KIND_AI_INFERENCE": 3,
 		"WORKLOAD_KIND_SCIENTIFIC":   4,
+		"WORKLOAD_KIND_SINGLE":       5,
 	}
 )
 
@@ -1774,13 +1777,14 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	" SCHEDULING_OBJECTIVE_UNSPECIFIED\x10\x00\x12$\n" +
 	" SCHEDULING_OBJECTIVE_LOWEST_COST\x10\x01\x12%\n" +
 	"!SCHEDULING_OBJECTIVE_FASTEST_TIME\x10\x02\x12!\n" +
-	"\x1dSCHEDULING_OBJECTIVE_BALANCED\x10\x03*\xa3\x01\n" +
+	"\x1dSCHEDULING_OBJECTIVE_BALANCED\x10\x03*\xbd\x01\n" +
 	"\fWorkloadKind\x12\x1d\n" +
 	"\x19WORKLOAD_KIND_UNSPECIFIED\x10\x00\x12\x17\n" +
 	"\x13WORKLOAD_KIND_BATCH\x10\x01\x12\x1d\n" +
 	"\x19WORKLOAD_KIND_AI_TRAINING\x10\x02\x12\x1e\n" +
 	"\x1aWORKLOAD_KIND_AI_INFERENCE\x10\x03\x12\x1c\n" +
-	"\x18WORKLOAD_KIND_SCIENTIFIC\x10\x04*\xa1\x01\n" +
+	"\x18WORKLOAD_KIND_SCIENTIFIC\x10\x04\x12\x18\n" +
+	"\x14WORKLOAD_KIND_SINGLE\x10\x05*\xa1\x01\n" +
 	"\tTaskPhase\x12\x1a\n" +
 	"\x16TASK_PHASE_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12TASK_PHASE_PENDING\x10\x01\x12\x16\n" +
