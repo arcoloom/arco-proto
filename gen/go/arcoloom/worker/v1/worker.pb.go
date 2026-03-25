@@ -341,10 +341,11 @@ func (x *Hello) GetWorkerVersion() string {
 }
 
 type HelloAck struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	WorkerId      string                 `protobuf:"bytes,1,opt,name=worker_id,json=workerId,proto3" json:"worker_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	WorkerId             string                 `protobuf:"bytes,1,opt,name=worker_id,json=workerId,proto3" json:"worker_id,omitempty"`
+	TerminalSessionToken string                 `protobuf:"bytes,2,opt,name=terminal_session_token,json=terminalSessionToken,proto3" json:"terminal_session_token,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *HelloAck) Reset() {
@@ -380,6 +381,13 @@ func (*HelloAck) Descriptor() ([]byte, []int) {
 func (x *HelloAck) GetWorkerId() string {
 	if x != nil {
 		return x.WorkerId
+	}
+	return ""
+}
+
+func (x *HelloAck) GetTerminalSessionToken() string {
+	if x != nil {
+		return x.TerminalSessionToken
 	}
 	return ""
 }
@@ -729,13 +737,14 @@ func (x *Shutdown) GetReason() string {
 }
 
 type TerminalHello struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	InstanceId        string                 `protobuf:"bytes,1,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
-	Provider          string                 `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
-	RegistrationToken string                 `protobuf:"bytes,3,opt,name=registration_token,json=registrationToken,proto3" json:"registration_token,omitempty"`
-	WorkerVersion     string                 `protobuf:"bytes,4,opt,name=worker_version,json=workerVersion,proto3" json:"worker_version,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	InstanceId           string                 `protobuf:"bytes,1,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
+	Provider             string                 `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
+	RegistrationToken    string                 `protobuf:"bytes,3,opt,name=registration_token,json=registrationToken,proto3" json:"registration_token,omitempty"`
+	WorkerVersion        string                 `protobuf:"bytes,4,opt,name=worker_version,json=workerVersion,proto3" json:"worker_version,omitempty"`
+	TerminalSessionToken string                 `protobuf:"bytes,5,opt,name=terminal_session_token,json=terminalSessionToken,proto3" json:"terminal_session_token,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *TerminalHello) Reset() {
@@ -792,6 +801,13 @@ func (x *TerminalHello) GetRegistrationToken() string {
 func (x *TerminalHello) GetWorkerVersion() string {
 	if x != nil {
 		return x.WorkerVersion
+	}
+	return ""
+}
+
+func (x *TerminalHello) GetTerminalSessionToken() string {
+	if x != nil {
+		return x.TerminalSessionToken
 	}
 	return ""
 }
@@ -1770,9 +1786,10 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"instanceId\x12\x1a\n" +
 	"\bprovider\x18\x02 \x01(\tR\bprovider\x12-\n" +
 	"\x12registration_token\x18\x03 \x01(\tR\x11registrationToken\x12%\n" +
-	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\"'\n" +
+	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\"]\n" +
 	"\bHelloAck\x12\x1b\n" +
-	"\tworker_id\x18\x01 \x01(\tR\bworkerId\"\x83\x01\n" +
+	"\tworker_id\x18\x01 \x01(\tR\bworkerId\x124\n" +
+	"\x16terminal_session_token\x18\x02 \x01(\tR\x14terminalSessionToken\"\x83\x01\n" +
 	"\n" +
 	"Assignment\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x12B\n" +
@@ -1796,13 +1813,14 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\tHeartbeat\x12\x1b\n" +
 	"\tworker_id\x18\x01 \x01(\tR\bworkerId\"\"\n" +
 	"\bShutdown\x12\x16\n" +
-	"\x06reason\x18\x01 \x01(\tR\x06reason\"\xa2\x01\n" +
+	"\x06reason\x18\x01 \x01(\tR\x06reason\"\xd8\x01\n" +
 	"\rTerminalHello\x12\x1f\n" +
 	"\vinstance_id\x18\x01 \x01(\tR\n" +
 	"instanceId\x12\x1a\n" +
 	"\bprovider\x18\x02 \x01(\tR\bprovider\x12-\n" +
 	"\x12registration_token\x18\x03 \x01(\tR\x11registrationToken\x12%\n" +
-	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\"/\n" +
+	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\x124\n" +
+	"\x16terminal_session_token\x18\x05 \x01(\tR\x14terminalSessionToken\"/\n" +
 	"\x10TerminalHelloAck\x12\x1b\n" +
 	"\tworker_id\x18\x01 \x01(\tR\bworkerId\"Z\n" +
 	"\x11TerminalOpenShell\x12\x1d\n" +

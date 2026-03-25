@@ -50,6 +50,7 @@ message Hello {
 
 message HelloAck {
   string worker_id = 1;
+  string terminal_session_token = 2;
 }
 
 message Assignment {
@@ -91,6 +92,7 @@ message TerminalHello {
   string provider = 2;
   string registration_token = 3;
   string worker_version = 4;
+  string terminal_session_token = 5;
 }
 
 message TerminalHelloAck {
