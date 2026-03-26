@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package arcoloom.worker.v1;
 
-option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1";
-
 import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1";
 
 service WorkerService {
   rpc Connect(stream WorkerToControl) returns (stream ControlToWorker);
