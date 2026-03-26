@@ -4,6 +4,8 @@ package arcoloom.worker.v1;
 
 option go_package = "github.com/arcoloom/arco-proto/gen/go/arcoloom/worker/v1;workerv1";
 
+import "google/protobuf/timestamp.proto";
+
 service WorkerService {
   rpc Connect(stream WorkerToControl) returns (stream ControlToWorker);
   rpc ConnectTerminal(stream WorkerTerminalToControl) returns (stream ControlToWorkerTerminal);
@@ -21,6 +23,8 @@ enum TaskState {
   TASK_STATE_RUNNING = 2;
   TASK_STATE_SUCCESS = 3;
   TASK_STATE_FAILED = 4;
+  TASK_STATE_STOPPING = 5;
+  TASK_STATE_INTERRUPTED = 6;
 }
 
 enum SignalType {
@@ -69,6 +73,7 @@ message Signal {
   string task_id = 1;
   SignalType signal_type = 2;
   string detail = 3;
+  google.protobuf.Timestamp shutdown_at = 4;
 }
 
 message TaskLog {

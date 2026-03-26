@@ -9,6 +9,7 @@ package workerv1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -78,6 +79,8 @@ const (
 	TaskState_TASK_STATE_RUNNING     TaskState = 2
 	TaskState_TASK_STATE_SUCCESS     TaskState = 3
 	TaskState_TASK_STATE_FAILED      TaskState = 4
+	TaskState_TASK_STATE_STOPPING    TaskState = 5
+	TaskState_TASK_STATE_INTERRUPTED TaskState = 6
 )
 
 // Enum value maps for TaskState.
@@ -88,6 +91,8 @@ var (
 		2: "TASK_STATE_RUNNING",
 		3: "TASK_STATE_SUCCESS",
 		4: "TASK_STATE_FAILED",
+		5: "TASK_STATE_STOPPING",
+		6: "TASK_STATE_INTERRUPTED",
 	}
 	TaskState_value = map[string]int32{
 		"TASK_STATE_UNSPECIFIED": 0,
@@ -95,6 +100,8 @@ var (
 		"TASK_STATE_RUNNING":     2,
 		"TASK_STATE_SUCCESS":     3,
 		"TASK_STATE_FAILED":      4,
+		"TASK_STATE_STOPPING":    5,
+		"TASK_STATE_INTERRUPTED": 6,
 	}
 )
 
@@ -517,6 +524,7 @@ type Signal struct {
 	TaskId        string                 `protobuf:"bytes,1,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
 	SignalType    SignalType             `protobuf:"varint,2,opt,name=signal_type,json=signalType,proto3,enum=arcoloom.worker.v1.SignalType" json:"signal_type,omitempty"`
 	Detail        string                 `protobuf:"bytes,3,opt,name=detail,proto3" json:"detail,omitempty"`
+	ShutdownAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=shutdown_at,json=shutdownAt,proto3" json:"shutdown_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -570,6 +578,13 @@ func (x *Signal) GetDetail() string {
 		return x.Detail
 	}
 	return ""
+}
+
+func (x *Signal) GetShutdownAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ShutdownAt
+	}
+	return nil
 }
 
 type TaskLog struct {
@@ -1780,7 +1795,7 @@ var File_arcoloom_worker_v1_worker_proto protoreflect.FileDescriptor
 
 const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\n" +
-	"\x1farcoloom/worker/v1/worker.proto\x12\x12arcoloom.worker.v1\"\x9a\x01\n" +
+	"\x1farcoloom/worker/v1/worker.proto\x12\x12arcoloom.worker.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x01\n" +
 	"\x05Hello\x12\x1f\n" +
 	"\vinstance_id\x18\x01 \x01(\tR\n" +
 	"instanceId\x12\x1a\n" +
@@ -1798,12 +1813,14 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\fStatusUpdate\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x123\n" +
 	"\x05state\x18\x02 \x01(\x0e2\x1d.arcoloom.worker.v1.TaskStateR\x05state\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessage\"z\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"\xb7\x01\n" +
 	"\x06Signal\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x12?\n" +
 	"\vsignal_type\x18\x02 \x01(\x0e2\x1e.arcoloom.worker.v1.SignalTypeR\n" +
 	"signalType\x12\x16\n" +
-	"\x06detail\x18\x03 \x01(\tR\x06detail\"\xc0\x01\n" +
+	"\x06detail\x18\x03 \x01(\tR\x06detail\x12;\n" +
+	"\vshutdown_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"shutdownAt\"\xc0\x01\n" +
 	"\aTaskLog\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x125\n" +
 	"\x06source\x18\x02 \x01(\x0e2\x1d.arcoloom.worker.v1.LogSourceR\x06source\x125\n" +
@@ -1889,13 +1906,15 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\vRuntimeKind\x12\x1c\n" +
 	"\x18RUNTIME_KIND_UNSPECIFIED\x10\x00\x12\x17\n" +
 	"\x13RUNTIME_KIND_DOCKER\x10\x01\x12\x15\n" +
-	"\x11RUNTIME_KIND_EXEC\x10\x02*\x88\x01\n" +
+	"\x11RUNTIME_KIND_EXEC\x10\x02*\xbd\x01\n" +
 	"\tTaskState\x12\x1a\n" +
 	"\x16TASK_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14TASK_STATE_PREPARING\x10\x01\x12\x16\n" +
 	"\x12TASK_STATE_RUNNING\x10\x02\x12\x16\n" +
 	"\x12TASK_STATE_SUCCESS\x10\x03\x12\x15\n" +
-	"\x11TASK_STATE_FAILED\x10\x04*l\n" +
+	"\x11TASK_STATE_FAILED\x10\x04\x12\x17\n" +
+	"\x13TASK_STATE_STOPPING\x10\x05\x12\x1a\n" +
+	"\x16TASK_STATE_INTERRUPTED\x10\x06*l\n" +
 	"\n" +
 	"SignalType\x12\x1b\n" +
 	"\x17SIGNAL_TYPE_UNSPECIFIED\x10\x00\x12!\n" +
@@ -1955,40 +1974,42 @@ var file_arcoloom_worker_v1_worker_proto_goTypes = []any{
 	(*ControlToWorker)(nil),         // 24: arcoloom.worker.v1.ControlToWorker
 	(*WorkerTerminalToControl)(nil), // 25: arcoloom.worker.v1.WorkerTerminalToControl
 	(*ControlToWorkerTerminal)(nil), // 26: arcoloom.worker.v1.ControlToWorkerTerminal
+	(*timestamppb.Timestamp)(nil),   // 27: google.protobuf.Timestamp
 }
 var file_arcoloom_worker_v1_worker_proto_depIdxs = []int32{
 	0,  // 0: arcoloom.worker.v1.Assignment.runtime_kind:type_name -> arcoloom.worker.v1.RuntimeKind
 	1,  // 1: arcoloom.worker.v1.StatusUpdate.state:type_name -> arcoloom.worker.v1.TaskState
 	2,  // 2: arcoloom.worker.v1.Signal.signal_type:type_name -> arcoloom.worker.v1.SignalType
-	3,  // 3: arcoloom.worker.v1.TaskLog.source:type_name -> arcoloom.worker.v1.LogSource
-	4,  // 4: arcoloom.worker.v1.TaskLog.stream:type_name -> arcoloom.worker.v1.LogStream
-	5,  // 5: arcoloom.worker.v1.WorkerToControl.hello:type_name -> arcoloom.worker.v1.Hello
-	8,  // 6: arcoloom.worker.v1.WorkerToControl.status:type_name -> arcoloom.worker.v1.StatusUpdate
-	9,  // 7: arcoloom.worker.v1.WorkerToControl.signal:type_name -> arcoloom.worker.v1.Signal
-	11, // 8: arcoloom.worker.v1.WorkerToControl.heartbeat:type_name -> arcoloom.worker.v1.Heartbeat
-	10, // 9: arcoloom.worker.v1.WorkerToControl.log:type_name -> arcoloom.worker.v1.TaskLog
-	6,  // 10: arcoloom.worker.v1.ControlToWorker.hello_ack:type_name -> arcoloom.worker.v1.HelloAck
-	7,  // 11: arcoloom.worker.v1.ControlToWorker.assignment:type_name -> arcoloom.worker.v1.Assignment
-	12, // 12: arcoloom.worker.v1.ControlToWorker.shutdown:type_name -> arcoloom.worker.v1.Shutdown
-	13, // 13: arcoloom.worker.v1.WorkerTerminalToControl.hello:type_name -> arcoloom.worker.v1.TerminalHello
-	19, // 14: arcoloom.worker.v1.WorkerTerminalToControl.ready:type_name -> arcoloom.worker.v1.TerminalReady
-	20, // 15: arcoloom.worker.v1.WorkerTerminalToControl.output:type_name -> arcoloom.worker.v1.TerminalOutput
-	21, // 16: arcoloom.worker.v1.WorkerTerminalToControl.exit:type_name -> arcoloom.worker.v1.TerminalExit
-	22, // 17: arcoloom.worker.v1.WorkerTerminalToControl.error:type_name -> arcoloom.worker.v1.TerminalError
-	14, // 18: arcoloom.worker.v1.ControlToWorkerTerminal.hello_ack:type_name -> arcoloom.worker.v1.TerminalHelloAck
-	15, // 19: arcoloom.worker.v1.ControlToWorkerTerminal.open_shell:type_name -> arcoloom.worker.v1.TerminalOpenShell
-	16, // 20: arcoloom.worker.v1.ControlToWorkerTerminal.input:type_name -> arcoloom.worker.v1.TerminalInput
-	17, // 21: arcoloom.worker.v1.ControlToWorkerTerminal.resize:type_name -> arcoloom.worker.v1.TerminalResize
-	18, // 22: arcoloom.worker.v1.ControlToWorkerTerminal.close:type_name -> arcoloom.worker.v1.TerminalClose
-	23, // 23: arcoloom.worker.v1.WorkerService.Connect:input_type -> arcoloom.worker.v1.WorkerToControl
-	25, // 24: arcoloom.worker.v1.WorkerService.ConnectTerminal:input_type -> arcoloom.worker.v1.WorkerTerminalToControl
-	24, // 25: arcoloom.worker.v1.WorkerService.Connect:output_type -> arcoloom.worker.v1.ControlToWorker
-	26, // 26: arcoloom.worker.v1.WorkerService.ConnectTerminal:output_type -> arcoloom.worker.v1.ControlToWorkerTerminal
-	25, // [25:27] is the sub-list for method output_type
-	23, // [23:25] is the sub-list for method input_type
-	23, // [23:23] is the sub-list for extension type_name
-	23, // [23:23] is the sub-list for extension extendee
-	0,  // [0:23] is the sub-list for field type_name
+	27, // 3: arcoloom.worker.v1.Signal.shutdown_at:type_name -> google.protobuf.Timestamp
+	3,  // 4: arcoloom.worker.v1.TaskLog.source:type_name -> arcoloom.worker.v1.LogSource
+	4,  // 5: arcoloom.worker.v1.TaskLog.stream:type_name -> arcoloom.worker.v1.LogStream
+	5,  // 6: arcoloom.worker.v1.WorkerToControl.hello:type_name -> arcoloom.worker.v1.Hello
+	8,  // 7: arcoloom.worker.v1.WorkerToControl.status:type_name -> arcoloom.worker.v1.StatusUpdate
+	9,  // 8: arcoloom.worker.v1.WorkerToControl.signal:type_name -> arcoloom.worker.v1.Signal
+	11, // 9: arcoloom.worker.v1.WorkerToControl.heartbeat:type_name -> arcoloom.worker.v1.Heartbeat
+	10, // 10: arcoloom.worker.v1.WorkerToControl.log:type_name -> arcoloom.worker.v1.TaskLog
+	6,  // 11: arcoloom.worker.v1.ControlToWorker.hello_ack:type_name -> arcoloom.worker.v1.HelloAck
+	7,  // 12: arcoloom.worker.v1.ControlToWorker.assignment:type_name -> arcoloom.worker.v1.Assignment
+	12, // 13: arcoloom.worker.v1.ControlToWorker.shutdown:type_name -> arcoloom.worker.v1.Shutdown
+	13, // 14: arcoloom.worker.v1.WorkerTerminalToControl.hello:type_name -> arcoloom.worker.v1.TerminalHello
+	19, // 15: arcoloom.worker.v1.WorkerTerminalToControl.ready:type_name -> arcoloom.worker.v1.TerminalReady
+	20, // 16: arcoloom.worker.v1.WorkerTerminalToControl.output:type_name -> arcoloom.worker.v1.TerminalOutput
+	21, // 17: arcoloom.worker.v1.WorkerTerminalToControl.exit:type_name -> arcoloom.worker.v1.TerminalExit
+	22, // 18: arcoloom.worker.v1.WorkerTerminalToControl.error:type_name -> arcoloom.worker.v1.TerminalError
+	14, // 19: arcoloom.worker.v1.ControlToWorkerTerminal.hello_ack:type_name -> arcoloom.worker.v1.TerminalHelloAck
+	15, // 20: arcoloom.worker.v1.ControlToWorkerTerminal.open_shell:type_name -> arcoloom.worker.v1.TerminalOpenShell
+	16, // 21: arcoloom.worker.v1.ControlToWorkerTerminal.input:type_name -> arcoloom.worker.v1.TerminalInput
+	17, // 22: arcoloom.worker.v1.ControlToWorkerTerminal.resize:type_name -> arcoloom.worker.v1.TerminalResize
+	18, // 23: arcoloom.worker.v1.ControlToWorkerTerminal.close:type_name -> arcoloom.worker.v1.TerminalClose
+	23, // 24: arcoloom.worker.v1.WorkerService.Connect:input_type -> arcoloom.worker.v1.WorkerToControl
+	25, // 25: arcoloom.worker.v1.WorkerService.ConnectTerminal:input_type -> arcoloom.worker.v1.WorkerTerminalToControl
+	24, // 26: arcoloom.worker.v1.WorkerService.Connect:output_type -> arcoloom.worker.v1.ControlToWorker
+	26, // 27: arcoloom.worker.v1.WorkerService.ConnectTerminal:output_type -> arcoloom.worker.v1.ControlToWorkerTerminal
+	26, // [26:28] is the sub-list for method output_type
+	24, // [24:26] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_arcoloom_worker_v1_worker_proto_init() }
