@@ -49,6 +49,27 @@ enum SchedulingObjective {
   SCHEDULING_OBJECTIVE_BALANCED = 3;
 }
 
+enum PerformanceProfile {
+  PERFORMANCE_PROFILE_UNSPECIFIED = 0;
+  PERFORMANCE_PROFILE_LOWEST_COST = 1;
+  PERFORMANCE_PROFILE_BALANCED = 2;
+  PERFORMANCE_PROFILE_HIGH_PERF_CPU = 3;
+  PERFORMANCE_PROFILE_HIGH_MEMORY = 4;
+}
+
+enum Interruptibility {
+  INTERRUPTIBILITY_UNSPECIFIED = 0;
+  INTERRUPTIBILITY_RESTARTABLE = 1;
+  INTERRUPTIBILITY_CHECKPOINTABLE = 2;
+  INTERRUPTIBILITY_NON_INTERRUPTIBLE = 3;
+}
+
+enum NetworkProfile {
+  NETWORK_PROFILE_UNSPECIFIED = 0;
+  NETWORK_PROFILE_NORMAL = 1;
+  NETWORK_PROFILE_EGRESS_HEAVY = 2;
+}
+
 enum WorkloadKind {
   WORKLOAD_KIND_UNSPECIFIED = 0;
   WORKLOAD_KIND_BATCH = 1;
@@ -98,6 +119,10 @@ message TaskSpec {
   ResourceDemand resources = 6;
   map<string, string> labels = 7;
   google.protobuf.Timestamp submitted_at = 8;
+  PerformanceProfile performance_profile = 9;
+  Interruptibility interruptibility = 10;
+  NetworkProfile network_profile = 11;
+  google.protobuf.Timestamp ddl = 12;
 }
 
 message SourceSpec {
@@ -127,6 +152,7 @@ message TaskRuntimeState {
   repeated PlanningSignal signals = 4;
   google.protobuf.Timestamp started_at = 5;
   uint64 retry_count = 6;
+  string phase_detail = 7;
 }
 
 message PlanningSignal {
@@ -171,6 +197,9 @@ message Decision {
   Placement target = 3;
   CostEstimate cost = 4;
   string summary = 5;
+  string score_version = 6;
+  double total_score = 7;
+  repeated ScoreComponent score_components = 8;
 }
 
 message Placement {
@@ -193,4 +222,10 @@ message CostEstimate {
 message Explanation {
   string code = 1;
   string message = 2;
+}
+
+message ScoreComponent {
+  string code = 1;
+  double score = 2;
+  string detail = 3;
 }
