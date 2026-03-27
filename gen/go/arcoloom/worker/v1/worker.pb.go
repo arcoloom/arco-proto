@@ -26,7 +26,7 @@ type RuntimeKind int32
 
 const (
 	RuntimeKind_RUNTIME_KIND_UNSPECIFIED RuntimeKind = 0
-	RuntimeKind_RUNTIME_KIND_DOCKER      RuntimeKind = 1
+	RuntimeKind_RUNTIME_KIND_CONTAINER   RuntimeKind = 1
 	RuntimeKind_RUNTIME_KIND_EXEC        RuntimeKind = 2
 )
 
@@ -34,12 +34,12 @@ const (
 var (
 	RuntimeKind_name = map[int32]string{
 		0: "RUNTIME_KIND_UNSPECIFIED",
-		1: "RUNTIME_KIND_DOCKER",
+		1: "RUNTIME_KIND_CONTAINER",
 		2: "RUNTIME_KIND_EXEC",
 	}
 	RuntimeKind_value = map[string]int32{
 		"RUNTIME_KIND_UNSPECIFIED": 0,
-		"RUNTIME_KIND_DOCKER":      1,
+		"RUNTIME_KIND_CONTAINER":   1,
 		"RUNTIME_KIND_EXEC":        2,
 	}
 )
@@ -351,6 +351,10 @@ type HelloAck struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
 	WorkerId             string                 `protobuf:"bytes,1,opt,name=worker_id,json=workerId,proto3" json:"worker_id,omitempty"`
 	TerminalSessionToken string                 `protobuf:"bytes,2,opt,name=terminal_session_token,json=terminalSessionToken,proto3" json:"terminal_session_token,omitempty"`
+	CloudVendor          string                 `protobuf:"bytes,3,opt,name=cloud_vendor,json=cloudVendor,proto3" json:"cloud_vendor,omitempty"`
+	InstanceType         string                 `protobuf:"bytes,4,opt,name=instance_type,json=instanceType,proto3" json:"instance_type,omitempty"`
+	Region               string                 `protobuf:"bytes,5,opt,name=region,proto3" json:"region,omitempty"`
+	AvailabilityZone     string                 `protobuf:"bytes,6,opt,name=availability_zone,json=availabilityZone,proto3" json:"availability_zone,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -395,6 +399,34 @@ func (x *HelloAck) GetWorkerId() string {
 func (x *HelloAck) GetTerminalSessionToken() string {
 	if x != nil {
 		return x.TerminalSessionToken
+	}
+	return ""
+}
+
+func (x *HelloAck) GetCloudVendor() string {
+	if x != nil {
+		return x.CloudVendor
+	}
+	return ""
+}
+
+func (x *HelloAck) GetInstanceType() string {
+	if x != nil {
+		return x.InstanceType
+	}
+	return ""
+}
+
+func (x *HelloAck) GetRegion() string {
+	if x != nil {
+		return x.Region
+	}
+	return ""
+}
+
+func (x *HelloAck) GetAvailabilityZone() string {
+	if x != nil {
+		return x.AvailabilityZone
 	}
 	return ""
 }
@@ -1801,10 +1833,14 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"instanceId\x12\x1a\n" +
 	"\bprovider\x18\x02 \x01(\tR\bprovider\x12-\n" +
 	"\x12registration_token\x18\x03 \x01(\tR\x11registrationToken\x12%\n" +
-	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\"]\n" +
+	"\x0eworker_version\x18\x04 \x01(\tR\rworkerVersion\"\xea\x01\n" +
 	"\bHelloAck\x12\x1b\n" +
 	"\tworker_id\x18\x01 \x01(\tR\bworkerId\x124\n" +
-	"\x16terminal_session_token\x18\x02 \x01(\tR\x14terminalSessionToken\"\x83\x01\n" +
+	"\x16terminal_session_token\x18\x02 \x01(\tR\x14terminalSessionToken\x12!\n" +
+	"\fcloud_vendor\x18\x03 \x01(\tR\vcloudVendor\x12#\n" +
+	"\rinstance_type\x18\x04 \x01(\tR\finstanceType\x12\x16\n" +
+	"\x06region\x18\x05 \x01(\tR\x06region\x12+\n" +
+	"\x11availability_zone\x18\x06 \x01(\tR\x10availabilityZone\"\x83\x01\n" +
 	"\n" +
 	"Assignment\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x12B\n" +
@@ -1902,10 +1938,10 @@ const file_arcoloom_worker_v1_worker_proto_rawDesc = "" +
 	"\x05input\x18\x03 \x01(\v2!.arcoloom.worker.v1.TerminalInputH\x00R\x05input\x12<\n" +
 	"\x06resize\x18\x04 \x01(\v2\".arcoloom.worker.v1.TerminalResizeH\x00R\x06resize\x129\n" +
 	"\x05close\x18\x05 \x01(\v2!.arcoloom.worker.v1.TerminalCloseH\x00R\x05closeB\t\n" +
-	"\amessage*[\n" +
+	"\amessage*^\n" +
 	"\vRuntimeKind\x12\x1c\n" +
-	"\x18RUNTIME_KIND_UNSPECIFIED\x10\x00\x12\x17\n" +
-	"\x13RUNTIME_KIND_DOCKER\x10\x01\x12\x15\n" +
+	"\x18RUNTIME_KIND_UNSPECIFIED\x10\x00\x12\x1a\n" +
+	"\x16RUNTIME_KIND_CONTAINER\x10\x01\x12\x15\n" +
 	"\x11RUNTIME_KIND_EXEC\x10\x02*\xbd\x01\n" +
 	"\tTaskState\x12\x1a\n" +
 	"\x16TASK_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
