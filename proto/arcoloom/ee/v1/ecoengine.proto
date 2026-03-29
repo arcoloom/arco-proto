@@ -17,9 +17,11 @@ message GetInfoRequest {}
 message GetInfoResponse {
   string service = 1;
   string version = 2;
-  repeated string supported_providers = 3;
-  repeated string supported_objectives = 4;
+  reserved 3, 4;
+  reserved "supported_providers", "supported_objectives";
   repeated PlanningMode supported_modes = 5;
+  string engine_version = 6;
+  repeated string active_rule_codes = 7;
 }
 
 message PlanRequest {
@@ -42,19 +44,11 @@ enum PlanningMode {
   PLANNING_MODE_REPLAN = 2;
 }
 
-enum SchedulingObjective {
-  SCHEDULING_OBJECTIVE_UNSPECIFIED = 0;
-  SCHEDULING_OBJECTIVE_LOWEST_COST = 1;
-  SCHEDULING_OBJECTIVE_FASTEST_TIME = 2;
-  SCHEDULING_OBJECTIVE_BALANCED = 3;
-}
-
 enum PerformanceProfile {
   PERFORMANCE_PROFILE_UNSPECIFIED = 0;
-  PERFORMANCE_PROFILE_LOWEST_COST = 1;
+  PERFORMANCE_PROFILE_CHEAPEST = 1;
   PERFORMANCE_PROFILE_BALANCED = 2;
   PERFORMANCE_PROFILE_HIGH_PERF_CPU = 3;
-  PERFORMANCE_PROFILE_HIGH_MEMORY = 4;
 }
 
 enum Interruptibility {
@@ -113,7 +107,8 @@ enum DecisionAction {
 message TaskSpec {
   string task_id = 1;
   WorkloadKind workload_kind = 2;
-  SchedulingObjective objective = 3;
+  reserved 3;
+  reserved "objective";
   SourceSpec source = 4;
   RunSpec run = 5;
   ResourceDemand resources = 6;
@@ -153,6 +148,8 @@ message TaskRuntimeState {
   google.protobuf.Timestamp started_at = 5;
   uint64 retry_count = 6;
   string phase_detail = 7;
+  reserved 8;
+  reserved "progress_ratio";
 }
 
 message PlanningSignal {
@@ -179,7 +176,24 @@ message ProviderOffering {
   double hourly_price_usd = 10;
   map<string, string> attributes = 13;
   string scope_id = 14;
+  OfferingFacts facts = 15;
   reserved 11, 12;
+}
+
+message OfferingFacts {
+  double effective_hourly_price_usd = 1;
+  double cpu_perf_index = 2;
+  double memory_perf_index = 3;
+  double network_perf_index = 4;
+  double capacity_score = 5;
+  double launch_success_score = 6;
+  double placement_health_score = 7;
+  double spot_risk_score = 8;
+  string family_class = 9;
+  double generation_rank = 10;
+  double memory_per_vcpu = 11;
+  string architecture_class = 12;
+  double provider_perf_baseline = 13;
 }
 
 message AccountLimit {

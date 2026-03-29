@@ -72,83 +72,28 @@ func (PlanningMode) EnumDescriptor() ([]byte, []int) {
 	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{0}
 }
 
-type SchedulingObjective int32
-
-const (
-	SchedulingObjective_SCHEDULING_OBJECTIVE_UNSPECIFIED  SchedulingObjective = 0
-	SchedulingObjective_SCHEDULING_OBJECTIVE_LOWEST_COST  SchedulingObjective = 1
-	SchedulingObjective_SCHEDULING_OBJECTIVE_FASTEST_TIME SchedulingObjective = 2
-	SchedulingObjective_SCHEDULING_OBJECTIVE_BALANCED     SchedulingObjective = 3
-)
-
-// Enum value maps for SchedulingObjective.
-var (
-	SchedulingObjective_name = map[int32]string{
-		0: "SCHEDULING_OBJECTIVE_UNSPECIFIED",
-		1: "SCHEDULING_OBJECTIVE_LOWEST_COST",
-		2: "SCHEDULING_OBJECTIVE_FASTEST_TIME",
-		3: "SCHEDULING_OBJECTIVE_BALANCED",
-	}
-	SchedulingObjective_value = map[string]int32{
-		"SCHEDULING_OBJECTIVE_UNSPECIFIED":  0,
-		"SCHEDULING_OBJECTIVE_LOWEST_COST":  1,
-		"SCHEDULING_OBJECTIVE_FASTEST_TIME": 2,
-		"SCHEDULING_OBJECTIVE_BALANCED":     3,
-	}
-)
-
-func (x SchedulingObjective) Enum() *SchedulingObjective {
-	p := new(SchedulingObjective)
-	*p = x
-	return p
-}
-
-func (x SchedulingObjective) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (SchedulingObjective) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[1].Descriptor()
-}
-
-func (SchedulingObjective) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[1]
-}
-
-func (x SchedulingObjective) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use SchedulingObjective.Descriptor instead.
-func (SchedulingObjective) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{1}
-}
-
 type PerformanceProfile int32
 
 const (
 	PerformanceProfile_PERFORMANCE_PROFILE_UNSPECIFIED   PerformanceProfile = 0
-	PerformanceProfile_PERFORMANCE_PROFILE_LOWEST_COST   PerformanceProfile = 1
+	PerformanceProfile_PERFORMANCE_PROFILE_CHEAPEST      PerformanceProfile = 1
 	PerformanceProfile_PERFORMANCE_PROFILE_BALANCED      PerformanceProfile = 2
 	PerformanceProfile_PERFORMANCE_PROFILE_HIGH_PERF_CPU PerformanceProfile = 3
-	PerformanceProfile_PERFORMANCE_PROFILE_HIGH_MEMORY   PerformanceProfile = 4
 )
 
 // Enum value maps for PerformanceProfile.
 var (
 	PerformanceProfile_name = map[int32]string{
 		0: "PERFORMANCE_PROFILE_UNSPECIFIED",
-		1: "PERFORMANCE_PROFILE_LOWEST_COST",
+		1: "PERFORMANCE_PROFILE_CHEAPEST",
 		2: "PERFORMANCE_PROFILE_BALANCED",
 		3: "PERFORMANCE_PROFILE_HIGH_PERF_CPU",
-		4: "PERFORMANCE_PROFILE_HIGH_MEMORY",
 	}
 	PerformanceProfile_value = map[string]int32{
 		"PERFORMANCE_PROFILE_UNSPECIFIED":   0,
-		"PERFORMANCE_PROFILE_LOWEST_COST":   1,
+		"PERFORMANCE_PROFILE_CHEAPEST":      1,
 		"PERFORMANCE_PROFILE_BALANCED":      2,
 		"PERFORMANCE_PROFILE_HIGH_PERF_CPU": 3,
-		"PERFORMANCE_PROFILE_HIGH_MEMORY":   4,
 	}
 )
 
@@ -163,11 +108,11 @@ func (x PerformanceProfile) String() string {
 }
 
 func (PerformanceProfile) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[2].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[1].Descriptor()
 }
 
 func (PerformanceProfile) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[2]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[1]
 }
 
 func (x PerformanceProfile) Number() protoreflect.EnumNumber {
@@ -176,7 +121,7 @@ func (x PerformanceProfile) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PerformanceProfile.Descriptor instead.
 func (PerformanceProfile) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{2}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{1}
 }
 
 type Interruptibility int32
@@ -215,11 +160,11 @@ func (x Interruptibility) String() string {
 }
 
 func (Interruptibility) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[3].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[2].Descriptor()
 }
 
 func (Interruptibility) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[3]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[2]
 }
 
 func (x Interruptibility) Number() protoreflect.EnumNumber {
@@ -228,7 +173,7 @@ func (x Interruptibility) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Interruptibility.Descriptor instead.
 func (Interruptibility) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{3}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{2}
 }
 
 type NetworkProfile int32
@@ -264,11 +209,11 @@ func (x NetworkProfile) String() string {
 }
 
 func (NetworkProfile) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[4].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[3].Descriptor()
 }
 
 func (NetworkProfile) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[4]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[3]
 }
 
 func (x NetworkProfile) Number() protoreflect.EnumNumber {
@@ -277,7 +222,7 @@ func (x NetworkProfile) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NetworkProfile.Descriptor instead.
 func (NetworkProfile) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{4}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{3}
 }
 
 type WorkloadKind int32
@@ -322,11 +267,11 @@ func (x WorkloadKind) String() string {
 }
 
 func (WorkloadKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[5].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[4].Descriptor()
 }
 
 func (WorkloadKind) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[5]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[4]
 }
 
 func (x WorkloadKind) Number() protoreflect.EnumNumber {
@@ -335,7 +280,7 @@ func (x WorkloadKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WorkloadKind.Descriptor instead.
 func (WorkloadKind) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{5}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{4}
 }
 
 type TaskPhase int32
@@ -380,11 +325,11 @@ func (x TaskPhase) String() string {
 }
 
 func (TaskPhase) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[6].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[5].Descriptor()
 }
 
 func (TaskPhase) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[6]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[5]
 }
 
 func (x TaskPhase) Number() protoreflect.EnumNumber {
@@ -393,7 +338,7 @@ func (x TaskPhase) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TaskPhase.Descriptor instead.
 func (TaskPhase) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{6}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{5}
 }
 
 type SignalType int32
@@ -435,11 +380,11 @@ func (x SignalType) String() string {
 }
 
 func (SignalType) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[7].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[6].Descriptor()
 }
 
 func (SignalType) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[7]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[6]
 }
 
 func (x SignalType) Number() protoreflect.EnumNumber {
@@ -448,7 +393,7 @@ func (x SignalType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SignalType.Descriptor instead.
 func (SignalType) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{7}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{6}
 }
 
 type PricingModel int32
@@ -487,11 +432,11 @@ func (x PricingModel) String() string {
 }
 
 func (PricingModel) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[8].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[7].Descriptor()
 }
 
 func (PricingModel) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[8]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[7]
 }
 
 func (x PricingModel) Number() protoreflect.EnumNumber {
@@ -500,7 +445,7 @@ func (x PricingModel) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PricingModel.Descriptor instead.
 func (PricingModel) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{8}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{7}
 }
 
 type DecisionAction int32
@@ -539,11 +484,11 @@ func (x DecisionAction) String() string {
 }
 
 func (DecisionAction) Descriptor() protoreflect.EnumDescriptor {
-	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[9].Descriptor()
+	return file_arcoloom_ee_v1_ecoengine_proto_enumTypes[8].Descriptor()
 }
 
 func (DecisionAction) Type() protoreflect.EnumType {
-	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[9]
+	return &file_arcoloom_ee_v1_ecoengine_proto_enumTypes[8]
 }
 
 func (x DecisionAction) Number() protoreflect.EnumNumber {
@@ -552,7 +497,7 @@ func (x DecisionAction) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DecisionAction.Descriptor instead.
 func (DecisionAction) EnumDescriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{9}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{8}
 }
 
 type GetInfoRequest struct {
@@ -592,14 +537,14 @@ func (*GetInfoRequest) Descriptor() ([]byte, []int) {
 }
 
 type GetInfoResponse struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	Service             string                 `protobuf:"bytes,1,opt,name=service,proto3" json:"service,omitempty"`
-	Version             string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	SupportedProviders  []string               `protobuf:"bytes,3,rep,name=supported_providers,json=supportedProviders,proto3" json:"supported_providers,omitempty"`
-	SupportedObjectives []string               `protobuf:"bytes,4,rep,name=supported_objectives,json=supportedObjectives,proto3" json:"supported_objectives,omitempty"`
-	SupportedModes      []PlanningMode         `protobuf:"varint,5,rep,packed,name=supported_modes,json=supportedModes,proto3,enum=arcoloom.ee.v1.PlanningMode" json:"supported_modes,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Service         string                 `protobuf:"bytes,1,opt,name=service,proto3" json:"service,omitempty"`
+	Version         string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
+	SupportedModes  []PlanningMode         `protobuf:"varint,5,rep,packed,name=supported_modes,json=supportedModes,proto3,enum=arcoloom.ee.v1.PlanningMode" json:"supported_modes,omitempty"`
+	EngineVersion   string                 `protobuf:"bytes,6,opt,name=engine_version,json=engineVersion,proto3" json:"engine_version,omitempty"`
+	ActiveRuleCodes []string               `protobuf:"bytes,7,rep,name=active_rule_codes,json=activeRuleCodes,proto3" json:"active_rule_codes,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *GetInfoResponse) Reset() {
@@ -646,23 +591,23 @@ func (x *GetInfoResponse) GetVersion() string {
 	return ""
 }
 
-func (x *GetInfoResponse) GetSupportedProviders() []string {
-	if x != nil {
-		return x.SupportedProviders
-	}
-	return nil
-}
-
-func (x *GetInfoResponse) GetSupportedObjectives() []string {
-	if x != nil {
-		return x.SupportedObjectives
-	}
-	return nil
-}
-
 func (x *GetInfoResponse) GetSupportedModes() []PlanningMode {
 	if x != nil {
 		return x.SupportedModes
+	}
+	return nil
+}
+
+func (x *GetInfoResponse) GetEngineVersion() string {
+	if x != nil {
+		return x.EngineVersion
+	}
+	return ""
+}
+
+func (x *GetInfoResponse) GetActiveRuleCodes() []string {
+	if x != nil {
+		return x.ActiveRuleCodes
 	}
 	return nil
 }
@@ -807,7 +752,6 @@ type TaskSpec struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	TaskId             string                 `protobuf:"bytes,1,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
 	WorkloadKind       WorkloadKind           `protobuf:"varint,2,opt,name=workload_kind,json=workloadKind,proto3,enum=arcoloom.ee.v1.WorkloadKind" json:"workload_kind,omitempty"`
-	Objective          SchedulingObjective    `protobuf:"varint,3,opt,name=objective,proto3,enum=arcoloom.ee.v1.SchedulingObjective" json:"objective,omitempty"`
 	Source             *SourceSpec            `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
 	Run                *RunSpec               `protobuf:"bytes,5,opt,name=run,proto3" json:"run,omitempty"`
 	Resources          *ResourceDemand        `protobuf:"bytes,6,opt,name=resources,proto3" json:"resources,omitempty"`
@@ -863,13 +807,6 @@ func (x *TaskSpec) GetWorkloadKind() WorkloadKind {
 		return x.WorkloadKind
 	}
 	return WorkloadKind_WORKLOAD_KIND_UNSPECIFIED
-}
-
-func (x *TaskSpec) GetObjective() SchedulingObjective {
-	if x != nil {
-		return x.Objective
-	}
-	return SchedulingObjective_SCHEDULING_OBJECTIVE_UNSPECIFIED
 }
 
 func (x *TaskSpec) GetSource() *SourceSpec {
@@ -1349,6 +1286,7 @@ type ProviderOffering struct {
 	HourlyPriceUsd float64                `protobuf:"fixed64,10,opt,name=hourly_price_usd,json=hourlyPriceUsd,proto3" json:"hourly_price_usd,omitempty"`
 	Attributes     map[string]string      `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	ScopeId        string                 `protobuf:"bytes,14,opt,name=scope_id,json=scopeId,proto3" json:"scope_id,omitempty"`
+	Facts          *OfferingFacts         `protobuf:"bytes,15,opt,name=facts,proto3" json:"facts,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1467,6 +1405,153 @@ func (x *ProviderOffering) GetScopeId() string {
 	return ""
 }
 
+func (x *ProviderOffering) GetFacts() *OfferingFacts {
+	if x != nil {
+		return x.Facts
+	}
+	return nil
+}
+
+type OfferingFacts struct {
+	state                   protoimpl.MessageState `protogen:"open.v1"`
+	EffectiveHourlyPriceUsd float64                `protobuf:"fixed64,1,opt,name=effective_hourly_price_usd,json=effectiveHourlyPriceUsd,proto3" json:"effective_hourly_price_usd,omitempty"`
+	CpuPerfIndex            float64                `protobuf:"fixed64,2,opt,name=cpu_perf_index,json=cpuPerfIndex,proto3" json:"cpu_perf_index,omitempty"`
+	MemoryPerfIndex         float64                `protobuf:"fixed64,3,opt,name=memory_perf_index,json=memoryPerfIndex,proto3" json:"memory_perf_index,omitempty"`
+	NetworkPerfIndex        float64                `protobuf:"fixed64,4,opt,name=network_perf_index,json=networkPerfIndex,proto3" json:"network_perf_index,omitempty"`
+	CapacityScore           float64                `protobuf:"fixed64,5,opt,name=capacity_score,json=capacityScore,proto3" json:"capacity_score,omitempty"`
+	LaunchSuccessScore      float64                `protobuf:"fixed64,6,opt,name=launch_success_score,json=launchSuccessScore,proto3" json:"launch_success_score,omitempty"`
+	PlacementHealthScore    float64                `protobuf:"fixed64,7,opt,name=placement_health_score,json=placementHealthScore,proto3" json:"placement_health_score,omitempty"`
+	SpotRiskScore           float64                `protobuf:"fixed64,8,opt,name=spot_risk_score,json=spotRiskScore,proto3" json:"spot_risk_score,omitempty"`
+	FamilyClass             string                 `protobuf:"bytes,9,opt,name=family_class,json=familyClass,proto3" json:"family_class,omitempty"`
+	GenerationRank          float64                `protobuf:"fixed64,10,opt,name=generation_rank,json=generationRank,proto3" json:"generation_rank,omitempty"`
+	MemoryPerVcpu           float64                `protobuf:"fixed64,11,opt,name=memory_per_vcpu,json=memoryPerVcpu,proto3" json:"memory_per_vcpu,omitempty"`
+	ArchitectureClass       string                 `protobuf:"bytes,12,opt,name=architecture_class,json=architectureClass,proto3" json:"architecture_class,omitempty"`
+	ProviderPerfBaseline    float64                `protobuf:"fixed64,13,opt,name=provider_perf_baseline,json=providerPerfBaseline,proto3" json:"provider_perf_baseline,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *OfferingFacts) Reset() {
+	*x = OfferingFacts{}
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OfferingFacts) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OfferingFacts) ProtoMessage() {}
+
+func (x *OfferingFacts) ProtoReflect() protoreflect.Message {
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OfferingFacts.ProtoReflect.Descriptor instead.
+func (*OfferingFacts) Descriptor() ([]byte, []int) {
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *OfferingFacts) GetEffectiveHourlyPriceUsd() float64 {
+	if x != nil {
+		return x.EffectiveHourlyPriceUsd
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetCpuPerfIndex() float64 {
+	if x != nil {
+		return x.CpuPerfIndex
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetMemoryPerfIndex() float64 {
+	if x != nil {
+		return x.MemoryPerfIndex
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetNetworkPerfIndex() float64 {
+	if x != nil {
+		return x.NetworkPerfIndex
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetCapacityScore() float64 {
+	if x != nil {
+		return x.CapacityScore
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetLaunchSuccessScore() float64 {
+	if x != nil {
+		return x.LaunchSuccessScore
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetPlacementHealthScore() float64 {
+	if x != nil {
+		return x.PlacementHealthScore
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetSpotRiskScore() float64 {
+	if x != nil {
+		return x.SpotRiskScore
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetFamilyClass() string {
+	if x != nil {
+		return x.FamilyClass
+	}
+	return ""
+}
+
+func (x *OfferingFacts) GetGenerationRank() float64 {
+	if x != nil {
+		return x.GenerationRank
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetMemoryPerVcpu() float64 {
+	if x != nil {
+		return x.MemoryPerVcpu
+	}
+	return 0
+}
+
+func (x *OfferingFacts) GetArchitectureClass() string {
+	if x != nil {
+		return x.ArchitectureClass
+	}
+	return ""
+}
+
+func (x *OfferingFacts) GetProviderPerfBaseline() float64 {
+	if x != nil {
+		return x.ProviderPerfBaseline
+	}
+	return 0
+}
+
 type AccountLimit struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ScopeId       string                 `protobuf:"bytes,1,opt,name=scope_id,json=scopeId,proto3" json:"scope_id,omitempty"`
@@ -1481,7 +1566,7 @@ type AccountLimit struct {
 
 func (x *AccountLimit) Reset() {
 	*x = AccountLimit{}
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[12]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1493,7 +1578,7 @@ func (x *AccountLimit) String() string {
 func (*AccountLimit) ProtoMessage() {}
 
 func (x *AccountLimit) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[12]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1506,7 +1591,7 @@ func (x *AccountLimit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountLimit.ProtoReflect.Descriptor instead.
 func (*AccountLimit) Descriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{12}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *AccountLimit) GetScopeId() string {
@@ -1567,7 +1652,7 @@ type Decision struct {
 
 func (x *Decision) Reset() {
 	*x = Decision{}
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[13]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1579,7 +1664,7 @@ func (x *Decision) String() string {
 func (*Decision) ProtoMessage() {}
 
 func (x *Decision) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[13]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1592,7 +1677,7 @@ func (x *Decision) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Decision.ProtoReflect.Descriptor instead.
 func (*Decision) Descriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{13}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Decision) GetDecisionId() string {
@@ -1667,7 +1752,7 @@ type Placement struct {
 
 func (x *Placement) Reset() {
 	*x = Placement{}
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[14]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1679,7 +1764,7 @@ func (x *Placement) String() string {
 func (*Placement) ProtoMessage() {}
 
 func (x *Placement) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[14]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1692,7 +1777,7 @@ func (x *Placement) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Placement.ProtoReflect.Descriptor instead.
 func (*Placement) Descriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{14}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *Placement) GetProvider() string {
@@ -1762,7 +1847,7 @@ type CostEstimate struct {
 
 func (x *CostEstimate) Reset() {
 	*x = CostEstimate{}
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[15]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1774,7 +1859,7 @@ func (x *CostEstimate) String() string {
 func (*CostEstimate) ProtoMessage() {}
 
 func (x *CostEstimate) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[15]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1787,7 +1872,7 @@ func (x *CostEstimate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CostEstimate.ProtoReflect.Descriptor instead.
 func (*CostEstimate) Descriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{15}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CostEstimate) GetCurrency() string {
@@ -1821,7 +1906,7 @@ type Explanation struct {
 
 func (x *Explanation) Reset() {
 	*x = Explanation{}
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[16]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1833,7 +1918,7 @@ func (x *Explanation) String() string {
 func (*Explanation) ProtoMessage() {}
 
 func (x *Explanation) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[16]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1846,7 +1931,7 @@ func (x *Explanation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Explanation.ProtoReflect.Descriptor instead.
 func (*Explanation) Descriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{16}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *Explanation) GetCode() string {
@@ -1874,7 +1959,7 @@ type ScoreComponent struct {
 
 func (x *ScoreComponent) Reset() {
 	*x = ScoreComponent{}
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[17]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1886,7 +1971,7 @@ func (x *ScoreComponent) String() string {
 func (*ScoreComponent) ProtoMessage() {}
 
 func (x *ScoreComponent) ProtoReflect() protoreflect.Message {
-	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[17]
+	mi := &file_arcoloom_ee_v1_ecoengine_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1899,7 +1984,7 @@ func (x *ScoreComponent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ScoreComponent.ProtoReflect.Descriptor instead.
 func (*ScoreComponent) Descriptor() ([]byte, []int) {
-	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{17}
+	return file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ScoreComponent) GetCode() string {
@@ -1928,13 +2013,13 @@ var File_arcoloom_ee_v1_ecoengine_proto protoreflect.FileDescriptor
 const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\n" +
 	"\x1earcoloom/ee/v1/ecoengine.proto\x12\x0earcoloom.ee.v1\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x10\n" +
-	"\x0eGetInfoRequest\"\xf0\x01\n" +
+	"\x0eGetInfoRequest\"\x96\x02\n" +
 	"\x0fGetInfoResponse\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12\x18\n" +
-	"\aversion\x18\x02 \x01(\tR\aversion\x12/\n" +
-	"\x13supported_providers\x18\x03 \x03(\tR\x12supportedProviders\x121\n" +
-	"\x14supported_objectives\x18\x04 \x03(\tR\x13supportedObjectives\x12E\n" +
-	"\x0fsupported_modes\x18\x05 \x03(\x0e2\x1c.arcoloom.ee.v1.PlanningModeR\x0esupportedModes\"\xc5\x02\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12E\n" +
+	"\x0fsupported_modes\x18\x05 \x03(\x0e2\x1c.arcoloom.ee.v1.PlanningModeR\x0esupportedModes\x12%\n" +
+	"\x0eengine_version\x18\x06 \x01(\tR\rengineVersion\x12*\n" +
+	"\x11active_rule_codes\x18\a \x03(\tR\x0factiveRuleCodesJ\x04\b\x03\x10\x04J\x04\b\x04\x10\x05R\x13supported_providersR\x14supported_objectives\"\xc5\x02\n" +
 	"\vPlanRequest\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\tR\trequestId\x120\n" +
@@ -1945,11 +2030,10 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x0eaccount_limits\x18\x06 \x03(\v2\x1c.arcoloom.ee.v1.AccountLimitR\raccountLimits\"\x85\x01\n" +
 	"\fPlanResponse\x124\n" +
 	"\bdecision\x18\x01 \x01(\v2\x18.arcoloom.ee.v1.DecisionR\bdecision\x12?\n" +
-	"\fexplanations\x18\x02 \x03(\v2\x1b.arcoloom.ee.v1.ExplanationR\fexplanations\"\x98\x06\n" +
+	"\fexplanations\x18\x02 \x03(\v2\x1b.arcoloom.ee.v1.ExplanationR\fexplanations\"\xe6\x05\n" +
 	"\bTaskSpec\x12\x17\n" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x12A\n" +
-	"\rworkload_kind\x18\x02 \x01(\x0e2\x1c.arcoloom.ee.v1.WorkloadKindR\fworkloadKind\x12A\n" +
-	"\tobjective\x18\x03 \x01(\x0e2#.arcoloom.ee.v1.SchedulingObjectiveR\tobjective\x122\n" +
+	"\rworkload_kind\x18\x02 \x01(\x0e2\x1c.arcoloom.ee.v1.WorkloadKindR\fworkloadKind\x122\n" +
 	"\x06source\x18\x04 \x01(\v2\x1a.arcoloom.ee.v1.SourceSpecR\x06source\x12)\n" +
 	"\x03run\x18\x05 \x01(\v2\x17.arcoloom.ee.v1.RunSpecR\x03run\x12<\n" +
 	"\tresources\x18\x06 \x01(\v2\x1e.arcoloom.ee.v1.ResourceDemandR\tresources\x12<\n" +
@@ -1962,7 +2046,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x03ddl\x18\f \x01(\v2\x1a.google.protobuf.TimestampR\x03ddl\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"b\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\x03\x10\x04R\tobjective\"b\n" +
 	"\n" +
 	"SourceSpec\x12\x12\n" +
 	"\x04kind\x18\x01 \x01(\tR\x04kind\x12\x10\n" +
@@ -1981,7 +2065,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\n" +
 	"memory_mib\x18\x02 \x01(\rR\tmemoryMib\x12\x1b\n" +
 	"\tgpu_count\x18\x03 \x01(\rR\bgpuCount\x12,\n" +
-	"\x12ephemeral_disk_gib\x18\x04 \x01(\rR\x10ephemeralDiskGib\"\xe7\x02\n" +
+	"\x12ephemeral_disk_gib\x18\x04 \x01(\rR\x10ephemeralDiskGib\"\xfd\x02\n" +
 	"\x10TaskRuntimeState\x12!\n" +
 	"\fexecution_id\x18\x01 \x01(\tR\vexecutionId\x12/\n" +
 	"\x05phase\x18\x02 \x01(\x0e2\x19.arcoloom.ee.v1.TaskPhaseR\x05phase\x12F\n" +
@@ -1991,7 +2075,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"started_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAt\x12\x1f\n" +
 	"\vretry_count\x18\x06 \x01(\x04R\n" +
 	"retryCount\x12!\n" +
-	"\fphase_detail\x18\a \x01(\tR\vphaseDetail\"t\n" +
+	"\fphase_detail\x18\a \x01(\tR\vphaseDetailJ\x04\b\b\x10\tR\x0eprogress_ratio\"t\n" +
 	"\x0ePlanningSignal\x12.\n" +
 	"\x04type\x18\x01 \x01(\x0e2\x1a.arcoloom.ee.v1.SignalTypeR\x04type\x12\x16\n" +
 	"\x06detail\x18\x02 \x01(\tR\x06detail\x12\x1a\n" +
@@ -1999,7 +2083,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x0eMarketSnapshot\x12;\n" +
 	"\vobserved_at\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"observedAt\x12>\n" +
-	"\tofferings\x18\x02 \x03(\v2 .arcoloom.ee.v1.ProviderOfferingR\tofferings\"\x96\x04\n" +
+	"\tofferings\x18\x02 \x03(\v2 .arcoloom.ee.v1.ProviderOfferingR\tofferings\"\xcb\x04\n" +
 	"\x10ProviderOffering\x12\x1a\n" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x16\n" +
 	"\x06region\x18\x02 \x01(\tR\x06region\x12\x12\n" +
@@ -2016,10 +2100,26 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\n" +
 	"attributes\x18\r \x03(\v20.arcoloom.ee.v1.ProviderOffering.AttributesEntryR\n" +
 	"attributes\x12\x19\n" +
-	"\bscope_id\x18\x0e \x01(\tR\ascopeId\x1a=\n" +
+	"\bscope_id\x18\x0e \x01(\tR\ascopeId\x123\n" +
+	"\x05facts\x18\x0f \x01(\v2\x1d.arcoloom.ee.v1.OfferingFactsR\x05facts\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\v\x10\fJ\x04\b\f\x10\r\"\x9d\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01J\x04\b\v\x10\fJ\x04\b\f\x10\r\"\xdc\x04\n" +
+	"\rOfferingFacts\x12;\n" +
+	"\x1aeffective_hourly_price_usd\x18\x01 \x01(\x01R\x17effectiveHourlyPriceUsd\x12$\n" +
+	"\x0ecpu_perf_index\x18\x02 \x01(\x01R\fcpuPerfIndex\x12*\n" +
+	"\x11memory_perf_index\x18\x03 \x01(\x01R\x0fmemoryPerfIndex\x12,\n" +
+	"\x12network_perf_index\x18\x04 \x01(\x01R\x10networkPerfIndex\x12%\n" +
+	"\x0ecapacity_score\x18\x05 \x01(\x01R\rcapacityScore\x120\n" +
+	"\x14launch_success_score\x18\x06 \x01(\x01R\x12launchSuccessScore\x124\n" +
+	"\x16placement_health_score\x18\a \x01(\x01R\x14placementHealthScore\x12&\n" +
+	"\x0fspot_risk_score\x18\b \x01(\x01R\rspotRiskScore\x12!\n" +
+	"\ffamily_class\x18\t \x01(\tR\vfamilyClass\x12'\n" +
+	"\x0fgeneration_rank\x18\n" +
+	" \x01(\x01R\x0egenerationRank\x12&\n" +
+	"\x0fmemory_per_vcpu\x18\v \x01(\x01R\rmemoryPerVcpu\x12-\n" +
+	"\x12architecture_class\x18\f \x01(\tR\x11architectureClass\x124\n" +
+	"\x16provider_perf_baseline\x18\r \x01(\x01R\x14providerPerfBaseline\"\x9d\x01\n" +
 	"\fAccountLimit\x12\x19\n" +
 	"\bscope_id\x18\x01 \x01(\tR\ascopeId\x12\x1a\n" +
 	"\bprovider\x18\x02 \x01(\tR\bprovider\x12\x16\n" +
@@ -2063,18 +2163,12 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\fPlanningMode\x12\x1d\n" +
 	"\x19PLANNING_MODE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14PLANNING_MODE_CREATE\x10\x01\x12\x18\n" +
-	"\x14PLANNING_MODE_REPLAN\x10\x02*\xab\x01\n" +
-	"\x13SchedulingObjective\x12$\n" +
-	" SCHEDULING_OBJECTIVE_UNSPECIFIED\x10\x00\x12$\n" +
-	" SCHEDULING_OBJECTIVE_LOWEST_COST\x10\x01\x12%\n" +
-	"!SCHEDULING_OBJECTIVE_FASTEST_TIME\x10\x02\x12!\n" +
-	"\x1dSCHEDULING_OBJECTIVE_BALANCED\x10\x03*\xcc\x01\n" +
+	"\x14PLANNING_MODE_REPLAN\x10\x02*\xa4\x01\n" +
 	"\x12PerformanceProfile\x12#\n" +
-	"\x1fPERFORMANCE_PROFILE_UNSPECIFIED\x10\x00\x12#\n" +
-	"\x1fPERFORMANCE_PROFILE_LOWEST_COST\x10\x01\x12 \n" +
+	"\x1fPERFORMANCE_PROFILE_UNSPECIFIED\x10\x00\x12 \n" +
+	"\x1cPERFORMANCE_PROFILE_CHEAPEST\x10\x01\x12 \n" +
 	"\x1cPERFORMANCE_PROFILE_BALANCED\x10\x02\x12%\n" +
-	"!PERFORMANCE_PROFILE_HIGH_PERF_CPU\x10\x03\x12#\n" +
-	"\x1fPERFORMANCE_PROFILE_HIGH_MEMORY\x10\x04*\xa3\x01\n" +
+	"!PERFORMANCE_PROFILE_HIGH_PERF_CPU\x10\x03*\xa3\x01\n" +
 	"\x10Interruptibility\x12 \n" +
 	"\x1cINTERRUPTIBILITY_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cINTERRUPTIBILITY_RESTARTABLE\x10\x01\x12#\n" +
@@ -2131,31 +2225,31 @@ func file_arcoloom_ee_v1_ecoengine_proto_rawDescGZIP() []byte {
 	return file_arcoloom_ee_v1_ecoengine_proto_rawDescData
 }
 
-var file_arcoloom_ee_v1_ecoengine_proto_enumTypes = make([]protoimpl.EnumInfo, 10)
-var file_arcoloom_ee_v1_ecoengine_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
+var file_arcoloom_ee_v1_ecoengine_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
+var file_arcoloom_ee_v1_ecoengine_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_arcoloom_ee_v1_ecoengine_proto_goTypes = []any{
 	(PlanningMode)(0),             // 0: arcoloom.ee.v1.PlanningMode
-	(SchedulingObjective)(0),      // 1: arcoloom.ee.v1.SchedulingObjective
-	(PerformanceProfile)(0),       // 2: arcoloom.ee.v1.PerformanceProfile
-	(Interruptibility)(0),         // 3: arcoloom.ee.v1.Interruptibility
-	(NetworkProfile)(0),           // 4: arcoloom.ee.v1.NetworkProfile
-	(WorkloadKind)(0),             // 5: arcoloom.ee.v1.WorkloadKind
-	(TaskPhase)(0),                // 6: arcoloom.ee.v1.TaskPhase
-	(SignalType)(0),               // 7: arcoloom.ee.v1.SignalType
-	(PricingModel)(0),             // 8: arcoloom.ee.v1.PricingModel
-	(DecisionAction)(0),           // 9: arcoloom.ee.v1.DecisionAction
-	(*GetInfoRequest)(nil),        // 10: arcoloom.ee.v1.GetInfoRequest
-	(*GetInfoResponse)(nil),       // 11: arcoloom.ee.v1.GetInfoResponse
-	(*PlanRequest)(nil),           // 12: arcoloom.ee.v1.PlanRequest
-	(*PlanResponse)(nil),          // 13: arcoloom.ee.v1.PlanResponse
-	(*TaskSpec)(nil),              // 14: arcoloom.ee.v1.TaskSpec
-	(*SourceSpec)(nil),            // 15: arcoloom.ee.v1.SourceSpec
-	(*RunSpec)(nil),               // 16: arcoloom.ee.v1.RunSpec
-	(*ResourceDemand)(nil),        // 17: arcoloom.ee.v1.ResourceDemand
-	(*TaskRuntimeState)(nil),      // 18: arcoloom.ee.v1.TaskRuntimeState
-	(*PlanningSignal)(nil),        // 19: arcoloom.ee.v1.PlanningSignal
-	(*MarketSnapshot)(nil),        // 20: arcoloom.ee.v1.MarketSnapshot
-	(*ProviderOffering)(nil),      // 21: arcoloom.ee.v1.ProviderOffering
+	(PerformanceProfile)(0),       // 1: arcoloom.ee.v1.PerformanceProfile
+	(Interruptibility)(0),         // 2: arcoloom.ee.v1.Interruptibility
+	(NetworkProfile)(0),           // 3: arcoloom.ee.v1.NetworkProfile
+	(WorkloadKind)(0),             // 4: arcoloom.ee.v1.WorkloadKind
+	(TaskPhase)(0),                // 5: arcoloom.ee.v1.TaskPhase
+	(SignalType)(0),               // 6: arcoloom.ee.v1.SignalType
+	(PricingModel)(0),             // 7: arcoloom.ee.v1.PricingModel
+	(DecisionAction)(0),           // 8: arcoloom.ee.v1.DecisionAction
+	(*GetInfoRequest)(nil),        // 9: arcoloom.ee.v1.GetInfoRequest
+	(*GetInfoResponse)(nil),       // 10: arcoloom.ee.v1.GetInfoResponse
+	(*PlanRequest)(nil),           // 11: arcoloom.ee.v1.PlanRequest
+	(*PlanResponse)(nil),          // 12: arcoloom.ee.v1.PlanResponse
+	(*TaskSpec)(nil),              // 13: arcoloom.ee.v1.TaskSpec
+	(*SourceSpec)(nil),            // 14: arcoloom.ee.v1.SourceSpec
+	(*RunSpec)(nil),               // 15: arcoloom.ee.v1.RunSpec
+	(*ResourceDemand)(nil),        // 16: arcoloom.ee.v1.ResourceDemand
+	(*TaskRuntimeState)(nil),      // 17: arcoloom.ee.v1.TaskRuntimeState
+	(*PlanningSignal)(nil),        // 18: arcoloom.ee.v1.PlanningSignal
+	(*MarketSnapshot)(nil),        // 19: arcoloom.ee.v1.MarketSnapshot
+	(*ProviderOffering)(nil),      // 20: arcoloom.ee.v1.ProviderOffering
+	(*OfferingFacts)(nil),         // 21: arcoloom.ee.v1.OfferingFacts
 	(*AccountLimit)(nil),          // 22: arcoloom.ee.v1.AccountLimit
 	(*Decision)(nil),              // 23: arcoloom.ee.v1.Decision
 	(*Placement)(nil),             // 24: arcoloom.ee.v1.Placement
@@ -2171,43 +2265,43 @@ var file_arcoloom_ee_v1_ecoengine_proto_goTypes = []any{
 var file_arcoloom_ee_v1_ecoengine_proto_depIdxs = []int32{
 	0,  // 0: arcoloom.ee.v1.GetInfoResponse.supported_modes:type_name -> arcoloom.ee.v1.PlanningMode
 	0,  // 1: arcoloom.ee.v1.PlanRequest.mode:type_name -> arcoloom.ee.v1.PlanningMode
-	14, // 2: arcoloom.ee.v1.PlanRequest.task:type_name -> arcoloom.ee.v1.TaskSpec
-	18, // 3: arcoloom.ee.v1.PlanRequest.runtime:type_name -> arcoloom.ee.v1.TaskRuntimeState
-	20, // 4: arcoloom.ee.v1.PlanRequest.market:type_name -> arcoloom.ee.v1.MarketSnapshot
+	13, // 2: arcoloom.ee.v1.PlanRequest.task:type_name -> arcoloom.ee.v1.TaskSpec
+	17, // 3: arcoloom.ee.v1.PlanRequest.runtime:type_name -> arcoloom.ee.v1.TaskRuntimeState
+	19, // 4: arcoloom.ee.v1.PlanRequest.market:type_name -> arcoloom.ee.v1.MarketSnapshot
 	22, // 5: arcoloom.ee.v1.PlanRequest.account_limits:type_name -> arcoloom.ee.v1.AccountLimit
 	23, // 6: arcoloom.ee.v1.PlanResponse.decision:type_name -> arcoloom.ee.v1.Decision
 	26, // 7: arcoloom.ee.v1.PlanResponse.explanations:type_name -> arcoloom.ee.v1.Explanation
-	5,  // 8: arcoloom.ee.v1.TaskSpec.workload_kind:type_name -> arcoloom.ee.v1.WorkloadKind
-	1,  // 9: arcoloom.ee.v1.TaskSpec.objective:type_name -> arcoloom.ee.v1.SchedulingObjective
-	15, // 10: arcoloom.ee.v1.TaskSpec.source:type_name -> arcoloom.ee.v1.SourceSpec
-	16, // 11: arcoloom.ee.v1.TaskSpec.run:type_name -> arcoloom.ee.v1.RunSpec
-	17, // 12: arcoloom.ee.v1.TaskSpec.resources:type_name -> arcoloom.ee.v1.ResourceDemand
-	28, // 13: arcoloom.ee.v1.TaskSpec.labels:type_name -> arcoloom.ee.v1.TaskSpec.LabelsEntry
-	31, // 14: arcoloom.ee.v1.TaskSpec.submitted_at:type_name -> google.protobuf.Timestamp
-	2,  // 15: arcoloom.ee.v1.TaskSpec.performance_profile:type_name -> arcoloom.ee.v1.PerformanceProfile
-	3,  // 16: arcoloom.ee.v1.TaskSpec.interruptibility:type_name -> arcoloom.ee.v1.Interruptibility
-	4,  // 17: arcoloom.ee.v1.TaskSpec.network_profile:type_name -> arcoloom.ee.v1.NetworkProfile
-	31, // 18: arcoloom.ee.v1.TaskSpec.ddl:type_name -> google.protobuf.Timestamp
-	29, // 19: arcoloom.ee.v1.RunSpec.env:type_name -> arcoloom.ee.v1.RunSpec.EnvEntry
-	6,  // 20: arcoloom.ee.v1.TaskRuntimeState.phase:type_name -> arcoloom.ee.v1.TaskPhase
-	24, // 21: arcoloom.ee.v1.TaskRuntimeState.current_placement:type_name -> arcoloom.ee.v1.Placement
-	19, // 22: arcoloom.ee.v1.TaskRuntimeState.signals:type_name -> arcoloom.ee.v1.PlanningSignal
-	31, // 23: arcoloom.ee.v1.TaskRuntimeState.started_at:type_name -> google.protobuf.Timestamp
-	7,  // 24: arcoloom.ee.v1.PlanningSignal.type:type_name -> arcoloom.ee.v1.SignalType
-	31, // 25: arcoloom.ee.v1.MarketSnapshot.observed_at:type_name -> google.protobuf.Timestamp
-	21, // 26: arcoloom.ee.v1.MarketSnapshot.offerings:type_name -> arcoloom.ee.v1.ProviderOffering
-	8,  // 27: arcoloom.ee.v1.ProviderOffering.pricing_model:type_name -> arcoloom.ee.v1.PricingModel
-	30, // 28: arcoloom.ee.v1.ProviderOffering.attributes:type_name -> arcoloom.ee.v1.ProviderOffering.AttributesEntry
-	9,  // 29: arcoloom.ee.v1.Decision.action:type_name -> arcoloom.ee.v1.DecisionAction
+	4,  // 8: arcoloom.ee.v1.TaskSpec.workload_kind:type_name -> arcoloom.ee.v1.WorkloadKind
+	14, // 9: arcoloom.ee.v1.TaskSpec.source:type_name -> arcoloom.ee.v1.SourceSpec
+	15, // 10: arcoloom.ee.v1.TaskSpec.run:type_name -> arcoloom.ee.v1.RunSpec
+	16, // 11: arcoloom.ee.v1.TaskSpec.resources:type_name -> arcoloom.ee.v1.ResourceDemand
+	28, // 12: arcoloom.ee.v1.TaskSpec.labels:type_name -> arcoloom.ee.v1.TaskSpec.LabelsEntry
+	31, // 13: arcoloom.ee.v1.TaskSpec.submitted_at:type_name -> google.protobuf.Timestamp
+	1,  // 14: arcoloom.ee.v1.TaskSpec.performance_profile:type_name -> arcoloom.ee.v1.PerformanceProfile
+	2,  // 15: arcoloom.ee.v1.TaskSpec.interruptibility:type_name -> arcoloom.ee.v1.Interruptibility
+	3,  // 16: arcoloom.ee.v1.TaskSpec.network_profile:type_name -> arcoloom.ee.v1.NetworkProfile
+	31, // 17: arcoloom.ee.v1.TaskSpec.ddl:type_name -> google.protobuf.Timestamp
+	29, // 18: arcoloom.ee.v1.RunSpec.env:type_name -> arcoloom.ee.v1.RunSpec.EnvEntry
+	5,  // 19: arcoloom.ee.v1.TaskRuntimeState.phase:type_name -> arcoloom.ee.v1.TaskPhase
+	24, // 20: arcoloom.ee.v1.TaskRuntimeState.current_placement:type_name -> arcoloom.ee.v1.Placement
+	18, // 21: arcoloom.ee.v1.TaskRuntimeState.signals:type_name -> arcoloom.ee.v1.PlanningSignal
+	31, // 22: arcoloom.ee.v1.TaskRuntimeState.started_at:type_name -> google.protobuf.Timestamp
+	6,  // 23: arcoloom.ee.v1.PlanningSignal.type:type_name -> arcoloom.ee.v1.SignalType
+	31, // 24: arcoloom.ee.v1.MarketSnapshot.observed_at:type_name -> google.protobuf.Timestamp
+	20, // 25: arcoloom.ee.v1.MarketSnapshot.offerings:type_name -> arcoloom.ee.v1.ProviderOffering
+	7,  // 26: arcoloom.ee.v1.ProviderOffering.pricing_model:type_name -> arcoloom.ee.v1.PricingModel
+	30, // 27: arcoloom.ee.v1.ProviderOffering.attributes:type_name -> arcoloom.ee.v1.ProviderOffering.AttributesEntry
+	21, // 28: arcoloom.ee.v1.ProviderOffering.facts:type_name -> arcoloom.ee.v1.OfferingFacts
+	8,  // 29: arcoloom.ee.v1.Decision.action:type_name -> arcoloom.ee.v1.DecisionAction
 	24, // 30: arcoloom.ee.v1.Decision.target:type_name -> arcoloom.ee.v1.Placement
 	25, // 31: arcoloom.ee.v1.Decision.cost:type_name -> arcoloom.ee.v1.CostEstimate
 	27, // 32: arcoloom.ee.v1.Decision.score_components:type_name -> arcoloom.ee.v1.ScoreComponent
-	8,  // 33: arcoloom.ee.v1.Placement.pricing_model:type_name -> arcoloom.ee.v1.PricingModel
+	7,  // 33: arcoloom.ee.v1.Placement.pricing_model:type_name -> arcoloom.ee.v1.PricingModel
 	32, // 34: arcoloom.ee.v1.Placement.provider_config:type_name -> google.protobuf.Struct
-	10, // 35: arcoloom.ee.v1.EcoEngine.GetInfo:input_type -> arcoloom.ee.v1.GetInfoRequest
-	12, // 36: arcoloom.ee.v1.EcoEngine.Plan:input_type -> arcoloom.ee.v1.PlanRequest
-	11, // 37: arcoloom.ee.v1.EcoEngine.GetInfo:output_type -> arcoloom.ee.v1.GetInfoResponse
-	13, // 38: arcoloom.ee.v1.EcoEngine.Plan:output_type -> arcoloom.ee.v1.PlanResponse
+	9,  // 35: arcoloom.ee.v1.EcoEngine.GetInfo:input_type -> arcoloom.ee.v1.GetInfoRequest
+	11, // 36: arcoloom.ee.v1.EcoEngine.Plan:input_type -> arcoloom.ee.v1.PlanRequest
+	10, // 37: arcoloom.ee.v1.EcoEngine.GetInfo:output_type -> arcoloom.ee.v1.GetInfoResponse
+	12, // 38: arcoloom.ee.v1.EcoEngine.Plan:output_type -> arcoloom.ee.v1.PlanResponse
 	37, // [37:39] is the sub-list for method output_type
 	35, // [35:37] is the sub-list for method input_type
 	35, // [35:35] is the sub-list for extension type_name
@@ -2225,8 +2319,8 @@ func file_arcoloom_ee_v1_ecoengine_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_arcoloom_ee_v1_ecoengine_proto_rawDesc), len(file_arcoloom_ee_v1_ecoengine_proto_rawDesc)),
-			NumEnums:      10,
-			NumMessages:   21,
+			NumEnums:      9,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
