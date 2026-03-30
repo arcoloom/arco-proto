@@ -214,6 +214,7 @@ message Decision {
   string score_version = 6;
   double total_score = 7;
   repeated ScoreComponent score_components = 8;
+  google.protobuf.Struct extensions = 9;
 }
 
 message Placement {

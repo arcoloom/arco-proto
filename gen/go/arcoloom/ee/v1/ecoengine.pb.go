@@ -1646,6 +1646,7 @@ type Decision struct {
 	ScoreVersion    string                 `protobuf:"bytes,6,opt,name=score_version,json=scoreVersion,proto3" json:"score_version,omitempty"`
 	TotalScore      float64                `protobuf:"fixed64,7,opt,name=total_score,json=totalScore,proto3" json:"total_score,omitempty"`
 	ScoreComponents []*ScoreComponent      `protobuf:"bytes,8,rep,name=score_components,json=scoreComponents,proto3" json:"score_components,omitempty"`
+	Extensions      *structpb.Struct       `protobuf:"bytes,9,opt,name=extensions,proto3" json:"extensions,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1732,6 +1733,13 @@ func (x *Decision) GetTotalScore() float64 {
 func (x *Decision) GetScoreComponents() []*ScoreComponent {
 	if x != nil {
 		return x.ScoreComponents
+	}
+	return nil
+}
+
+func (x *Decision) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
 	}
 	return nil
 }
@@ -2126,7 +2134,7 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\x06region\x18\x03 \x01(\tR\x06region\x12\x14\n" +
 	"\x05scope\x18\x04 \x01(\tR\x05scope\x12\x14\n" +
 	"\x05limit\x18\x05 \x01(\rR\x05limit\x12\x12\n" +
-	"\x04used\x18\x06 \x01(\rR\x04used\"\xf3\x02\n" +
+	"\x04used\x18\x06 \x01(\rR\x04used\"\xac\x03\n" +
 	"\bDecision\x12\x1f\n" +
 	"\vdecision_id\x18\x01 \x01(\tR\n" +
 	"decisionId\x126\n" +
@@ -2137,7 +2145,10 @@ const file_arcoloom_ee_v1_ecoengine_proto_rawDesc = "" +
 	"\rscore_version\x18\x06 \x01(\tR\fscoreVersion\x12\x1f\n" +
 	"\vtotal_score\x18\a \x01(\x01R\n" +
 	"totalScore\x12I\n" +
-	"\x10score_components\x18\b \x03(\v2\x1e.arcoloom.ee.v1.ScoreComponentR\x0fscoreComponents\"\xb1\x02\n" +
+	"\x10score_components\x18\b \x03(\v2\x1e.arcoloom.ee.v1.ScoreComponentR\x0fscoreComponents\x127\n" +
+	"\n" +
+	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensions\"\xb1\x02\n" +
 	"\tPlacement\x12\x1a\n" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x19\n" +
 	"\bscope_id\x18\x02 \x01(\tR\ascopeId\x12\x16\n" +
@@ -2296,17 +2307,18 @@ var file_arcoloom_ee_v1_ecoengine_proto_depIdxs = []int32{
 	24, // 30: arcoloom.ee.v1.Decision.target:type_name -> arcoloom.ee.v1.Placement
 	25, // 31: arcoloom.ee.v1.Decision.cost:type_name -> arcoloom.ee.v1.CostEstimate
 	27, // 32: arcoloom.ee.v1.Decision.score_components:type_name -> arcoloom.ee.v1.ScoreComponent
-	7,  // 33: arcoloom.ee.v1.Placement.pricing_model:type_name -> arcoloom.ee.v1.PricingModel
-	32, // 34: arcoloom.ee.v1.Placement.provider_config:type_name -> google.protobuf.Struct
-	9,  // 35: arcoloom.ee.v1.EcoEngine.GetInfo:input_type -> arcoloom.ee.v1.GetInfoRequest
-	11, // 36: arcoloom.ee.v1.EcoEngine.Plan:input_type -> arcoloom.ee.v1.PlanRequest
-	10, // 37: arcoloom.ee.v1.EcoEngine.GetInfo:output_type -> arcoloom.ee.v1.GetInfoResponse
-	12, // 38: arcoloom.ee.v1.EcoEngine.Plan:output_type -> arcoloom.ee.v1.PlanResponse
-	37, // [37:39] is the sub-list for method output_type
-	35, // [35:37] is the sub-list for method input_type
-	35, // [35:35] is the sub-list for extension type_name
-	35, // [35:35] is the sub-list for extension extendee
-	0,  // [0:35] is the sub-list for field type_name
+	32, // 33: arcoloom.ee.v1.Decision.extensions:type_name -> google.protobuf.Struct
+	7,  // 34: arcoloom.ee.v1.Placement.pricing_model:type_name -> arcoloom.ee.v1.PricingModel
+	32, // 35: arcoloom.ee.v1.Placement.provider_config:type_name -> google.protobuf.Struct
+	9,  // 36: arcoloom.ee.v1.EcoEngine.GetInfo:input_type -> arcoloom.ee.v1.GetInfoRequest
+	11, // 37: arcoloom.ee.v1.EcoEngine.Plan:input_type -> arcoloom.ee.v1.PlanRequest
+	10, // 38: arcoloom.ee.v1.EcoEngine.GetInfo:output_type -> arcoloom.ee.v1.GetInfoResponse
+	12, // 39: arcoloom.ee.v1.EcoEngine.Plan:output_type -> arcoloom.ee.v1.PlanResponse
+	38, // [38:40] is the sub-list for method output_type
+	36, // [36:38] is the sub-list for method input_type
+	36, // [36:36] is the sub-list for extension type_name
+	36, // [36:36] is the sub-list for extension extendee
+	0,  // [0:36] is the sub-list for field type_name
 }
 
 func init() { file_arcoloom_ee_v1_ecoengine_proto_init() }
